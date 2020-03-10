@@ -2,11 +2,11 @@
 MHC-PMS, a mental health care patient management system, case study during the BFH BTI7081 lecture (spring semester 2020)
 
 ## Team
-- Amalathas, Kevin
-- Biasutti, Yannis
-- Joder, Markus
-- Moeri, Alexandre Reinhard
-- Rindlisbacher, JosÃ© Miguel
+- Amalathas, Kevin (amalathask)
+- Biasutti, Yannis (biasutti)
+- Joder, Markus (jodem1)
+- Moeri, Alexandre Reinhard (moera1)
+- Rindlisbacher, José Miguel (Iniwuijshi)
 
 ## Project Scope
 1. user group: `2. health visitor for ambulant patients`
