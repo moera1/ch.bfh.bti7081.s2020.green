@@ -6,11 +6,11 @@ MHC-PMS, a mental health care patient management system, case study during the B
 - Biasutti, Yannis (biasutti)
 - Joder, Markus (jodem1)
 - Moeri, Alexandre Reinhard (moera1)
-- Rindlisbacher, José Miguel (Iniwuijshi)
+- Rindlisbacher, JosÃ© Miguel (Iniwuijshi)
 
 ## Project Scope
 1. user group: `2. health visitor for ambulant patients`
-2. disease: `1. addiction`
+2. disease: `2. depression`
 
 ## Technology Stack
 - Java
