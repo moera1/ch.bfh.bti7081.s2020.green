@@ -1,0 +1,15 @@
+- Mit welchen Personen interagierst du? Stakeholder, Ärzte, Stellen,  
+- Wie läuft ein Patientenbesuch ab?   
+- Werden Tests gemacht?  
+  - Was für Tests? 
+  - Was muss erfasst werden? 
+- Muss Protokoll geführt werden? 
+- Stehen Hilfsmittel zur Verfügung (Checklisten etc.) 
+- Gibt es bereits ein elektronisches System?
+  - Verbesserungspunkte? 
+  - Was nervt? 
+  - Was braucht am meisten Zeit? 
+- Wichtige Punkte bez. Rechtlichem (Anonymität o. ähnliches)
+  - Wie sieht es mit Datenschutz aus
+  - Was wenn sich ein Patient selber gefährdet
+- Zusätzliche Arbeitsschritte bei depressiven Patienten - wie unterscheidet sich das Krankheitsbild von anderen? 

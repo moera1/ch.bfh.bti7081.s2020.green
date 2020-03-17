@@ -12,6 +12,9 @@ MHC-PMS, a mental health care patient management system, case study during the B
 1. user group: `2. health visitor for ambulant patients`
 2. disease: `2. depression`
 
+## Methodology
+- Design Thinking
+
 ## Technology Stack
 - Java
 - Angular
