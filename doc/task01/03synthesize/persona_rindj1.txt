@@ -1,0 +1,11 @@
+Persona: Bruno, 28 (Zivildienst)
+Role: Hilfsarbeiter
+Skills: Keine (Charismatisch)
+Goals: Geleisteter Einsatz, Arbeiten oder Aufgaben schnell, rasch und simple festhalter oder erfassen.
+Pain points: Mühsam wertvolle Geräte mitschleppen
+
+Persona: Gertrud, 45
+Role: Spitex-Mitarbeiter Fachperson Depression
+Skills: Angewendete Psychologie
+Goals: Übersichtliche Dokumentation über Zustand des Patienten
+Pain points: Mühsames Tippen in grosse Textfelder
