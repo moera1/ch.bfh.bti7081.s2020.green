@@ -1,0 +1,16 @@
+Persona: Max, 29
+Role: Pfleger, Spitex
+Skills: Pflege, Spezialisierung in Depressionen
+Goals: Digitale Aufgabenerledigung ohne Papier (Nachhaltigkeit) 
+Pain points: zeitintensive Informationsbeschaffung mit analogen Medien, Stress falls viel los ist
+
+Persona: Isabelle, 21
+Role: Aushilfs-Pfleger, Zivildienst
+Skills: Grundausbildung Pflege
+Goals: Unkomplizierte/schnelle Unterstützung bei schwierigen Klienten
+Pain points: Schnell überfordert bei brenzligen Situationen aufgrund mangelnder Ausbildung/Erfahrung, fehlende Informationen
+
+
+Als Laura möchte ich die Klienten-Historie möglichst einfach und digital durchsuchen können um mir einen möglichst schnell einen Überblick über einen neuzugewiesenen Klienten machen kann.
+
+Als Isabelle möchte ich unkompliziert und schnell Unterstützung bei meinen Kollegen anfordern können, damit ich bei schwierigen Klienten nicht überfordert bin.
