@@ -1,0 +1,14 @@
+Trudi ist 62 Jahre, lebt in einem kleinen ländlichen Dorf im Berner Seeland.
+Sie hat viele Jahre im Spital Aarberg in als Krankenpflegerin gearbeitet und hat sich vor einigen Jahren, 
+nach der Geburt ihrer zweiten Enkelin entschieden, Arbeitsstelle zu wechseln um ihre Tochter mit ihren Kindern zu unterstützen.
+Seither ist Sie bei einer privaten Spitex, welche sich auf die Pflege von Depressiven Patienten spezialisiert,
+zu einem Anstellungsgrad von 40% tätig. An zwei bis drei Tagen die Woche besucht Sie ihre Klienten, meist die gleichen,
+um Sie im Alltag zu Unterstützen. Mit vielen hat Sie bereits eine gute freundschaftliche Beziehung aufgebaut und freut sich auf die Besuche.
+Oft trinkt Sie mit ihnen auch nur Kaffee und redet, weil Sie der Meinung ist, dass dies das wichtigste für ihre Klienten ist.
+Ihre Arbeit erfüllt Sie und Sie fühlt, dass Sie dadurch einen sehr nützlichen Beitrag der Gesellschaft leistet.
+
+Persona: Gertrud, 62 Jahre
+Role: Spitex Betreuerin
+Skills: Medizinische Pflege (Aus ihrem ehemaligen Job), Einfühlsamkeit
+Goals: Da sein für Ihre Klienten und Sie auf dem Weg der Genesung bestmöglich unterstützen, Einen Nebenjob mit weniger Stress Ausführen, Menschenkontakt haben
+Pain points: Da Sie nur Teilzeit arbeitet hat Sie oft das Gefühl sachen zu verpassen
