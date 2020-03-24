@@ -17,4 +17,4 @@ MHC-PMS, a mental health care patient management system, case study during the B
 
 ## Technology Stack
 - Java
-- Angular
+- Vaadin
