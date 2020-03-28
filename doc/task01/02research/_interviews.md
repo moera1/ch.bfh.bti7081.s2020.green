@@ -63,6 +63,11 @@ https://www.pressetext.com/news/20101224002
 https://pro-stocker.de/wp-content/uploads/2015/06/07-Einlegetasche-vier-Klemmleisten.jpg  
 https://de.wikipedia.org/wiki/Pflegedokumentation 
 
+### Zweite Iteration Fragen
+
+Gibt es verschieden Arten von Protokolle?
+> Mediprotokoll, Duschprotokoll, Schmerzprotokoll, Stuhlprotokoll und Sturzprotokoll...
+
 ## (yb)
 Mit welchen Personen interagierst du? Stakeholder, Ärzte, Stellen,   
 >Nur mit Klienten 
