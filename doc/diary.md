@@ -36,5 +36,5 @@
 | 11 | Get some design inspiration - Brainstorm, think about some prototypes | all | 24.03.2020 | DONE | 3 |
 | 12 | Specific prototype design with focus on aggregation and filtering | (ka) | 27.03.2020 | DONE | 4 |
 | 13 | Visualize a general prototype design | (am) | 27.03.2020 | DONE | 4 |
-| 14 | Summarize and document overall desing thinking progress | (mj) | 28.03.2020 | OPEN | 4 |
-| 15 | Collect achievements and results. Prepare presentation | (yb) | 30.03.2020 | OPEN | 4 |
+| 14 | Summarize and document overall desing thinking progress | (mj) | 28.03.2020 | DONE | 4 |
+| 15 | Collect achievements and results. Prepare presentation | (yb) | 30.03.2020 | DONE | 4 |
