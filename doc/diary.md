@@ -19,6 +19,7 @@
 | 2 | 20.03.2020 | (ka), (yb), (mj), (jr) | (am) | | 1. Reviewed Task 5 and 6 -> done 2. Discussed interview questions and the interview execution 3. Evaluation and meeting time determined | 8, 9, 10
 | 3 | 23.03.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Reviewed tasks 2. Discussed research results 3. First iteration Design Thinking up to Design | 11
 | 4 | 24.03.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Finished first iteration. 2. Reflected past actions and discussed further actions 3. Started with 2. iteration 4. Further tasks defined until submission | 12, 13, 14, 15
+| 5 | 30.03.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Short closing discussion first task 2. Determined further procedure and next meeting | 16
 
 ## ToDo's
 | ID | Task | Responsible | Deadline   | Status | Discussed in meetings |
@@ -38,3 +39,4 @@
 | 13 | Visualize a general prototype design | (am) | 27.03.2020 | DONE | 4 |
 | 14 | Summarize and document overall desing thinking progress | (mj) | 28.03.2020 | DONE | 4 |
 | 15 | Collect achievements and results. Prepare presentation | (yb) | 30.03.2020 | DONE | 4 |
+| 16 | Personal familiarization with the engineering requirements document | all | 31.03.2020 | OPEN | 5 |
