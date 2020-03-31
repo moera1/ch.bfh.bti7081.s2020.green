@@ -42,3 +42,8 @@
 | 15 | Collect achievements and results. Prepare presentation | (yb) | 30.03.2020 | DONE | 4 |
 | 16 | Personal familiarization with the engineering requirements document | all | 31.03.2020 | DONE | 5, 6 |
 | 17 | Tasks according to Teams OneNote "Requirements Document", discussed in meeting 6 | all | 06.03.2020 | OPEN | 6 -> 7 |
+
+## Feedback rounds
+| ID | Date | Description | Present | Results | Deficiencies | Discussed topics | References
+| -:| - | - | - | - | - | - | - |
+| 1 | 31.03.2020 | Task1 debriefing | all | Presentation: 5/5, Documentation 18/20 | Literature research, Prototype scope, Not highlighting specific features/tasks (Depression) | 1. empfehlung: prototype im srs verwenden 2. toolempfehlungen: von hand, sonst ms visio oder draw.io 3. strukturiertes dokument: inhaltsverzeichnis, nummeriert, gute querverweise, etc. | none
