@@ -20,6 +20,7 @@
 | 3 | 23.03.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Reviewed tasks 2. Discussed research results 3. First iteration Design Thinking up to Design | 11
 | 4 | 24.03.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Finished first iteration. 2. Reflected past actions and discussed further actions 3. Started with 2. iteration 4. Further tasks defined until submission | 12, 13, 14, 15
 | 5 | 30.03.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Short closing discussion first task 2. Determined further procedure and next meeting | 16
+| 6 | 31.03.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Additional / advanced terminology discussed 2. Distribution of tasks according to Teams OneNote -> Task 17 (individual, small groups) | 17
 
 ## ToDo's
 | ID | Task | Responsible | Deadline   | Status | Discussed in meetings |
@@ -39,4 +40,5 @@
 | 13 | Visualize a general prototype design | (am) | 27.03.2020 | DONE | 4 |
 | 14 | Summarize and document overall desing thinking progress | (mj) | 28.03.2020 | DONE | 4 |
 | 15 | Collect achievements and results. Prepare presentation | (yb) | 30.03.2020 | DONE | 4 |
-| 16 | Personal familiarization with the engineering requirements document | all | 31.03.2020 | OPEN | 5 |
+| 16 | Personal familiarization with the engineering requirements document | all | 31.03.2020 | DONE | 5, 6 |
+| 17 | Tasks according to Teams OneNote "Requirements Document", discussed in meeting 6 | all | 06.03.2020 | OPEN | 6 -> 7 |
