@@ -9,8 +9,13 @@ __Skills:__ Grundausbildung Pflege, Charismatisch
 __Goals:__ Unkomplizierte/schnelle Unterstützung bei schwierigen Klienten  
 __Pain points:__ Schnell überfordert bei brenzligen Situationen aufgrund mangelnder Ausbildung/Erfahrung, fehlende Informationen,  Mühsam wertvolle Geräte mitschleppen  
 ### Statements
-1. **Als** Max **möchte ich** unkompliziert und schnell Unterstützung bei meinen Kollegen anfordern können **, damit ich** bei schwierigen Klienten nicht überfordert bin. 
-2. **Als** Max **möchte ich** den Pflegebericht auf meinem persönlichen Gerät verfassen **, damit ich** nicht noch mehr Ausrüstung mittragen muss.
+1. **Als** Max **möchte ich** unkompliziert und schnell Unterstützung bei meinen Kollegen anfordern können, **damit ich** bei schwierigen Klienten nicht überfordert bin. 
+2. **Als** Max **möchte ich** den Pflegebericht auf meinem persönlichen Gerät verfassen, **damit ich** nicht noch mehr Ausrüstung mittragen muss.
+###### Ergänzungen 2. Iteration
+3. **Als** Max **möchte ich** am liebsten nach dem Besuch beim Klienten schon alles (Protokoll) erledigt haben, **damit ich** meine Freizeit geniessen kann. 
+4. **Als** Max **möchte ich** möglichst keinen Text schreiben müssen, **um** das Protokoll rasch abzuschliessen. 
+5. **Als** Max **möchte ich** sicherstellen, dass ich mit meinem Gerät uneingeschränkten Zugriff auf alle hinterlegten Daten habe, **damit ich** aufgrund von Problemen mit verschiedenen Dateiformaten wichtige Informationen nicht erhalte.
+6. **Als** Max **möchte ich** Personendaten wie Adressen und Kontakte von Klienten synchronisiert haben, **damit ich** immer weiss wo ich hin muss und wenn dass ich allenfalls kontaktieren muss. 
 
 ## Laura 
 ### Story
@@ -28,7 +33,12 @@ __Pain points:__ Mühsames Tippen in grosse Textfelder
 ### Statements
 1. **Als** Laura **möchte ich** die gewohnten Abläufe beibehalten **, damit ich** meine Routine beibehalten kann. 
 2. **Als** Laura **möchte ich** für die Erfassung von sensiblen Daten ein möglichst Strukturiertes Eingabeverfahren haben **, damit ich** meinen Pflegebericht möglichst einfach und schnell verfassen kann. 
-3. **Als** Laura **möchte ich** die Klienten-Historie möglichst einfach und digital durchsuchen können **um** mir einen möglichst schnell einen Überblick über einen neuzugewiesenen Klienten machen kann. 
+3. **Als** Laura **möchte ich** die Klienten-Historie möglichst einfach und digital durchsuchen können **um** mir einen möglichst schnell einen Überblick über einen neuzugewiesenen Klienten machen kann.
+###### Ergänzungen 2. Iteration
+4. **Als** Laura **möchte ich** ein Baukastensystem für repetitive Protokollerfassung, 
+**damit ich** nicht auf Textfelder tippen muss und Zeit verliere. 
+5. **Als** Laura **möchte ich** eine Veränderung über den Zustand meines Klienten überwachen können, **um** Prognosen machen zu können. 
+6. **Als** Laura **möchte ich** mein Fachwissen mit meinen Kolleg*innen teilen können, **damit Sie** von meinem Erfahrungsschatz profitieren können. 
 
 ## Gertrud 
 ### Story
@@ -40,6 +50,8 @@ __Skills:__ Medizinische Pflege (Aus ihrem ehemaligen Job), Einfühlsamkeit
 __Goals:__ Da sein für Ihre Klienten und Sie auf dem Weg der Genesung bestmöglich unterstützen, Einen Nebenjob mit weniger Stress Ausführen, Menschenkontakt haben   
 __Pain points:__ Da Sie nur Teilzeit arbeitet hat Sie oft das Gefühl sachen zu verpassen   
 ### Statements
-1. **Als** Getrud **möchte ich** mich auf den Klienten konzentrieren wenn ich bei ihm bin **, damit ich** ihnen die Aufmerksamkeit schenken kann die Sie verdienen 
-2. **Als** Getrud **möchte ich** mir schnell einen Überblick verschaffen können **, damit ich** trotz meiner 40% Anstelunng alles mitbekomme 
+1. **Als** Getrud **möchte ich** mich auf den Klienten konzentrieren wenn ich bei ihm bin **, damit ich** ihnen die Aufmerksamkeit schenken kann die Sie verdienen. 
+2. **Als** Getrud **möchte ich** mir schnell einen Überblick verschaffen können **, damit ich** trotz meiner 40% Anstelunng alles mitbekomme.
 3. **Als** Getrud **möchte ich** ohne Hilfe das Tool nutzen können **, damit ich** nicht andere Leute damit stören muss. 
+###### Ergänzungen 2. Iteration
+4. **Als** Gertrud **möchte ich** mit Bildern geführt werden, **um** einfach in der Applikation zurecht zukommen.
