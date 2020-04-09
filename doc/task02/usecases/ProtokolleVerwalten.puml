@@ -1,0 +1,23 @@
+@startuml
+top to bottom direction
+skinparam packageStyle rectangle
+actor Benutzer
+actor Administrator
+Benutzer <|- Administrator
+rectangle Web-Applikation {
+ (4: Protokoll bearbeiten) << secondary >>
+ Benutzer - (1: Protokoll erfassen)
+ (Klient auswählen) ..> (1: Protokoll erfassen) : include
+ (Terminauswahl) ..> (1: Protokoll erfassen) : extends
+ (Leistungen erfassen) ..> (1: Protokoll erfassen) : extends
+ (Protokolltyp festlegen) ..> (1: Protokoll erfassen) : extends
+ (Notiz rstellen) ..> (1: Protokoll erfassen) : extends
+ Benutzer - (2: Termin wahrnehmen)
+ Benutzer - (3: Protokoll bearbeiten)
+ (1: Protokoll erfassen) .> (2: Termin wahrnehmen) : extends
+ Administrator - (4: Protokoll bearbeiten)
+ (Pfleger auswählen) ..> (4: Protokoll bearbeiten) : extends
+ Administrator - (5: Protokoll löschen)
+ (4: Protokoll bearbeiten) ..> (3: Protokoll bearbeiten) : extends
+}
+@enduml
