@@ -1,0 +1,11 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Pfleger
+rectangle Web-Applikation {
+ Pfleger - (6: Klienten-Historie durchsuchen)
+ (6a: Stichwort- / Volltextsuche) --|> (6: Klienten-Historie durchsuchen)
+ (6b: Feste Kriterien- / Tagsuche) --|> (6: Klienten-Historie durchsuchen)
+ Pfleger .-> (7: Klient auswählen) : include
+}
+@enduml
