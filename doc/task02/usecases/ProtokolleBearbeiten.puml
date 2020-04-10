@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Pfleger
+rectangle Web-Applikation {
+ Pfleger -- (Protokoll Liste laden)
+ Pfleger -- (Protokoll öffnen) 
+ Pfleger -- (Protokoll schliessen)
+ Pfleger -- (Protokoll speichern) 
+ (Protokoll speichern) .> (Protokoll schliessen): extends
+ (Protokoll speichern) .> (Eingabe validieren) : include
+ (Protokoll Liste laden) .> (Protokoll laden) : include
+ (Protokoll öffnen) .-> (Protokoll laden) : include
+}
+@enduml
