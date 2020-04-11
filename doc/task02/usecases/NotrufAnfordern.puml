@@ -1,0 +1,14 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor Pfleger
+actor MobilerPfleger
+Pfleger --|> MobilerPfleger
+rectangle Web-Applikation {
+ Pfleger -- (Pfleger-Unterstützung anfordern)
+ MobilerPfleger -- (Notfall melden)
+ (Notfall melden) .-> (Meldung an Zentrale senden): include
+ (Pfleger-Unterstützung anfordern) .-> (Meldung an Zentrale senden): include
+ (Notfall melden) .-> (Notruf wählen): include
+}
+@enduml
