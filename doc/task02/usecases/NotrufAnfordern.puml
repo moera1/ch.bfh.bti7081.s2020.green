@@ -3,7 +3,7 @@ left to right direction
 skinparam packageStyle rectangle
 actor Pfleger
 actor MobilerPfleger
-Pfleger --|> MobilerPfleger
+MobilerPfleger --|> Pfleger
 rectangle Web-Applikation {
  Pfleger -- (Pfleger-Unterstützung anfordern)
  MobilerPfleger -- (Notfall melden)
