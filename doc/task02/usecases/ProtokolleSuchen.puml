@@ -3,10 +3,10 @@ left to right direction
 skinparam packageStyle rectangle
 actor Pfleger
 rectangle Web-Applikation {
- Pfleger -- (6: Klienten-Historie durchsuchen)
- Pfleger -- (7: Klient auswählen) 
- (6a: Stichwort- / Volltextsuche) --|> (6: Klienten-Historie durchsuchen)
- (6b: Feste Kriterien- / Tagsuche) --|> (6: Klienten-Historie durchsuchen)
- (6: Klienten-Historie durchsuchen) .-> (7: Klient auswählen) : include
+ Pfleger -- (Klienten-Historie durchsuchen)
+ Pfleger -- (Klient auswählen) 
+ (Stichwort- / Volltextsuche) --|> (Klienten-Historie durchsuchen)
+ (Feste Kriterien- / Tagsuche) --|> (Klienten-Historie durchsuchen)
+ (Klienten-Historie durchsuchen) .-> (Klient auswählen) : include
 }
 @enduml
