@@ -22,6 +22,7 @@
 | 5 | 30.03.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Short closing discussion first task 2. Determined further procedure and next meeting | 16
 | 6 | 31.03.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Additional / advanced terminology discussed 2. Distribution of tasks according to Teams OneNote -> Task 17 (individual, small groups) | 17
 | 7 | 06.04.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Discussed research result (Interviewees information). 2. Presentation Use-Case diagrams and scenarios 3. Distribution of tasks according to SRS | 18, 19
+| 8 | 14.04.2020 | (am), (ka), (yb), (mj), (jr) | | | Discussed how to proceed with Task 3 | 20, 21
 
 ## ToDo's
 | ID | Task | Responsible | Deadline   | Status | Discussed in meetings |
@@ -45,6 +46,8 @@
 | 17 | Tasks according to Teams OneNote "Requirements Document", discussed in meeting 6 | all | 06.04.2020 | DONE | 6, 7 |
 | 18 | Tasks according to SRS document (Shared Document), discussed in meeting 7 | all | 12.04.2020 | DONE | 7 |
 | 19 | Closing work on final document, clean up & co. | (am) | 14.04.2020 | DONE | 7 |
+| 20 | Task 3: Each team member reviews Team Orange SRS on its own and adds comments to the review document | all | 19.04.2020 | OPEN | 8 |
+| 21 | Task 3: Aggregate reviews and set final assesment | all | 20.04.2020 | OPEN | 8 |
 
 ## Feedback rounds
 | ID | Date | Description | Present | Results | Deficiencies | Discussed topics | References
