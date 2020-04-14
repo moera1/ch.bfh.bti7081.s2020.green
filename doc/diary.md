@@ -43,8 +43,8 @@
 | 15 | Collect achievements and results. Prepare presentation | (yb) | 30.03.2020 | DONE | 4 |
 | 16 | Personal familiarization with the engineering requirements document | all | 31.03.2020 | DONE | 5, 6 |
 | 17 | Tasks according to Teams OneNote "Requirements Document", discussed in meeting 6 | all | 06.04.2020 | DONE | 6, 7 |
-| 18 | Tasks according to SRS document (Shared Document), discussed in meeting 7 | all | 12.04.2020 | OPEN | 7 |
-| 19 | Closing work on final document, clean up & co. | (am) | 14.04.2020 | OPEN | 7 |
+| 18 | Tasks according to SRS document (Shared Document), discussed in meeting 7 | all | 12.04.2020 | DONE | 7 |
+| 19 | Closing work on final document, clean up & co. | (am) | 14.04.2020 | DONE | 7 |
 
 ## Feedback rounds
 | ID | Date | Description | Present | Results | Deficiencies | Discussed topics | References
