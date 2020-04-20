@@ -46,8 +46,8 @@
 | 17 | Tasks according to Teams OneNote "Requirements Document", discussed in meeting 6 | all | 06.04.2020 | DONE | 6, 7 |
 | 18 | Tasks according to SRS document (Shared Document), discussed in meeting 7 | all | 12.04.2020 | DONE | 7 |
 | 19 | Closing work on final document, clean up & co. | (am) | 14.04.2020 | DONE | 7 |
-| 20 | Task 3: Each team member reviews Team Orange SRS on its own and adds comments to the review document | all | 19.04.2020 | OPEN | 8 |
-| 21 | Task 3: Aggregate reviews and set final assesment | all | 20.04.2020 | OPEN | 8 |
+| 20 | Task 3: Each team member reviews Team Orange SRS on its own and adds comments to the review document | all | 19.04.2020 | DONE | 8 |
+| 21 | Task 3: Aggregate reviews and set final assesment | all | 20.04.2020 | DONE | 8 |
 
 ## Feedback rounds
 | ID | Date | Description | Present | Results | Deficiencies | Discussed topics | References
