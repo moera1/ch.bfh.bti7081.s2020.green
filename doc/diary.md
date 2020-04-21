@@ -24,6 +24,7 @@
 | 7 | 06.04.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Discussed research result (Interviewees information). 2. Presentation Use-Case diagrams and scenarios 3. Distribution of tasks according to SRS | 18, 19
 | 8 | 14.04.2020 | (am), (ka), (yb), (mj), (jr) | | | Discussed how to proceed with Task 3 | 20, 21
 | 9 | 20.04.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Task 3 finished 2. Discussed how to tackle Task 4 and defined next achievements and meeting | 22
+| 10 | 21.04.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Presented and discussed the domain model approaches 2. Further validation 3. Setted up Sequence Diagrams | 23
 
 ## ToDo's
 | ID | Task | Responsible | Deadline   | Status | Discussed in meetings |
@@ -49,9 +50,10 @@
 | 19 | Closing work on final document, clean up & co. | (am) | 14.04.2020 | DONE | 7 |
 | 20 | Task 3: Each team member reviews Team Orange SRS on its own and adds comments to the review document | all | 19.04.2020 | DONE | 8 |
 | 21 | Task 3: Aggregate reviews and set final assesment | all | 20.04.2020 | DONE | 8, 9 |
-| 22 | Task 4: Brainstorm over defined use-cases and make domain model extensions for further validation | all | 21.04.2020 | OPEN | 9 |
+| 22 | Task 4: Brainstorm over defined use-cases and make domain model extensions for further validation | all | 21.04.2020 | DONE | 9, 10 |
 
 ## Feedback rounds
 | ID | Date | Description | Present | Results | Deficiencies | Discussed topics | References
 | -:| - | - | - | - | - | - | - |
 | 1 | 31.03.2020 | Task1 debriefing | all | Presentation: 5/5, Documentation 18/20 | Literature research, Prototype scope, Not highlighting specific features/tasks (Depression) | 1. empfehlung: prototype im srs verwenden 2. toolempfehlungen: von hand, sonst ms visio oder draw.io 3. strukturiertes dokument: inhaltsverzeichnis, nummeriert, gute querverweise, etc. | none
+| 2 | 21.04.2020 | Task2 debriefing | all | | | | none
