@@ -1,0 +1,52 @@
+@startuml
+actor Administrator
+actor HealthVisitor
+
+participant "protocol:Protocol" as A
+participant "healthVisitor:HealthVisitor" as B
+participant "klient:Klienten" as C
+participant "termin:Termine" as D
+participant "leistung:Leistungen" as E
+participant "notiz:Notizen" as F
+
+HealthVisitor -> A: Protokoll eröffnen
+activate A
+
+A -> B: Hinterlegt den Pfleger
+activate B
+B -> A: Speichert Pfleger
+deactivate B
+
+A -> C: Hinterlegt den Klienten
+activate C
+C -> A: Speichert Klienten
+deactivate C
+
+A -> D: Wählt einen Termin
+activate D
+D -> A: Speichert Termin
+deactivate D
+
+A -> E: Wählt einen Leistung
+activate E
+E -> A: Speichert Leistung
+deactivate E
+
+A -> F: Hinterlegt Notiz
+activate F
+F -> A: Speichert Notiz
+deactivate F
+
+A -> HealthVisitor: Speichert Protokol
+deactivate A
+
+Administrator -> A: Protokoll löschen
+activate A
+A -> Administrator : Protokoll gelöscht
+deactivate A
+
+Administrator -> A: Protokoll bearbeiten
+activate A
+A -> Administrator : Protokoll bearbeitet
+deactivate A
+@enduml
