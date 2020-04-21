@@ -1,0 +1,16 @@
+@startuml
+object HealthVisitor
+object Appointment
+object Patient
+object PersonalInformation
+object Task
+object Report
+object Service
+
+HealthVisitor "1" -- "1..*" Appointment
+Appointment "1..*" -- "1" Patient
+Patient "1" -- "1" PersonalInformation
+Patient "1" -- "1..*" Task
+Task "1..*" -- "1" Report
+Report "1" -- "1" Service
+@enduml
