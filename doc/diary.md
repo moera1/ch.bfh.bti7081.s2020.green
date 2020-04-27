@@ -51,14 +51,15 @@
 | 20 | Task 3: Each team member reviews Team Orange SRS on its own and adds comments to the review document | all | 19.04.2020 | DONE | 8 |
 | 21 | Task 3: Aggregate reviews and set final assesment | all | 20.04.2020 | DONE | 8, 9 |
 | 22 | Task 4: Brainstorm over defined use-cases and make domain model extensions for further validation | all | 21.04.2020 | DONE | 9, 10 |
-| 23 | Responsibility on the class diagram | (yb) | 24.04.2020 | OPEN | 10 |
-| 24 | Responsibility on sequence diagram for determined use case | (ka), (mj) | 24.04.2020 | OPEN | 10 |
-| 25 | Provide support on command | (am), (jr) | 27.04.2020 | OPEN | 10 |
-| 26 | Finalize and beautify the required diagrams | (ka) | 26.04.2020 | OPEN | 10 |
-| 27 | Present results in class | (mj) | 27.04.2020 | OPEN | 10 |
+| 23 | Responsibility on the class diagram | (yb) | 24.04.2020 | DONE | 10 |
+| 24 | Responsibility on sequence diagram for determined use case | (ka), (mj) | 24.04.2020 | DONE | 10 |
+| 25 | Provide support on command | (am), (jr) | 27.04.2020 | DONE | 10 |
+| 26 | Finalize and beautify the required diagrams | (ka) | 26.04.2020 | DONE | 10 |
+| 27 | Present results in class | (mj) | 27.04.2020 | DONE | 10 |
 
 ## Feedback rounds
 | ID | Date | Description | Present | Results | Deficiencies | Discussed topics | References
 | -:| - | - | - | - | - | - | - |
 | 1 | 31.03.2020 | Task1 debriefing | all | Presentation: 5/5, Documentation: 18/20 | Literature research, Prototype scope, Not highlighting specific features/tasks (Depression) | 1. empfehlung: prototype im srs verwenden 2. toolempfehlungen: von hand, sonst ms visio oder draw.io 3. strukturiertes dokument: inhaltsverzeichnis, nummeriert, gute querverweise, etc. | none
 | 2 | 21.04.2020 | Task2 debriefing | all | Document: 14/15 | 1. Konsistenz in UseCaseDiagrammen 2. UseCases sind keine einfach Tasks 3. UseCase Szenarios: System-Feedback fehlt z.T. 4. Non functional req. Verifizierbarkeit (konkretisieren) | Task04: scoping auf Modell, Nicht zu detailiert oder konkret werden | none
+| 3 | 27.04.2020 | Task4 presentation feedback | all | | Asynche Aufrufe mit entsprechendem Pfeil, Redundanz von bereits abgebildeten Attributen in Klassenmodell, <<create>> direkt auf das Objekt und nicht die Lebenslinie, Aufrufe eigener Methoden mit Aufdopplung des Funktionsblockes | Task04: Präsentation von Domain-Modell, Sequenzdiagramm und Klassenmodell | none
