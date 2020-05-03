@@ -57,7 +57,7 @@
 | 25 | Provide support on command | (am), (jr) | 27.04.2020 | DONE | 10 |
 | 26 | Finalize and beautify the required diagrams | (ka) | 26.04.2020 | DONE | 10 |
 | 27 | Present results in class | (mj) | 27.04.2020 | DONE | 10 |
-| 28 | Project setup: Maven & vaadin | (mj) | 04.05.2020 | OPEN | 11 |
+| 28 | Project setup: Maven & vaadin | (mj) | 04.05.2020 | DONE | 11 |
 | 29 | Task 5: UML component diagram | (jr) | 04.05.2020 | OPEN | 11 |
 | 30 | Task 5: Deployment diagram | (ka) | 04.05.2020 | OPEN | 11 |
 | 31 | Task 5: Detailad class diagram of dashboard (MVP) | (yp) | 04.05.2020 | OPEN | 11 |
