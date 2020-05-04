@@ -74,3 +74,4 @@
 | 2 | 21.04.2020 | Task2 debriefing | all | Document: 14/15 | 1. Konsistenz in UseCaseDiagrammen 2. UseCases sind keine einfach Tasks 3. UseCase Szenarios: System-Feedback fehlt z.T. 4. Non functional req. Verifizierbarkeit (konkretisieren) | Task04: scoping auf Modell, Nicht zu detailiert oder konkret werden | none
 | 3 | 27.04.2020 | Task4 presentation feedback | all | 9/10 | Asynche Aufrufe mit entsprechendem Pfeil, Redundanz von bereits abgebildeten Attributen in Klassenmodell, <<create>> direkt auf das Objekt und nicht die Lebenslinie, Aufrufe eigener Methoden mit Aufdopplung des Funktionsblockes | Task04: Präsentation von Domain-Modell, Sequenzdiagramm und Klassenmodell | none
 | 4 | 28.04.2020 | Task3 | | 5/5 | |  | none
+| 5 | 04.05.2020 | Task5/6 presentation feedback | all | | Interfaces mit korrekten Stereotypen, Presenter keine Verbindung direkt zur Persistenz (nur über Modell) | Weiteres Vorgehen und Start mit Scrum | none
