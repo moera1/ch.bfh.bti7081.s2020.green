@@ -26,6 +26,7 @@
 | 9 | 20.04.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Task 3 finished 2. Discussed how to tackle Task 4 and defined next achievements and meeting | 22
 | 10 | 21.04.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Presented and discussed the domain model approaches 2. Further validation 3. Setted up Sequence Diagrams 4. Re-tought Task04 5. Assigned individual responsibilities | 23, 24, 25, 26, 27
 | 11 | 28.04.2020 | (am), (ka), (yb), (mj) | (jr) | | Assigned Task 5 & 6 subtasks as well as project setup task | 28, 29, 30, 31, 32, 33, 34, 35
+| 12 | 04.05.2020 | (am), (ka), (yb), (mj), (jr) | | | Team review Task 5 and first sprint planning meeting | 
 
 ## ToDo's
 | ID | Task | Responsible | Deadline   | Status | Discussed in meetings |
@@ -58,13 +59,13 @@
 | 26 | Finalize and beautify the required diagrams | (ka) | 26.04.2020 | DONE | 10 |
 | 27 | Present results in class | (mj) | 27.04.2020 | DONE | 10 |
 | 28 | Project setup: Maven & vaadin | (mj) | 04.05.2020 | DONE | 11 |
-| 29 | Task 5: UML component diagram | (jr) | 04.05.2020 | OPEN | 11 |
-| 30 | Task 5: Deployment diagram | (ka) | 04.05.2020 | OPEN | 11 |
-| 31 | Task 5: Detailad class diagram of dashboard (MVP) | (yp) | 04.05.2020 | OPEN | 11 |
-| 32 | Task 6: Prepare product and sprint 1 backlogs | (am) | 04.05.2020 | OPEN | 11 |
-| 33 | Review Task 5 and 6 during first lecture | all | 04.05.2020 | OPEN | 11 |
-| 34 | Present Task 5 | TBD | 04.05.2020 | OPEN | 11 |
-| 35 | Present Task 6 | (am) | 04.05.2020 | OPEN | 11 |
+| 29 | Task 5: UML component diagram | (jr) | 04.05.2020 | DONE | 11 |
+| 30 | Task 5: Deployment diagram | (ka) | 04.05.2020 | DONE | 11 |
+| 31 | Task 5: Detailad class diagram of dashboard (MVP) | (yb) | 04.05.2020 | DONE | 11 |
+| 32 | Task 6: Prepare product and sprint 1 backlogs | (am) | 04.05.2020 | DONE | 11 |
+| 33 | Review Task 5 and 6 during first lecture | all | 04.05.2020 | DONE | 11 |
+| 34 | Present Task 5 | (jr), (ka), (yb) | 04.05.2020 | DONE | 11 |
+| 35 | Present Task 6 | (am) | 04.05.2020 | DONE | 11 |
 
 ## Feedback rounds
 | ID | Date | Description | Present | Results | Deficiencies | Discussed topics | References
