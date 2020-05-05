@@ -1,4 +1,4 @@
-package ch.bfh.bti7081.s2020.green.green;
+package ch.bfh.bti7081.s2020.green.protomed;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;

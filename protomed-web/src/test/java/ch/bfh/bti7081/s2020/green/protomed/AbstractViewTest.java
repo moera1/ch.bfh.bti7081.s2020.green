@@ -1,16 +1,15 @@
-package ch.bfh.bti7081.s2020.green.green;
+package ch.bfh.bti7081.s2020.green.protomed;
 
+import com.vaadin.flow.theme.AbstractTheme;
+import com.vaadin.testbench.ScreenshotOnFailureRule;
+import com.vaadin.testbench.TestBench;
+import com.vaadin.testbench.parallel.ParallelTest;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import com.vaadin.flow.theme.AbstractTheme;
-import com.vaadin.testbench.ScreenshotOnFailureRule;
-import com.vaadin.testbench.TestBench;
-import com.vaadin.testbench.parallel.ParallelTest;
 
 /**
  * Base class for TestBench IntegrationTests on chrome.
@@ -70,8 +69,8 @@ public abstract class AbstractViewTest extends ParallelTest {
      * identified by {@code themeClass}. If the the is not found, JUnit
      * assert will fail the test case.
      *
-     * @param element       web element to check for the theme
-     * @param themeClass    theme class (such as {@code Lumo.class}
+     * @param element    web element to check for the theme
+     * @param themeClass theme class (such as {@code Lumo.class}
      */
     protected void assertThemePresentOnElement(
             WebElement element, Class<? extends AbstractTheme> themeClass) {

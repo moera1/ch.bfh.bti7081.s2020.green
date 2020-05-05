@@ -1,13 +1,12 @@
-package ch.bfh.bti7081.s2020.green.green;
-
-import org.junit.Assert;
-import org.junit.Test;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+package ch.bfh.bti7081.s2020.green.protomed;
 
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.notification.testbench.NotificationElement;
 import com.vaadin.flow.theme.lumo.Lumo;
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 public class MainViewIT extends AbstractViewTest {
 
@@ -49,7 +48,7 @@ public class MainViewIT extends AbstractViewTest {
         String item = (String) js.executeScript(
                 "return window.localStorage.getItem('vaadin.statistics.basket');");
 
-        if(Boolean.TRUE.equals(mode)){
+        if (Boolean.TRUE.equals(mode)) {
             Assert.assertTrue("Under development mode, the checked usage statistics are not found",
                     item.contains("flow") && item.contains("java") && item.contains("vaadin-button"));
         } else {
