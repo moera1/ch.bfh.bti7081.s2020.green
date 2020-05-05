@@ -27,6 +27,7 @@
 | 10 | 21.04.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Presented and discussed the domain model approaches 2. Further validation 3. Setted up Sequence Diagrams 4. Re-tought Task04 5. Assigned individual responsibilities | 23, 24, 25, 26, 27
 | 11 | 28.04.2020 | (am), (ka), (yb), (mj) | (jr) | | Assigned Task 5 & 6 subtasks as well as project setup task | 28, 29, 30, 31, 32, 33, 34, 35
 | 12 | 04.05.2020 | (am), (ka), (yb), (mj), (jr) | | | Team review Task 5 and first sprint planning meeting | 
+| 13 | 05.05.2020 | (am), (ka), (yb), (mj), (jr) | | | Scrum "Daily"/"StandUp" | 
 
 ## ToDo's
 | ID | Task | Responsible | Deadline   | Status | Discussed in meetings |
