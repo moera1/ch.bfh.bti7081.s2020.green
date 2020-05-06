@@ -25,8 +25,8 @@ public class HealthVisitorManager {
     public void initializeHealthVisitors(){
         // List or something
         List rawVisitors = getHealthVisitorsFromProvider();
-        Map<Integer, HealthVisitor> supervisorMap = new HashMap<>();
-        createHealthVisitors(rawVisitors, supervisorMap);
+        Map<Integer, HealthVisitor> supervisorMap = createHealthVisitors(rawVisitors);
+        setSupervisors(supervisorMap);
     }
 
     // TODO
@@ -35,7 +35,8 @@ public class HealthVisitorManager {
     }
 
     // TODO
-    private void createHealthVisitors(List rawVisitors, Map<Integer, HealthVisitor> supervisorMap){
+    private Map<Integer, HealthVisitor> createHealthVisitors(List rawVisitors){
+        Map<Integer, HealthVisitor> supervisorMap = new HashMap<>();
         // foreach x -> x
             // HealthVisitor visitor = new HealthVisitor(x);
             // Address address = new Address(x);
@@ -44,6 +45,7 @@ public class HealthVisitorManager {
             // if (supervisor.id()){
             //  supervisorMap.put(supervisor.id(), this);
             // }
+        return supervisorMap;
     }
 
     // TODO
