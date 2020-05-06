@@ -27,6 +27,7 @@
 | 10 | 21.04.2020 | (am), (ka), (yb), (mj), (jr) | | | 1. Presented and discussed the domain model approaches 2. Further validation 3. Setted up Sequence Diagrams 4. Re-tought Task04 5. Assigned individual responsibilities | 23, 24, 25, 26, 27
 | 11 | 28.04.2020 | (am), (ka), (yb), (mj) | (jr) | | Assigned Task 5 & 6 subtasks as well as project setup task | 28, 29, 30, 31, 32, 33, 34, 35
 | 12 | 04.05.2020 | (am), (ka), (yb), (mj), (jr) | | | Team review Task 5 and first sprint planning meeting | 
+| 13 | 05.05.2020 | (am), (ka), (yb), (mj), (jr) | | | Scrum "Daily"/"StandUp" | 
 
 ## ToDo's
 | ID | Task | Responsible | Deadline   | Status | Discussed in meetings |
@@ -74,3 +75,4 @@
 | 2 | 21.04.2020 | Task2 debriefing | all | Document: 14/15 | 1. Konsistenz in UseCaseDiagrammen 2. UseCases sind keine einfach Tasks 3. UseCase Szenarios: System-Feedback fehlt z.T. 4. Non functional req. Verifizierbarkeit (konkretisieren) | Task04: scoping auf Modell, Nicht zu detailiert oder konkret werden | none
 | 3 | 27.04.2020 | Task4 presentation feedback | all | 9/10 | Asynche Aufrufe mit entsprechendem Pfeil, Redundanz von bereits abgebildeten Attributen in Klassenmodell, <<create>> direkt auf das Objekt und nicht die Lebenslinie, Aufrufe eigener Methoden mit Aufdopplung des Funktionsblockes | Task04: Präsentation von Domain-Modell, Sequenzdiagramm und Klassenmodell | none
 | 4 | 28.04.2020 | Task3 | | 5/5 | |  | none
+| 5 | 04.05.2020 | Task5/6 presentation feedback | all | 5: 10/10 6: 10/10 | Interfaces mit korrekten Stereotypen, Presenter keine Verbindung direkt zur Persistenz (nur über Modell) | Weiteres Vorgehen und Start mit Scrum | none
