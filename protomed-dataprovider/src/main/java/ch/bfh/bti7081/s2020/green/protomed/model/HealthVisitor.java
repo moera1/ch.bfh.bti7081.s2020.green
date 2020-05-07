@@ -15,6 +15,8 @@ public class HealthVisitor extends Person {
     private final @NonNull
     String email;
     private final @NonNull
+    String password;
+    private final @NonNull
     boolean isSupervisor;
 
     @Builder
@@ -26,10 +28,12 @@ public class HealthVisitor extends Person {
             String phoneNumber,
             BigInteger employeeID,
             String email,
+            String password,
             boolean isSupervisor) {
         super(name, firstname, adress, birthdate, phoneNumber);
         this.employeeID = employeeID;
         this.email = email;
+        this.password = password;
         this.isSupervisor = isSupervisor;
     }
 

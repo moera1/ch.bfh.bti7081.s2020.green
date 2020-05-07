@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Getter
 @Component
@@ -32,6 +33,14 @@ public class DataLoader {
         initServices();
         loadHealthClients();
         loadHealthVisitors();
+    }
+
+    public Optional<HealthVisitor> getHealthVisitorByEMailOrEmpty(String email) {
+        Optional<HealthVisitor> visitor = healthVisitors.stream().filter(healthVisitor -> healthVisitor.getEmail().equals(email)).findFirst();
+        if(visitor.isPresent()) {
+            return visitor;
+        }
+        return Optional.empty();
     }
 
     private void loadHealthClients() {
@@ -76,6 +85,7 @@ public class DataLoader {
                 .adress(adresses.get(3))
                 .birthdate(LocalDate.of(1992, 7, 27))
                 .email("laura.meyer@bfh-test.ch")
+                .password("1234")
                 .employeeID(BigInteger.valueOf(0))
                 .firstname("Laura")
                 .name("Meyer")
@@ -88,6 +98,7 @@ public class DataLoader {
                 .adress(adresses.get(4))
                 .birthdate(LocalDate.of(1950, 2, 15))
                 .email("trudi@bfh-test.ch")
+                .password("1234")
                 .employeeID(BigInteger.valueOf(1))
                 .firstname("Gertrud")
                 .name("Sigentaler")
@@ -100,6 +111,7 @@ public class DataLoader {
                 .adress(adresses.get(5))
                 .birthdate(LocalDate.of(1970, 7, 12))
                 .email("max.kummer@bfh-test.ch")
+                .password("1234")
                 .employeeID(BigInteger.valueOf(2))
                 .firstname("Max")
                 .name("Kummer")
@@ -126,5 +138,7 @@ public class DataLoader {
                 new HealthService("service-03", "This is a test service")
         );
     }
+
+
 
 }
