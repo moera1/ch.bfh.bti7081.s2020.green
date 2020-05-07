@@ -1,4 +1,4 @@
-package model;
+package ch.bfh.bti7081.s2020.green.protomed.model;
 
 public class HealthClient extends Person {
 

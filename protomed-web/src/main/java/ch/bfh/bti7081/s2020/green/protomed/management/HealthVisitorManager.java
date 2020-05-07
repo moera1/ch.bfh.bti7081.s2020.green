@@ -1,6 +1,6 @@
-package management;
+package ch.bfh.bti7081.s2020.green.protomed.management;
 
-import model.HealthVisitor;
+import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
 
 import java.util.*;
 
