@@ -2,6 +2,7 @@ package ch.bfh.bti7081.s2020.green.protomed.view;
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.PasswordField;
@@ -21,12 +22,22 @@ public class LoginViewImplementation extends VerticalLayout implements RouterLay
     private Button loginButton = new Button("Anmelden");
 
     public LoginViewImplementation() {
+
         loginButton.addClickListener( event -> {
             for (LoginViewListener listener : listeners)
                 listener.loginClick(userName.getValue(), password.getValue());
         });
 
+        title.addClassName("login-title");
+        loginButton.addClassName("login-btn");
+        loginButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+
+
         add(title, userName, password, loginButton);
+
+        setSpacing(false);
+        setPadding(false);
+        setAlignItems(Alignment.CENTER);
 
     }
 
@@ -45,7 +56,7 @@ public class LoginViewImplementation extends VerticalLayout implements RouterLay
 
     @Override
     public void navigateToDashboard() {
-        UI.getCurrent().navigate(DashboardView.class);
+        UI.getCurrent().navigate(DashboardMainView.class);
     }
 
     @Override
