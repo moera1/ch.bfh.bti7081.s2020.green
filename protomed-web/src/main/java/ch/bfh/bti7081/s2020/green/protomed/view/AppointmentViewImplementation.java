@@ -1,5 +1,6 @@
 package ch.bfh.bti7081.s2020.green.protomed.view;
 
+import ch.bfh.bti7081.s2020.green.protomed.component.CalendarListItem;
 import com.github.appreciated.card.Card;
 import com.github.appreciated.card.ClickableCard;
 import com.github.appreciated.card.label.TitleLabel;
@@ -26,20 +27,14 @@ public class AppointmentViewImplementation extends VerticalLayout implements App
                 onClick -> {
                     Notification.show("Card is clicked");
                 },
-                new Label("12. Mai"),
-                new Icon(VaadinIcon.VAADIN_H),
-                new Label("11:00 - Alexandra Vonesch"),
-                new Label("Bernstrasse 107, 3007 Bern")
+                new CalendarListItem("11:00 - Alexandra Vonesch", "Bernstrasse 107, 3007 Bern", "05/24/2020")
         );
 
         ClickableCard card2 = new ClickableCard(
                 onClick -> {
                     Notification.show("Card is clicked");
                 },
-                new Label("12. Mai"),
-                new Icon(VaadinIcon.VAADIN_H),
-                new Label("14:00 - John Abara"),
-                new Label("Bielstrasse 42, 3011 Bern")
+                new CalendarListItem("14:00 - John Abara", "Bielstrasse 42, 3011 Bern", "05/24/2020")
         );
 
 
@@ -47,10 +42,7 @@ public class AppointmentViewImplementation extends VerticalLayout implements App
                 onClick -> {
                     Notification.show("Card is clicked");
                 },
-                new Label("12. Mai"),
-                new Icon(VaadinIcon.VAADIN_H),
-                new Label("09:00 - Michael Müller"),
-                new Label("Wankdorfstrasse 102, 3014 Bern")
+                new CalendarListItem("09:00 - Michael Müller", "Wankdorfstrasse 102, 3014 Bern", "06/24/2020")
         );
 
         card1.setWidth("100%");
