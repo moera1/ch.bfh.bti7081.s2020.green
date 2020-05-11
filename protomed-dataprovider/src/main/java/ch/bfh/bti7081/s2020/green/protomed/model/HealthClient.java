@@ -12,6 +12,7 @@ import java.util.List;
 public class HealthClient extends Person {
 
     private final @NonNull BigInteger clientID;
+    private final @NonNull Integer healthVisitorID;
     private final @NonNull List<HealthService> insuredServices;
 
     @Builder
@@ -22,9 +23,11 @@ public class HealthClient extends Person {
             LocalDate birthdate,
             String phoneNumber,
             BigInteger clientID,
-            List<HealthService> insuredServices) {
+            List<HealthService> insuredServices,
+            Integer healthVisitorID) {
         super(name, firstname, address, birthdate, phoneNumber);
         this.clientID = clientID;
         this.insuredServices = insuredServices;
+        this.healthVisitorID = healthVisitorID;
     }
 }

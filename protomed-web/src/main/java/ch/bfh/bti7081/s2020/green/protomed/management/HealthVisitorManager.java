@@ -5,7 +5,6 @@ import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.*;
@@ -44,7 +43,7 @@ public class HealthVisitorManager {
         try {
             List<HealthVisitor> healthVisitors = mapper.readValue(new URL("http://localhost:8090/api/healthvisitors"), List.class);
             return healthVisitors;
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.info("Exception {}", e.getStackTrace());
         }
         return new ArrayList<>();
@@ -55,18 +54,23 @@ public class HealthVisitorManager {
         Map<Integer, HealthVisitor> supervisorMap = new HashMap<>();
 
         Iterator<LinkedHashMap> i = rawVisitors.iterator();
-        while(i.hasNext()) {
-             LinkedHashMap<String, Object> currentHashMap = i.next();
-             LinkedHashMap<String, String> addressMap = (LinkedHashMap) currentHashMap.get("address");
-             Address address = new Address(addressMap.get("street"), Integer.parseInt(addressMap.get("zipcode")),  addressMap.get("town"), addressMap.get("country"));
-             HealthVisitor healthVisitor = new HealthVisitor(
-                     (Integer)currentHashMap.get("employeeID"),
-                     address,
-                     currentHashMap.get("name").toString(),
-                     currentHashMap.get("firstname").toString(),
-                     LocalDate.parse(currentHashMap.get("birthdate").toString()),
-                     currentHashMap.get("email").toString()
-             );
+        while (i.hasNext()) {
+            LinkedHashMap<String, Object> currentHashMap = i.next();
+            LinkedHashMap<String, String> addressMap = (LinkedHashMap) currentHashMap.get("address");
+            Address address = new Address(addressMap.get("street"), Integer.parseInt(addressMap.get("zipcode")), addressMap.get("town"), addressMap.get("country"));
+            HealthVisitor healthVisitor = new HealthVisitor(
+                    (Integer) currentHashMap.get("employeeID"),
+                    address,
+                    currentHashMap.get("name").toString(),
+                    currentHashMap.get("firstname").toString(),
+                    LocalDate.parse(currentHashMap.get("birthdate").toString()),
+                    currentHashMap.get("email").toString()
+            );
+
+            if (currentHashMap.get("supervisorID") != null) {
+                supervisorMap.put((Integer) currentHashMap.get("supervisorID"), healthVisitor);
+            }
+
             healthVisitors.add(healthVisitor);
         }
 

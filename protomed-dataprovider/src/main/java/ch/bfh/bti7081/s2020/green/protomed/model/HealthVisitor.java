@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;
 
+import javax.validation.constraints.Null;
 import java.math.BigInteger;
 import java.time.LocalDate;
 
@@ -16,8 +17,8 @@ public class HealthVisitor extends Person {
     String email;
     private final @NonNull
     String password;
-    private final @NonNull
-    boolean isSupervisor;
+    private final @Null
+    Integer supervisorID;
 
     @Builder
     public HealthVisitor(
@@ -29,12 +30,12 @@ public class HealthVisitor extends Person {
             BigInteger employeeID,
             String email,
             String password,
-            boolean isSupervisor) {
+            Integer superVisorID) {
         super(name, firstname, address, birthdate, phoneNumber);
         this.employeeID = employeeID;
         this.email = email;
         this.password = password;
-        this.isSupervisor = isSupervisor;
+        this.supervisorID = superVisorID;
     }
 
 

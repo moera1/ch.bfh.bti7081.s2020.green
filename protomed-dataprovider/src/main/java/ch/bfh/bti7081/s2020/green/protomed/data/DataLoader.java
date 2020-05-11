@@ -49,6 +49,7 @@ public class DataLoader {
                 .address(addresses.get(0))
                 .birthdate(LocalDate.of(1995, 4, 28))
                 .clientID(BigInteger.valueOf(1))
+                .healthVisitorID(2)
                 .firstname("Daniel")
                 .name("Müller")
                 .phoneNumber("+41891234567")
@@ -60,6 +61,7 @@ public class DataLoader {
                 .address(addresses.get(1))
                 .birthdate(LocalDate.of(1980, 5, 1))
                 .clientID(BigInteger.valueOf(2))
+                .healthVisitorID(3)
                 .firstname("Thomas")
                 .name("Berger")
                 .phoneNumber("+41891234567")
@@ -71,6 +73,7 @@ public class DataLoader {
                 .address(addresses.get(2))
                 .birthdate(LocalDate.of(1960, 8, 8))
                 .clientID(BigInteger.valueOf(3))
+                .healthVisitorID(1)
                 .firstname("Lars")
                 .name("Imhof")
                 .phoneNumber("+41891234567")
@@ -90,7 +93,7 @@ public class DataLoader {
                 .firstname("Laura")
                 .name("Meyer")
                 .phoneNumber("+41891234567")
-                .isSupervisor(true)
+                .superVisorID(1)
                 .build());
 
         // Test visitor 02
@@ -103,7 +106,6 @@ public class DataLoader {
                 .firstname("Gertrud")
                 .name("Sigentaler")
                 .phoneNumber("+41891234567")
-                .isSupervisor(false)
                 .build());
 
         // Test visitor 03
@@ -116,7 +118,6 @@ public class DataLoader {
                 .firstname("Max")
                 .name("Kummer")
                 .phoneNumber("+41891234567")
-                .isSupervisor(false)
                 .build());
     }
 
