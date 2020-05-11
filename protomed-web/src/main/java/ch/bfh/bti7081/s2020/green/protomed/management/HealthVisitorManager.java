@@ -4,6 +4,7 @@ import ch.bfh.bti7081.s2020.green.protomed.model.Address;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.*;
@@ -12,7 +13,9 @@ public class HealthVisitorManager {
 
     public static String HEALTH_VISITOR_PROVIDER_URL = "http://localhost:8090/";
     public static String HEALTH_VISITOR_PROVIDER_ENDPOINT = "api/healthvisitors";
+    public static String HEALTH_VISITOR_AUTH_ENDPOINT = "api/auth";
 
+    private HealthVisitor currentUser;
     private Set<HealthVisitor> healthVisitors = new HashSet<>();
     private ObjectMapper mapper = new ObjectMapper();
 
@@ -27,8 +30,7 @@ public class HealthVisitorManager {
         return instance;
     }
 
-    private HealthVisitorManager() {
-    }
+    private HealthVisitorManager() {}
 
     public void initializeHealthVisitors() {
         List<LinkedHashMap<String, Object>> rawVisitors = getHealthVisitorsFromProvider();
@@ -73,6 +75,39 @@ public class HealthVisitorManager {
             HealthVisitor supervisor = getHealthVisitor(supervisorID);
             HealthVisitor subordinate = supervisorMap.getOrDefault(supervisorID, null);
             subordinate.setSupervisor(supervisor);
+        }
+    }
+
+    public HealthVisitor getCurrentUser() {
+        return currentUser;
+    }
+
+    private void setCurrentUser(HealthVisitor currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    public void resetCurrentUser(){
+        currentUser = null;
+    }
+
+    public void logInUser(final String email, final String password) throws Exception {
+
+        resetCurrentUser();
+
+        try {
+            String urlString = HEALTH_VISITOR_PROVIDER_URL + HEALTH_VISITOR_AUTH_ENDPOINT;
+            String urlStringWithParams = urlString + "?email=" + email + "&password=" + password;
+            URL url = new URL(urlStringWithParams);
+            LinkedHashMap<String, Object> healthVisitorMap = mapper.readValue(url, LinkedHashMap.class);
+
+            Integer userId = (Integer) healthVisitorMap.get("employeeID");
+            HealthVisitor currentUser =  getHealthVisitor(userId);
+            if (currentUser ==  null) throw new Exception("No local user with userId:" + userId + "found");
+
+            setCurrentUser(currentUser);
+
+        } catch (IOException e){
+            throw e;
         }
     }
 
