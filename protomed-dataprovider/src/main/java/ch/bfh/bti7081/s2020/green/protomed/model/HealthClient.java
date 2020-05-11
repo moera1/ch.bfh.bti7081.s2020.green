@@ -18,12 +18,12 @@ public class HealthClient extends Person {
     public HealthClient(
             String name,
             String firstname,
-            Adress adress,
+            Address address,
             LocalDate birthdate,
             String phoneNumber,
             BigInteger clientID,
             List<HealthService> insuredServices) {
-        super(name, firstname, adress, birthdate, phoneNumber);
+        super(name, firstname, address, birthdate, phoneNumber);
         this.clientID = clientID;
         this.insuredServices = insuredServices;
     }

@@ -6,7 +6,7 @@ import lombok.NonNull;
 
 @Getter
 @AllArgsConstructor
-public class Adress {
+public class Address {
 
     private final @NonNull
     String street;

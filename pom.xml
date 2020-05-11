@@ -33,6 +33,7 @@
         <vaadin.version>14.1.23</vaadin.version>
         <lombok.version>1.18.12</lombok.version>
         <javax.servlet.version>3.1.0</javax.servlet.version>
+        <jackson.version>2.10.0</jackson.version>
 
         <drivers.downloader.phase>pre-integration-test</drivers.downloader.phase>
     </properties>
@@ -80,6 +81,12 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>${javax.servlet.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

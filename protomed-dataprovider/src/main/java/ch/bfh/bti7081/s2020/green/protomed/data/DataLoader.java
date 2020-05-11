@@ -1,6 +1,6 @@
 package ch.bfh.bti7081.s2020.green.protomed.data;
 
-import ch.bfh.bti7081.s2020.green.protomed.model.Adress;
+import ch.bfh.bti7081.s2020.green.protomed.model.Address;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthService;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
@@ -22,7 +22,7 @@ public class DataLoader {
     private List<HealthVisitor> healthVisitors;
     private List<HealthClient> healthClients;
 
-    private List<Adress> adresses;
+    private List<Address> addresses;
     private List<HealthService> services;
 
     @Autowired
@@ -46,7 +46,7 @@ public class DataLoader {
     private void loadHealthClients() {
         // Test client 01
         healthClients.add(HealthClient.builder()
-                .adress(adresses.get(0))
+                .address(addresses.get(0))
                 .birthdate(LocalDate.of(1995, 4, 28))
                 .clientID(BigInteger.valueOf(1))
                 .firstname("Daniel")
@@ -57,7 +57,7 @@ public class DataLoader {
 
         // Test client 02
         healthClients.add(HealthClient.builder()
-                .adress(adresses.get(1))
+                .address(addresses.get(1))
                 .birthdate(LocalDate.of(1980, 5, 1))
                 .clientID(BigInteger.valueOf(2))
                 .firstname("Thomas")
@@ -68,7 +68,7 @@ public class DataLoader {
 
         // Test client 03
         healthClients.add(HealthClient.builder()
-                .adress(adresses.get(2))
+                .address(addresses.get(2))
                 .birthdate(LocalDate.of(1960, 8, 8))
                 .clientID(BigInteger.valueOf(3))
                 .firstname("Lars")
@@ -82,7 +82,7 @@ public class DataLoader {
     private void loadHealthVisitors() {
         // Test visitor 01
         healthVisitors.add(HealthVisitor.builder()
-                .adress(adresses.get(3))
+                .address(addresses.get(3))
                 .birthdate(LocalDate.of(1992, 7, 27))
                 .email("laura.meyer@bfh-test.ch")
                 .password("1234")
@@ -95,7 +95,7 @@ public class DataLoader {
 
         // Test visitor 02
         healthVisitors.add(HealthVisitor.builder()
-                .adress(adresses.get(4))
+                .address(addresses.get(4))
                 .birthdate(LocalDate.of(1950, 2, 15))
                 .email("trudi@bfh-test.ch")
                 .password("1234")
@@ -108,7 +108,7 @@ public class DataLoader {
 
         // Test visitor 03
         healthVisitors.add(HealthVisitor.builder()
-                .adress(adresses.get(5))
+                .address(addresses.get(5))
                 .birthdate(LocalDate.of(1970, 7, 12))
                 .email("max.kummer@bfh-test.ch")
                 .password("1234")
@@ -121,13 +121,13 @@ public class DataLoader {
     }
 
     private void initAdresses() {
-        adresses = Arrays.asList(
-                new Adress("Bahnhofstrasse 1", "Biel", "2502", "Switzerland"),
-                new Adress("Bahnhofstrasse 2", "Biel", "2502", "Switzerland"),
-                new Adress("Nidaugasse 1", "Biel", "2502", "Switzerland"),
-                new Adress("Bahnhofplatz 7", "Biel", "2501", "Switzerland"),
-                new Adress("Brünnenstrasse 10", "Bern", "3008", "Switzerland"),
-                new Adress("Bahnhofstrasse 2", "Bern", "3012", "Switzerland")
+        addresses = Arrays.asList(
+                new Address("Bahnhofstrasse 1", "Biel", "2502", "Switzerland"),
+                new Address("Bahnhofstrasse 2", "Biel", "2502", "Switzerland"),
+                new Address("Nidaugasse 1", "Biel", "2502", "Switzerland"),
+                new Address("Bahnhofplatz 7", "Biel", "2501", "Switzerland"),
+                new Address("Brünnenstrasse 10", "Bern", "3008", "Switzerland"),
+                new Address("Bahnhofstrasse 2", "Bern", "3012", "Switzerland")
         );
     }
 

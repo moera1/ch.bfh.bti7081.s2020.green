@@ -15,7 +15,7 @@ public abstract class Person {
     private final @NonNull
     String firstname;
     private final @NonNull
-    Adress adress;
+    Address address;
     private final @NonNull
     LocalDate birthdate;
     private final @NonNull

@@ -1,31 +1,21 @@
 package ch.bfh.bti7081.s2020.green.protomed.model;
 
+import lombok.Getter;
+
 public class Address {
+    @Getter
     private String street;
-    private int number;
+    @Getter
     private int postalCode;
+    @Getter
     private String city;
+    @Getter
+    private String country;
 
-    public Address(String street, int number, int postalCode, String city){
+    public Address(String street, int zipcode, String city, String country){
         this.street = street;
-        this.number = number;
-        this.postalCode = postalCode;
+        this.postalCode = zipcode;
         this.city = city;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public int getNumber() {
-        return number;
-    }
-
-    public int getPostalCode() {
-        return postalCode;
-    }
-
-    public String getCity() {
-        return city;
+        this.country = country;
     }
 }

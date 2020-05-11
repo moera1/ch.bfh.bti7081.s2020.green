@@ -25,7 +25,7 @@ public class HealthClientManager {
     private HealthClientManager(){}
 
     // TODO
-    public void initializeHealthClients(){
+    public void initializeHealthClients() {
         // List or something
         List rawClients = getHealthClientsFromProvider();
         createHealthClients(rawClients);

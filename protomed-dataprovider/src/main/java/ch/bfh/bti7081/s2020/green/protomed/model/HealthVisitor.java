@@ -23,14 +23,14 @@ public class HealthVisitor extends Person {
     public HealthVisitor(
             String name,
             String firstname,
-            Adress adress,
+            Address address,
             LocalDate birthdate,
             String phoneNumber,
             BigInteger employeeID,
             String email,
             String password,
             boolean isSupervisor) {
-        super(name, firstname, adress, birthdate, phoneNumber);
+        super(name, firstname, address, birthdate, phoneNumber);
         this.employeeID = employeeID;
         this.email = email;
         this.password = password;
