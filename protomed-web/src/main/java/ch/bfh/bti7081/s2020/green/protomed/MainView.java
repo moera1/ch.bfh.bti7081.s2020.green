@@ -1,5 +1,6 @@
 package ch.bfh.bti7081.s2020.green.protomed;
 
+import ch.bfh.bti7081.s2020.green.protomed.management.KadexInitializer;
 import ch.bfh.bti7081.s2020.green.protomed.model.Login;
 import ch.bfh.bti7081.s2020.green.protomed.presenter.LoginPresenter;
 import ch.bfh.bti7081.s2020.green.protomed.view.LoginViewImplementation;
@@ -21,6 +22,7 @@ import com.vaadin.flow.theme.lumo.Lumo;
 public class MainView extends VerticalLayout {
 
     public MainView() {
+        new KadexInitializer();
         Login model = new Login();
         LoginViewImplementation view = new LoginViewImplementation();
 

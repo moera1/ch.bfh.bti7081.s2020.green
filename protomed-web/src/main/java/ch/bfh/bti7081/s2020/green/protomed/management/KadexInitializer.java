@@ -1,0 +1,39 @@
+package ch.bfh.bti7081.s2020.green.protomed.management;
+
+import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
+import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
+
+public class KadexInitializer {
+
+    public KadexInitializer() {
+        initialize();
+    }
+
+    private void initialize() {
+
+        try {
+
+            // first get healthVisitors - they are needed to init the clients
+            initializeHealthVisitors();
+
+            // get the healthClients
+            initializeHealthClients();
+
+            // test
+            HealthVisitor trudi = HealthVisitorManager.getInstance().getHealthVisitor(1);
+            HealthVisitor laura = (HealthVisitor) trudi.getSubordinates().toArray()[0];
+            HealthClient lars = (HealthClient) trudi.getClients().toArray()[0];
+
+        } catch (Exception e) {
+
+        }
+    }
+
+    private void initializeHealthVisitors() {
+        HealthVisitorManager.getInstance().initializeHealthVisitors();
+    }
+
+    private void initializeHealthClients() {
+        HealthClientManager.getInstance().initializeHealthClients();
+    }
+}
