@@ -66,7 +66,7 @@ public class MainLayout extends AppLayout {
         tabs.add(createTab(VaadinIcon.USERS, "Klienten",
                 ClientMainView.class));
         tabs.add(createTab(VaadinIcon.FILE_TEXT_O, "Protokolle",
-                DashboardMainView.class));
+                ProtocolMainView.class));
         tabs.add(createTab(VaadinIcon.QUESTION_CIRCLE_O, "Hilfe",
                 HelpMainView.class));
 

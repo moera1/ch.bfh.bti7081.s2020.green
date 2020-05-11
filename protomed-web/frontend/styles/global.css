@@ -1,5 +1,15 @@
 /* General */
 
 .app-content {
-    /* padding: 10px; */
+    padding: 10px;
+    background-color: #fafafa;
+    height: 100%;
+}
+
+h3 {
+    color: #828282;
+}
+
+h6 {
+    color: #828282;
 }
