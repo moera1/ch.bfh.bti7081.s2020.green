@@ -5,3 +5,23 @@
 .login-btn {
     margin-top: 2rem;
 }
+
+/* navbar */
+.navbar {
+    padding: 16px 0;
+}
+
+.navbar > a {
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.navbar > a {
+    border-left: solid 4px white;
+}
+
+.navbar > a[highlight] {
+    border-left: solid 4px #1676f3;
+}
