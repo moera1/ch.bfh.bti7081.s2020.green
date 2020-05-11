@@ -3,18 +3,18 @@ package ch.bfh.bti7081.s2020.green.protomed.management;
 import ch.bfh.bti7081.s2020.green.protomed.model.Address;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.slf4j.Slf4j;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.*;
 
-@Slf4j
 public class HealthVisitorManager {
 
-    Set<HealthVisitor> healthVisitors = new HashSet<>();
+    public static String HEALTH_VISITOR_PROVIDER_URL = "http://localhost:8090/";
+    public static String HEALTH_VISITOR_PROVIDER_ENDPOINT = "api/healthvisitors";
 
-    ObjectMapper mapper = new ObjectMapper();
+    private Set<HealthVisitor> healthVisitors = new HashSet<>();
+    private ObjectMapper mapper = new ObjectMapper();
 
     // Singleton
     private static HealthVisitorManager instance;
@@ -30,33 +30,25 @@ public class HealthVisitorManager {
     private HealthVisitorManager() {
     }
 
-    // TODO
     public void initializeHealthVisitors() {
-        // List or something
-        List rawVisitors = getHealthVisitorsFromProvider();
-        Map<Integer, HealthVisitor> supervisorMap = createHealthVisitors(rawVisitors);
-        setSupervisors(supervisorMap);
+        List<LinkedHashMap<String, Object>> rawVisitors = getHealthVisitorsFromProvider();
+        createHealthVisitors(rawVisitors);
     }
 
-    // TODO
-    private List<HealthVisitor> getHealthVisitorsFromProvider() {
+    private List<LinkedHashMap<String, Object>> getHealthVisitorsFromProvider() {
         try {
-            List<HealthVisitor> healthVisitors = mapper.readValue(new URL("http://localhost:8090/api/healthvisitors"), List.class);
+            List<LinkedHashMap<String, Object>> healthVisitors = mapper.readValue(new URL(HEALTH_VISITOR_PROVIDER_URL + HEALTH_VISITOR_PROVIDER_ENDPOINT), List.class);
             return healthVisitors;
         } catch (Exception e) {
-            log.info("Exception {}", e.getStackTrace());
+            return new ArrayList<>();
         }
-        return new ArrayList<>();
     }
 
-    // TODO
-    private Map<Integer, HealthVisitor> createHealthVisitors(List<LinkedHashMap> rawVisitors) {
+    private void createHealthVisitors(List<LinkedHashMap<String, Object>> rawVisitors) {
         Map<Integer, HealthVisitor> supervisorMap = new HashMap<>();
 
-        Iterator<LinkedHashMap> i = rawVisitors.iterator();
-        while (i.hasNext()) {
-            LinkedHashMap<String, Object> currentHashMap = i.next();
-            LinkedHashMap<String, String> addressMap = (LinkedHashMap) currentHashMap.get("address");
+        for (LinkedHashMap<String, Object> currentHashMap : rawVisitors) {
+            LinkedHashMap<String, String> addressMap = (LinkedHashMap<String, String>) currentHashMap.get("address");
             Address address = new Address(addressMap.get("street"), Integer.parseInt(addressMap.get("zipcode")), addressMap.get("town"), addressMap.get("country"));
             HealthVisitor healthVisitor = new HealthVisitor(
                     (Integer) currentHashMap.get("employeeID"),
@@ -70,26 +62,25 @@ public class HealthVisitorManager {
             if (currentHashMap.get("supervisorID") != null) {
                 supervisorMap.put((Integer) currentHashMap.get("supervisorID"), healthVisitor);
             }
-
             healthVisitors.add(healthVisitor);
         }
-
-        // foreach x -> x
-        // HealthVisitor visitor = new HealthVisitor(x);
-        // Address address = new Address(x);
-        // visitor setAddress(address);
-        // healthVisitors.add(visitor);
-        // if (supervisor.id()){
-        //  supervisorMap.put(supervisor.id(), this);
-        // }
-        return supervisorMap;
+        setSupervisors(supervisorMap);
     }
 
-    // TODO
     private void setSupervisors(Map<Integer, HealthVisitor> supervisorMap) {
-        // foreach x -> x
-        // HealthVisitor supervisor = getHealthVisitor(key);
-        // value.setSuperVisor(supervisor);
+
+        for (Integer supervisorID : supervisorMap.keySet()) {
+            HealthVisitor supervisor = getHealthVisitor(supervisorID);
+            HealthVisitor subordinate = supervisorMap.getOrDefault(supervisorID, null);
+            subordinate.setSupervisor(supervisor);
+        }
+    }
+
+    public HealthVisitor getHealthVisitor (int id) {
+        for (HealthVisitor healthVisitor : getHealthVisitors()) {
+            if (healthVisitor.getPersonId() == id) return healthVisitor;
+        }
+        return null;
     }
 
     public Set<HealthVisitor> getHealthVisitors() {
