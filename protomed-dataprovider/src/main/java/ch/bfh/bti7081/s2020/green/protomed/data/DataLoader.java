@@ -61,7 +61,7 @@ public class DataLoader {
                 .address(addresses.get(1))
                 .birthdate(LocalDate.of(1980, 5, 1))
                 .clientID(BigInteger.valueOf(2))
-                .healthVisitorID(3)
+                .healthVisitorID(0)
                 .firstname("Thomas")
                 .name("Berger")
                 .phoneNumber("+41891234567")
