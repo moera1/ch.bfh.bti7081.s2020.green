@@ -16,6 +16,6 @@ public class ClientPresenter implements ClientView.ClientViewListener {
     }
     
     public void selectClient(HealthClient client) {
-    	
+    	view.navigateToClientProfile(client.getPersonId());
     }
 }

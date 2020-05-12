@@ -8,14 +8,18 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 
+import ch.bfh.bti7081.s2020.green.protomed.management.HealthClientManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
 
-public class ClientProfileViewImplementation extends VerticalLayout implements ClientProfileView, HasUrlParameter<String>  {
+public class ClientProfileViewImplementation extends VerticalLayout implements ClientProfileView  {
 	private List<ClientProfileViewListener> listeners = new ArrayList<ClientProfileViewListener>();
 	private HealthClient client;
+	private String clientName;
 	
-	public ClientProfileViewImplementation() {
+	public ClientProfileViewImplementation(HealthClient client) {
+		this.client = client;
 		add(new H2("Klient"));
+		add(new H2(client.getFirstname()));
 	}
 	
 	@Override
@@ -23,10 +27,6 @@ public class ClientProfileViewImplementation extends VerticalLayout implements C
 		listeners.add(listener);
 	}
 	
-	@Override
-	public void setParameter(BeforeEvent event, String parameter) {
-		// TODO Get the client
-		
-	}
+	
 
 }
