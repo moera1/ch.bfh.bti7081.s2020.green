@@ -1,23 +1,31 @@
 package ch.bfh.bti7081.s2020.green.protomed.model;
 
+import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
+
 public class Login {
+
+    private HealthVisitorManager healthVisitorManager = HealthVisitorManager.getInstance();
 
     public Login() {}
 
-    // TODO
-    public boolean verifyUser(String userName) {
-        if (userName.isBlank()) {
-            return false;
-        }
-        return true;
+    public boolean validateEmail(String email) {
+        return email.isBlank() ? false : true;
     }
 
-    // TODO
     public boolean verifyAccess(String userName, String password) {
-        if (password.isBlank()) {
+        return password.isBlank() ? false : true;
+    }
+
+    public boolean authenticate(String email, String password) {
+        try {
+            healthVisitorManager.logInUser(email, password);
+            //DEBUG
+            System.out.println(healthVisitorManager.getCurrentUser().getUsername());
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
-        return true;
     }
 
 }

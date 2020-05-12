@@ -30,8 +30,6 @@ public class DashboardViewImplementation extends Board implements DashboardView 
         row2.setComponentSpan(child3,2);
         row2.setComponentSpan(child4,2);
 
-
-
         addClassName("dashboard-container");
         setSizeFull();
 
