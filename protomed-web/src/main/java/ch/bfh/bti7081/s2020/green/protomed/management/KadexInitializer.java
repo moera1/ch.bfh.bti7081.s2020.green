@@ -24,13 +24,13 @@ public class KadexInitializer {
             HealthVisitor laura = (HealthVisitor) trudi.getSubordinates().toArray()[0];
             HealthClient lars = (HealthClient) trudi.getClients().toArray()[0];
 
-            HealthVisitor self = HealthVisitorManager.getInstance().getCurrentUser();
-            HealthVisitorManager.getInstance().logInUser("max.kummer@bfh-test.ch", "1234");
-            
-            self = HealthVisitorManager.getInstance().getCurrentUser();
-
-            // wrong password throws exception
-            HealthVisitorManager.getInstance().logInUser("max.kummer@bfh-test.ch", "3456");
+//            HealthVisitor self = HealthVisitorManager.getInstance().getCurrentUser();
+//            HealthVisitorManager.getInstance().logInUser("max.kummer@bfh-test.ch", "1234");
+//
+//            self = HealthVisitorManager.getInstance().getCurrentUser();
+//
+//            // wrong password throws exception
+//            HealthVisitorManager.getInstance().logInUser("max.kummer@bfh-test.ch", "3456");
 
         } catch (Exception e) {
 

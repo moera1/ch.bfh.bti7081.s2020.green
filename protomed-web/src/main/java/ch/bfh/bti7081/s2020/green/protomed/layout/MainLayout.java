@@ -1,6 +1,7 @@
 package ch.bfh.bti7081.s2020.green.protomed.layout;
 
 import ch.bfh.bti7081.s2020.green.protomed.MainView;
+import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
 import ch.bfh.bti7081.s2020.green.protomed.view.*;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
@@ -13,13 +14,15 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.TabVariant;
 import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.router.BeforeEnterEvent;
+import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.RouterLink;
 import com.vaadin.flow.server.VaadinServlet;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainLayout extends AppLayout {
+public class MainLayout extends AppLayout implements BeforeEnterObserver {
 
     private final Tabs menu;
 
@@ -117,5 +120,13 @@ public class MainLayout extends AppLayout {
         a.add(icon.create());
         a.add(title);
         return a;
+    }
+
+    @Override
+    public void beforeEnter(BeforeEnterEvent event) {
+        // Check for currentUser, redirect to login page if not present
+        if (HealthVisitorManager.getInstance().getCurrentUser() == null) {
+            event.forwardTo(MainView.class);
+        }
     }
 }

@@ -8,7 +8,7 @@ public interface LoginView  {
 
     public void addListener(LoginViewListener listener);
 
-    public void showInvalidUser();
+    public void showInvalidEmail();
 
     public void showDeniedAccess();
 

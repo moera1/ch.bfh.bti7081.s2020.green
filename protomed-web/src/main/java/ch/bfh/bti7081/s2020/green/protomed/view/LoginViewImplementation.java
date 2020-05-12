@@ -17,15 +17,19 @@ public class LoginViewImplementation extends VerticalLayout implements RouterLay
     private List<LoginView.LoginViewListener> listeners = new ArrayList<LoginView.LoginViewListener>();
 
     private H3 title = new H3("Protomed v0.0.1");
-    private TextField userName = new TextField("Benutzername");
-    private PasswordField password = new PasswordField("Passwort");
+    private TextField emailField = new TextField("Email");
+    private PasswordField passwordField = new PasswordField("Passwort");
     private Button loginButton = new Button("Anmelden");
 
     public LoginViewImplementation() {
 
+        // DEBUG
+        emailField.setValue("trudi@bfh-test.ch");
+        passwordField.setValue("1234");
+
         loginButton.addClickListener( event -> {
             for (LoginViewListener listener : listeners)
-                listener.loginClick(userName.getValue(), password.getValue());
+                listener.loginClick(emailField.getValue(), passwordField.getValue());
         });
 
         title.addClassName("login-title");
@@ -33,7 +37,7 @@ public class LoginViewImplementation extends VerticalLayout implements RouterLay
         loginButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
 
-        add(title, userName, password, loginButton);
+        add(title, emailField, passwordField, loginButton);
 
         setSpacing(false);
         setPadding(false);
@@ -42,16 +46,16 @@ public class LoginViewImplementation extends VerticalLayout implements RouterLay
     }
 
     @Override
-    public void showInvalidUser() {
-        userName.setErrorMessage("Bitte Benutzername eingeben");
-        userName.setInvalid(true);
+    public void showInvalidEmail() {
+        emailField.setErrorMessage("Bitte Email eingeben");
+        emailField.setInvalid(true);
     }
 
     @Override
     public void showDeniedAccess() {
-        password.clear();
-        password.setErrorMessage("Ungültiges Password");
-        password.setInvalid(true);
+        passwordField.clear();
+        passwordField.setErrorMessage("Ungültiges Password");
+        passwordField.setInvalid(true);
     }
 
     @Override
