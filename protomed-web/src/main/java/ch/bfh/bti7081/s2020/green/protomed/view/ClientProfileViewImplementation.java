@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 
+import ch.bfh.bti7081.s2020.green.protomed.component.PersonContactCard;
 import ch.bfh.bti7081.s2020.green.protomed.management.HealthClientManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
 
@@ -18,8 +20,13 @@ public class ClientProfileViewImplementation extends VerticalLayout implements C
 	
 	public ClientProfileViewImplementation(HealthClient client) {
 		this.client = client;
-		add(new H2("Klient"));
-		add(new H2(client.getFirstname()));
+		
+		Image photo = new Image();
+		add(photo);
+		
+		add(new PersonContactCard(client));
+		
+		
 	}
 	
 	@Override

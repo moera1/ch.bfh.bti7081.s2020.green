@@ -30,6 +30,10 @@ public abstract class Person {
     public int getPersonId() {
         return personId;
     }
+    
+    public String getFullName() {
+    	return firstname + " " + name;
+    }
 
     @Override
     public boolean equals(Object o) {
