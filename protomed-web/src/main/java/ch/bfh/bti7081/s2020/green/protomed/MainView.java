@@ -17,7 +17,7 @@ import com.vaadin.flow.server.PWA;
  * The main view contains a button and a click listener.
  */
 @Route("")
-@PWA(name = "Protomed v0.0.1", shortName = "Protomed")
+//@PWA(name = "Protomed v0.0.1", shortName = "Protomed")
 @CssImport("./styles/global.css")
 @CssImport("./styles/components.css")
 @CssImport("./styles/layout.css")
