@@ -1,28 +1,29 @@
 package ch.bfh.bti7081.s2020.green.protomed.management;
 
+import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import lombok.Getter;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProtocolManager {
+public class ApplicationModelManager {
 
     @Getter
     private List<Protocol> protocols;
 
     // Singleton
-    private static ProtocolManager instance;
+    private static ApplicationModelManager instance;
 
-    public static ProtocolManager getInstance() {
+    public static ApplicationModelManager getInstance() {
         if (instance == null) {
             // lazy initialization
-            instance = new ProtocolManager();
+            instance = new ApplicationModelManager();
         }
         return instance;
     }
 
-    private ProtocolManager() {
+    private ApplicationModelManager() {
         protocols = PersistenceManager.getInstance().loadProtocols();
     }
 
@@ -36,6 +37,10 @@ public class ProtocolManager {
 
     public List<Protocol> getProtocolsByHealthVisitorID(int id) {
         return protocols.stream().filter(protocol -> protocol.getHealthVisitor().getPersonId() == id).collect(Collectors.toList());
+    }
+
+    public List<Appointment> getAppointments(){
+        return PersistenceManager.getInstance().loadAppointments();
     }
 
 }
