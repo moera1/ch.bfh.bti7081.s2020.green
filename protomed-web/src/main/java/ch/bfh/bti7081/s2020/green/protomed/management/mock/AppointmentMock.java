@@ -16,34 +16,40 @@ public class AppointmentMock {
         List<Appointment> appointments = new ArrayList<>();
         LocalDateTime time = LocalDateTime.now();
 
-        HealthVisitor laura = HealthVisitorManager.getInstance().getHealthVisitor(1);
-        HealthVisitor gertrud = HealthVisitorManager.getInstance().getHealthVisitor(2);
-        HealthVisitor max = HealthVisitorManager.getInstance().getHealthVisitor(3);
+        HealthVisitor laura = HealthVisitorManager.getInstance().getHealthVisitor(0);
+        HealthVisitor gertrud = HealthVisitorManager.getInstance().getHealthVisitor(1);
+        HealthVisitor max = HealthVisitorManager.getInstance().getHealthVisitor(2);
 
         HealthClient daniel = HealthClientManager.getInstance().getHealthClient(1);
         HealthClient thomas = HealthClientManager.getInstance().getHealthClient(2);
         HealthClient lars = HealthClientManager.getInstance().getHealthClient(3);
 
         // Appointments of laura
-        appointments.add(new Appointment(laura, daniel, time.plusDays(1)));
-        appointments.add(new Appointment(laura, daniel, time.plusDays(2)));
-        appointments.add(new Appointment(laura, daniel, time.plusDays(3).plusHours(4)));
-        appointments.add(new Appointment(laura, daniel, time.plusDays(4)));
-        appointments.add(new Appointment(laura, thomas, time.plusDays(1).minusHours(1)));
+        if (laura != null) {
+            appointments.add(new Appointment(laura, daniel, time.plusDays(1)));
+            appointments.add(new Appointment(laura, daniel, time.plusDays(2)));
+            appointments.add(new Appointment(laura, daniel, time.plusDays(3).plusHours(4)));
+            appointments.add(new Appointment(laura, daniel, time.plusDays(4)));
+            appointments.add(new Appointment(laura, thomas, time.plusDays(1).minusHours(1)));
+        }
 
         // Appointments of gertrud
-        appointments.add(new Appointment(gertrud, lars, time.plusDays(1).minusHours(2)));
-        appointments.add(new Appointment(gertrud, lars, time.plusDays(2)));
-        appointments.add(new Appointment(gertrud, lars, time.plusDays(3)));
-        appointments.add(new Appointment(gertrud, lars, time.plusDays(4)));
+        if (gertrud != null) {
+            appointments.add(new Appointment(gertrud, lars, time.plusDays(1).minusHours(2)));
+            appointments.add(new Appointment(gertrud, lars, time.plusDays(2)));
+            appointments.add(new Appointment(gertrud, lars, time.plusDays(3)));
+            appointments.add(new Appointment(gertrud, lars, time.plusDays(4)));
+        }
 
         // Appointments of max
-        appointments.add(new Appointment(max, thomas, time.plusDays(1).plusHours(5)));
-        appointments.add(new Appointment(max, thomas, time.plusDays(2)));
-        appointments.add(new Appointment(max, lars, time.plusDays(2)));
-        appointments.add(new Appointment(max, lars, time.plusDays(2).plusHours(12)));
-        appointments.add(new Appointment(max, lars, time.plusDays(3)));
-        appointments.add(new Appointment(max, daniel, time.plusDays(6).minusHours(5)));
+        if (max != null) {
+            appointments.add(new Appointment(max, thomas, time.plusDays(1).plusHours(5)));
+            appointments.add(new Appointment(max, thomas, time.plusDays(2)));
+            appointments.add(new Appointment(max, lars, time.plusDays(2)));
+            appointments.add(new Appointment(max, lars, time.plusDays(2).plusHours(12)));
+            appointments.add(new Appointment(max, lars, time.plusDays(3)));
+            appointments.add(new Appointment(max, daniel, time.plusDays(6).minusHours(5)));
+        }
 
         return appointments;
     }

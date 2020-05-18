@@ -38,7 +38,7 @@ public class KadexInitializer {
 //            HealthVisitorManager.getInstance().logInUser("max.kummer@bfh-test.ch", "3456");
 
         } catch (Exception e) {
-
+            System.out.println(e.getStackTrace());
         }
     }
 

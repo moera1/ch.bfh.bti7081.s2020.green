@@ -4,16 +4,17 @@ import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ApplicationModelManager {
 
     @Getter
-    private List<Appointment> appointments;
+    private List<Appointment> appointments = new ArrayList<>();
 
     @Getter
-    private List<Protocol> protocols;
+    private List<Protocol> protocols = new ArrayList<>();
 
     // Singleton
     private static ApplicationModelManager instance;
@@ -30,8 +31,9 @@ public class ApplicationModelManager {
     }
 
     public void initializeModels(){
-        protocols = PersistenceManager.getInstance().loadProtocols();
+
         appointments = PersistenceManager.getInstance().loadAppointments();
+        protocols = PersistenceManager.getInstance().loadProtocols();
     }
 
     public List<Protocol> getProtocols() {
