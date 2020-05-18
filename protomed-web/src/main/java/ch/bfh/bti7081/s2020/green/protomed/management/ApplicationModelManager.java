@@ -10,6 +10,9 @@ import java.util.stream.Collectors;
 public class ApplicationModelManager {
 
     @Getter
+    private List<Appointment> appointments;
+
+    @Getter
     private List<Protocol> protocols;
 
     // Singleton
@@ -25,6 +28,7 @@ public class ApplicationModelManager {
 
     private ApplicationModelManager() {
         protocols = PersistenceManager.getInstance().loadProtocols();
+        appointments = PersistenceManager.getInstance().loadAppointments();
     }
 
     public List<Protocol> getProtocols() {
@@ -39,8 +43,16 @@ public class ApplicationModelManager {
         return protocols.stream().filter(protocol -> protocol.getHealthVisitor().getPersonId() == id).collect(Collectors.toList());
     }
 
-    public List<Appointment> getAppointments(){
-        return PersistenceManager.getInstance().loadAppointments();
+    public List<Appointment> getAppointments() {
+        return appointments;
+    }
+
+    public List<Appointment> getAppointmentsByHealthVisitorID(Integer userid) {
+        return appointments.stream().filter(appointment -> appointment.getHealthVisitor().getPersonId() == userid).collect(Collectors.toList());
+    }
+
+    public List<Appointment> getAppointmentsByHealthClientID(Integer userid) {
+        return appointments.stream().filter(appointment -> appointment.getHealthClient().getPersonId() == userid).collect(Collectors.toList());
     }
 
 }

@@ -20,7 +20,6 @@ public class KadexInitializer {
             initializeHealthClients();
 
             HealthServiceManager.getInstance();
-            AppointmentManager.getInstance();
             ApplicationModelManager.getInstance();
 
             /// test stuff
