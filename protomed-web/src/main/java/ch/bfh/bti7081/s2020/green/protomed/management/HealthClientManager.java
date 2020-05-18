@@ -28,7 +28,8 @@ public class HealthClientManager {
         return instance;
     }
 
-    private HealthClientManager(){}
+    private HealthClientManager() {
+    }
 
     public void initializeHealthClients() {
         List<LinkedHashMap<String, Object>> rawClients = getHealthClientsFromProvider();
@@ -44,14 +45,14 @@ public class HealthClientManager {
         }
     }
 
-    private void createHealthClients (List < LinkedHashMap < String, Object >> rawClients){
+    private void createHealthClients(List<LinkedHashMap<String, Object>> rawClients) {
 
         for (LinkedHashMap<String, Object> currentHashMap : rawClients) {
             try {
                 LinkedHashMap<String, String> addressMap = (LinkedHashMap<String, String>) currentHashMap.get("address");
 
-                HealthVisitor healthVisitor = HealthVisitorManager.getInstance().getHealthVisitor((Integer)currentHashMap.get("healthVisitorID"));
-                if (healthVisitor == null ) throw new Exception("Every health client needs a visitor");
+                HealthVisitor healthVisitor = HealthVisitorManager.getInstance().getHealthVisitor((Integer) currentHashMap.get("healthVisitorID"));
+                if (healthVisitor == null) throw new Exception("Every health client needs a visitor");
 
                 Address address = new Address(addressMap.get("street"), Integer.parseInt(addressMap.get("zipcode")), addressMap.get("town"), addressMap.get("country"));
                 HealthClient healthClient = new HealthClient(
@@ -74,7 +75,7 @@ public class HealthClientManager {
 
     public HealthClient getHealthClient(int id) {
         for (HealthClient healthClient : getHealthClients()) {
-            if (healthClient.getPersonId() ==  id) return healthClient;
+            if (healthClient.getPersonId() == id) return healthClient;
         }
         return null;
     }

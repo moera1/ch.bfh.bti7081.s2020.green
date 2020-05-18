@@ -30,7 +30,8 @@ public class HealthVisitorManager {
         return instance;
     }
 
-    private HealthVisitorManager() {}
+    private HealthVisitorManager() {
+    }
 
     public void initializeHealthVisitors() {
         List<LinkedHashMap<String, Object>> rawVisitors = getHealthVisitorsFromProvider();
@@ -86,7 +87,7 @@ public class HealthVisitorManager {
         this.currentUser = currentUser;
     }
 
-    public void resetCurrentUser(){
+    public void resetCurrentUser() {
         currentUser = null;
     }
 
@@ -101,17 +102,17 @@ public class HealthVisitorManager {
             LinkedHashMap<String, Object> healthVisitorMap = mapper.readValue(url, LinkedHashMap.class);
 
             Integer userId = (Integer) healthVisitorMap.get("employeeID");
-            HealthVisitor currentUser =  getHealthVisitor(userId);
-            if (currentUser ==  null) throw new Exception("No local user with userId:" + userId + "found");
+            HealthVisitor currentUser = getHealthVisitor(userId);
+            if (currentUser == null) throw new Exception("No local user with userId:" + userId + "found");
 
             setCurrentUser(currentUser);
 
-        } catch (IOException e){
+        } catch (IOException e) {
             throw e;
         }
     }
 
-    public HealthVisitor getHealthVisitor (int id) {
+    public HealthVisitor getHealthVisitor(int id) {
         for (HealthVisitor healthVisitor : getHealthVisitors()) {
             if (healthVisitor.getPersonId() == id) return healthVisitor;
         }

@@ -1,6 +1,8 @@
 package ch.bfh.bti7081.s2020.green.protomed.management;
 
+import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
+import ch.bfh.bti7081.s2020.green.protomed.model.HealthService;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
 
 public class KadexInitializer {
@@ -18,6 +20,10 @@ public class KadexInitializer {
 
             // get the healthClients
             initializeHealthClients();
+
+            HealthServiceManager.getInstance();
+            AppointmentManager.getInstance();
+            ProtocolManager.getInstance();
 
             /// test stuff
             HealthVisitor trudi = HealthVisitorManager.getInstance().getHealthVisitor(1);
