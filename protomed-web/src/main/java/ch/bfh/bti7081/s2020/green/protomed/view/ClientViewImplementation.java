@@ -33,7 +33,6 @@ public class ClientViewImplementation extends VerticalLayout implements ClientVi
     	{
     		ClickableCard clientCard = new ClickableCard(
                 onClick -> {
-                	// TODO: Notify presenter that this client has been clicked
                 	for (ClientViewListener listener : listeners)
                         listener.selectClient(client);
                 },

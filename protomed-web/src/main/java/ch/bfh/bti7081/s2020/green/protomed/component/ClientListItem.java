@@ -1,48 +1,41 @@
 package ch.bfh.bti7081.s2020.green.protomed.component;
 
-import java.util.Date;
-
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
 
-public class ClientListItem extends Div {
+public class ClientListItem extends HorizontalLayout {
 	public ClientListItem(HealthClient client) {
-        addClassName("list-item");
-        
+		
+		setWidthFull();
+		setJustifyContentMode(FlexComponent.JustifyContentMode.BETWEEN);
+
+		//TODO: Load Client profile picture
+		Image photo = new Image();
+		
+		Div desc = new Div();
+		
         Div fullName = new Div();
         fullName.setText(client.getFirstname() + " " + client.getName());
         fullName.setWidthFull();
-        add(fullName);
+        desc.add(fullName);
         
         Div address = new Div();
         address.setText(client.getAddress().toString());
         address.setWidthFull();
-        add(address);
-		/*
-        addClassName("list-item");
+        desc.add(address);
+ 
+        expand(desc);
+        
+        Icon icon = new Icon(VaadinIcon.ANGLE_RIGHT);
+        setVerticalComponentAlignment(FlexComponent.Alignment.CENTER, icon);
 
-        Div dateBox = new Div();
-        dateBox.addClassName("date-box");
-
-        Div listContent = new Div();
-        listContent.addClassName("list-content");
-
-        Div title = new Div();
-        title.setText(titleText);
-        Div description = new Div();
-        description.setText(address);
-
-        Div dayText = new Div();
-        dayText.setText(dayFormat.format(Date.parse(date)));
-        dayText.addClassName("date-day");
-        Div monthText = new Div();
-        monthText.addClassName("date-month");
-        monthText.setText(monthFormat.format(Date.parse(date)));
-
-        dateBox.add(dayText, monthText);
-        listContent.add(title, description);
-        add(dateBox);
-        add(listContent);*/
+        
+        add(photo, desc, icon);
     }
 }
