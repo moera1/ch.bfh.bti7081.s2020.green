@@ -20,7 +20,9 @@ public class KadexInitializer {
             initializeHealthClients();
 
             HealthServiceManager.getInstance();
-            ApplicationModelManager.getInstance();
+
+            // create the ApplicationManager and init it
+            ApplicationModelManager.getInstance().initializeModels();
 
             /// test stuff
             HealthVisitor trudi = HealthVisitorManager.getInstance().getHealthVisitor(1);

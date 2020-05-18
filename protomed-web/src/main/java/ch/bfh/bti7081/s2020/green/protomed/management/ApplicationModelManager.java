@@ -27,6 +27,9 @@ public class ApplicationModelManager {
     }
 
     private ApplicationModelManager() {
+    }
+
+    public void initializeModels(){
         protocols = PersistenceManager.getInstance().loadProtocols();
         appointments = PersistenceManager.getInstance().loadAppointments();
     }
