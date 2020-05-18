@@ -43,4 +43,10 @@ public abstract class Person {
     public int hashCode() {
         return Objects.hash(getPersonId());
     }
+    
+    
+    @Override
+    public String toString() {
+    	return firstname + " " + name + ", " + birthDate.toString() + ", " + address.toString() + "(ID:" + Integer.toString(personId) + ")";
+    }
 }

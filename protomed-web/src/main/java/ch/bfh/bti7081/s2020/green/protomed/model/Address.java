@@ -21,6 +21,6 @@ public class Address {
     
     @Override
     public String toString() { 
-        return street + ", " + Integer.toString(postalCode) + " " + city + ", " + country; 
+        return street + ", " + Integer.toString(postalCode) + " " + city; 
     } 
 }

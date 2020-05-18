@@ -2,12 +2,15 @@ package ch.bfh.bti7081.s2020.green.protomed.view;
 
 import com.github.appreciated.card.ClickableCard;
 import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.QueryParameters;
-
+import com.vaadin.*;
 import ch.bfh.bti7081.s2020.green.protomed.component.CalendarListItem;
 import ch.bfh.bti7081.s2020.green.protomed.component.ClientListItem;
 import ch.bfh.bti7081.s2020.green.protomed.management.HealthClientManager;
@@ -21,14 +24,33 @@ import java.util.Set;
 public class ClientViewImplementation extends VerticalLayout implements ClientView {
 
     private List<ClientViewListener> listeners = new ArrayList<ClientViewListener>();
-	private Set<HealthClient> clients;
+    private VerticalLayout healthClientList;
 
     public ClientViewImplementation() {
     	
-    	clients = HealthClientManager.getInstance().getHealthClients();
-
     	add(new H2("Alle Klienten"));
     	
+    	TextField search = new TextField();
+    	search.setPlaceholder("Suche Klient");
+    	search.setAutoselect(true);
+    	search.addValueChangeListener(e -> {
+    		for (ClientViewListener listener : listeners)
+                listener.setSearchValue(e.getValue().toString());
+    	});
+    	search.setWidthFull();
+    	
+    	add(search);
+    	
+    	healthClientList = new VerticalLayout();
+    	healthClientList.setWidthFull();  	
+    	healthClientList.setMargin(false);
+    	healthClientList.setPadding(false);
+    	add(healthClientList);
+    	
+    }
+    
+    public void updateHealthClientList(Set<HealthClient> clients) {
+    	healthClientList.removeAll();
     	for (HealthClient client : clients)
     	{
     		ClickableCard clientCard = new ClickableCard(
@@ -39,7 +61,7 @@ public class ClientViewImplementation extends VerticalLayout implements ClientVi
                 new ClientListItem(client)
             );
     		clientCard.setWidthFull();
-    		add(clientCard);
+    		healthClientList.add(clientCard);
     	}
     }
 

@@ -22,6 +22,7 @@ public class ClientListItem extends HorizontalLayout {
 		
         Div fullName = new Div();
         fullName.setText(client.getFirstname() + " " + client.getName());
+        fullName.getStyle().set("font-weight", "bold");
         fullName.setWidthFull();
         desc.add(fullName);
         
