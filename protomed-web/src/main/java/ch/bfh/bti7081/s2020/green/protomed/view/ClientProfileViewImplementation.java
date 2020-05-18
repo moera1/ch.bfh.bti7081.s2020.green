@@ -3,7 +3,10 @@ package ch.bfh.bti7081.s2020.green.protomed.view;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Image;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import ch.bfh.bti7081.s2020.green.protomed.component.AppointmentsShortList;
@@ -16,6 +19,9 @@ public class ClientProfileViewImplementation extends VerticalLayout implements C
 	private List<ClientProfileViewListener> listeners = new ArrayList<ClientProfileViewListener>();
 	
 	public ClientProfileViewImplementation(HealthClient client) {
+		
+		//TODO: Create adjust URL
+		add(new Anchor("/protocol/new?client="+client.getPersonId(), new Icon(VaadinIcon.FILE_ADD)));
 		
 		Image photo = new Image();
 		add(photo);
