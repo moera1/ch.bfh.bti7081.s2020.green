@@ -22,10 +22,11 @@ public class HealthClient extends Person {
             Address address,
             LocalDate birthdate,
             String phoneNumber,
+            String profilePicture,
             BigInteger clientID,
             List<HealthService> insuredServices,
             Integer healthVisitorID) {
-        super(name, firstname, address, birthdate, phoneNumber);
+        super(name, firstname, address, birthdate, phoneNumber, profilePicture);
         this.clientID = clientID;
         this.insuredServices = insuredServices;
         this.healthVisitorID = healthVisitorID;

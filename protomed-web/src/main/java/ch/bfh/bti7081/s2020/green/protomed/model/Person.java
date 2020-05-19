@@ -19,18 +19,24 @@ public abstract class Person {
     private String firstname;
     @Getter @Setter
     private LocalDate birthDate;
+    @Getter @Setter
+    private String phoneNumber;
+    @Getter
+    private String profilePicture;
 
     /// open scope no-argument constructor required for ORMLite
     public Person(){
         //
     }
 
-    public Person(int personId, Address address, String name, String firstname, LocalDate birthDate) {
+    public Person(int personId, Address address, String name, String firstname, LocalDate birthDate, String phoneNumber, String profilePicture) {
         this.personId = personId;
         this.address = address;
         this.name = name;
         this.firstname = firstname;
         this.birthDate = birthDate;
+        this.phoneNumber = phoneNumber;
+        this.profilePicture = profilePicture;
     }
 
     public int getPersonId() {

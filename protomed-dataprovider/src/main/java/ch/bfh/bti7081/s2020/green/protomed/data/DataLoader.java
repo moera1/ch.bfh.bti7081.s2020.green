@@ -53,6 +53,7 @@ public class DataLoader {
                 .firstname("Daniel")
                 .name("Müller")
                 .phoneNumber("+41891234567")
+                .profilePicture("/resources/profile/daniel.png")
                 .insuredServices(services)
                 .build());
 
@@ -65,6 +66,7 @@ public class DataLoader {
                 .firstname("Thomas")
                 .name("Berger")
                 .phoneNumber("+41891234567")
+                .profilePicture("/resources/profile/thomas.png")
                 .insuredServices(services)
                 .build());
 
@@ -77,6 +79,7 @@ public class DataLoader {
                 .firstname("Lars")
                 .name("Imhof")
                 .phoneNumber("+41891234567")
+                .profilePicture("/resources/profile/lars.png")
                 .insuredServices(services)
                 .build());
 
@@ -93,6 +96,7 @@ public class DataLoader {
                 .firstname("Laura")
                 .name("Meyer")
                 .phoneNumber("+41891234567")
+                .profilePicture("/resources/profile/laura.png")
                 .superVisorID(1)
                 .build());
 
@@ -106,6 +110,7 @@ public class DataLoader {
                 .firstname("Gertrud")
                 .name("Sigentaler")
                 .phoneNumber("+41891234567")
+                .profilePicture("/resources/profile/gertrud.png")
                 .build());
 
         // Test visitor 03
@@ -118,6 +123,7 @@ public class DataLoader {
                 .firstname("Max")
                 .name("Kummer")
                 .phoneNumber("+41891234567")
+                .profilePicture("/resources/profile/max.png")
                 .build());
     }
 

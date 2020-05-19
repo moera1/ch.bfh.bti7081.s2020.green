@@ -61,7 +61,9 @@ public class HealthClientManager {
                         address,
                         currentHashMap.get("name").toString(),
                         currentHashMap.get("firstname").toString(),
-                        LocalDate.parse(currentHashMap.get("birthdate").toString())
+                        LocalDate.parse(currentHashMap.get("birthdate").toString()),
+                        currentHashMap.get("phonenumber").toString(),
+                        currentHashMap.get("profilepicture").toString()
                 );
 
                 healthVisitor.addClient(healthClient);

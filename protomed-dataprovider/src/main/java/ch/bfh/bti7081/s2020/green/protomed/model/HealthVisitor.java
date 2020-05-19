@@ -27,11 +27,12 @@ public class HealthVisitor extends Person {
             Address address,
             LocalDate birthdate,
             String phoneNumber,
+            String profilePicture,
             BigInteger employeeID,
             String email,
             String password,
             Integer superVisorID) {
-        super(name, firstname, address, birthdate, phoneNumber);
+        super(name, firstname, address, birthdate, phoneNumber, profilePicture);
         this.employeeID = employeeID;
         this.email = email;
         this.password = password;

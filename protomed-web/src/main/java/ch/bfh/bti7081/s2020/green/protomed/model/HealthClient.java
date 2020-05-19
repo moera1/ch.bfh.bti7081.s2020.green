@@ -20,8 +20,8 @@ public class HealthClient extends Person {
         //
     }
 
-    public HealthClient(HealthVisitor healthVisitor, int personId, Address address, String name, String firstname, LocalDate birthDate) {
-        super(personId, address, name, firstname, birthDate);
+    public HealthClient(HealthVisitor healthVisitor, int personId, Address address, String name, String firstname, LocalDate birthDate, String phoneNumber, String profilePicture) {
+        super(personId, address, name, firstname, birthDate, phoneNumber, profilePicture);
         this.healthVisitor = healthVisitor;
     }
 }

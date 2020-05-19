@@ -24,8 +24,8 @@ public class HealthVisitor extends Person {
         //
     }
 
-    public HealthVisitor(int employeeID, Address address, String name, String firstname, LocalDate birthdate, String email) {
-        super(employeeID, address, name, firstname, birthdate);
+    public HealthVisitor(int employeeID, Address address, String name, String firstname, LocalDate birthdate, String phoneNumber, String profilePicture, String email) {
+        super(employeeID, address, name, firstname, birthdate, phoneNumber, profilePicture);
         this.email = email;
     }
 

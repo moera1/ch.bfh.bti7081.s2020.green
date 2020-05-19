@@ -20,5 +20,7 @@ public abstract class Person {
     LocalDate birthdate;
     private final @NonNull
     String phonenumber;
+    private final @NonNull
+    String profilepicture;
 
 }

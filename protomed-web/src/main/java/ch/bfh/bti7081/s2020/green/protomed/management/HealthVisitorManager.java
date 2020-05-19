@@ -59,6 +59,8 @@ public class HealthVisitorManager {
                     currentHashMap.get("name").toString(),
                     currentHashMap.get("firstname").toString(),
                     LocalDate.parse(currentHashMap.get("birthdate").toString()),
+                    currentHashMap.get("phonenumber").toString(),
+                    currentHashMap.get("profilepicture").toString(),
                     currentHashMap.get("email").toString()
             );
 
