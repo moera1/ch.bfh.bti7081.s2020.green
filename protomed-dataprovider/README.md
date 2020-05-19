@@ -1,4 +1,4 @@
-#JSON Dataprovider
+# JSON Dataprovider
 Simulates a thirdparty interface in a wider system environment.
 
 ## Endpoints
