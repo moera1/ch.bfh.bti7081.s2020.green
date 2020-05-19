@@ -2,19 +2,10 @@ package ch.bfh.bti7081.s2020.green.protomed.management;
 
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
-import lombok.Getter;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ApplicationModelManager {
-
-    @Getter
-    private List<Appointment> appointments = new ArrayList<>();
-
-    @Getter
-    private List<Protocol> protocols = new ArrayList<>();
 
     // Singleton
     private static ApplicationModelManager instance;
@@ -30,34 +21,32 @@ public class ApplicationModelManager {
     private ApplicationModelManager() {
     }
 
-    public void initializeModels(){
-
-        appointments = PersistenceManager.getInstance().loadAppointments();
-        protocols = PersistenceManager.getInstance().loadProtocols();
+    private PersistenceManager persistenceManager(){
+        return PersistenceManager.getInstance();
     }
 
     public List<Protocol> getProtocols() {
-        return protocols;
+        return persistenceManager().fetchAllProtocols();
     }
 
     public List<Protocol> getProtocolsByHealthClientID(int id) {
-        return protocols.stream().filter(protocol -> protocol.getHealthClient().getPersonId() == id).collect(Collectors.toList());
+        return persistenceManager().fetchAllProtocolsByClientID(id);
     }
 
     public List<Protocol> getProtocolsByHealthVisitorID(int id) {
-        return protocols.stream().filter(protocol -> protocol.getHealthVisitor().getPersonId() == id).collect(Collectors.toList());
+        return persistenceManager().fetchAllProtocolsByVisitorID(id);
     }
 
     public List<Appointment> getAppointments() {
-        return appointments;
+        return persistenceManager().fetchAllAppointments();
     }
 
     public List<Appointment> getAppointmentsByHealthVisitorID(Integer userid) {
-        return appointments.stream().filter(appointment -> appointment.getHealthVisitor().getPersonId() == userid).collect(Collectors.toList());
+        return persistenceManager().fetchAppointmentsByVisitorID(userid);
     }
 
     public List<Appointment> getAppointmentsByHealthClientID(Integer userid) {
-        return appointments.stream().filter(appointment -> appointment.getHealthClient().getPersonId() == userid).collect(Collectors.toList());
+        return persistenceManager().fetchAppointmentsByClientID(userid);
     }
 
 }

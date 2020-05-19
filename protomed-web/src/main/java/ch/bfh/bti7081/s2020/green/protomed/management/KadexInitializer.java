@@ -1,7 +1,11 @@
 package ch.bfh.bti7081.s2020.green.protomed.management;
 
+import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
+import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
+
+import java.util.List;
 
 public class KadexInitializer {
 
@@ -21,19 +25,22 @@ public class KadexInitializer {
 
             HealthServiceManager.getInstance();
 
-            // create the ApplicationManager and init it
-            ApplicationModelManager.getInstance().initializeModels();
+            // get the application models
+            initializeApplicationModels();
 
             /// test stuff
-            //PersistenceManager.getInstance().initPersistenceManager();
-
-//            HealthVisitor self = HealthVisitorManager.getInstance().getCurrentUser();
-//            HealthVisitorManager.getInstance().logInUser("max.kummer@bfh-test.ch", "1234");
-//
-//            self = HealthVisitorManager.getInstance().getCurrentUser();
-//
-//            // wrong password throws exception
-//            HealthVisitorManager.getInstance().logInUser("max.kummer@bfh-test.ch", "3456");
+            //PersistenceManager.getInstance().testLoop();
+            /*
+            ApplicationModelManager man = ApplicationModelManager.getInstance();
+            HealthVisitor hv = HealthVisitorManager.getInstance().getHealthVisitor(2);
+            HealthClient hc = HealthClientManager.getInstance().getHealthClient(3);
+            List<Appointment> appointments = man.getAppointments();
+            appointments = man.getAppointmentsByHealthVisitorID(hv.getPersonId());
+            appointments = man.getAppointmentsByHealthClientID(hc.getPersonId());
+            List<Protocol> protocols = man.getProtocols();
+            protocols = man.getProtocolsByHealthVisitorID(hv.getPersonId());
+            protocols = man.getProtocolsByHealthClientID(hc.getPersonId());
+            */
 
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
@@ -46,5 +53,9 @@ public class KadexInitializer {
 
     private void initializeHealthClients() {
         HealthClientManager.getInstance().initializeHealthClients();
+    }
+
+    private void initializeApplicationModels() {
+        PersistenceManager.getInstance().initialize(PersistenceManager.PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA);
     }
 }
