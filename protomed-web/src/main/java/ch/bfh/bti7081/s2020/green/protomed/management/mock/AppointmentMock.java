@@ -16,9 +16,9 @@ public class AppointmentMock {
         List<Appointment> appointments = new ArrayList<>();
         LocalDateTime time = LocalDateTime.now();
 
-        HealthVisitor laura = HealthVisitorManager.getInstance().getHealthVisitor(0);
-        HealthVisitor gertrud = HealthVisitorManager.getInstance().getHealthVisitor(1);
-        HealthVisitor max = HealthVisitorManager.getInstance().getHealthVisitor(2);
+        HealthVisitor laura = HealthVisitorManager.getInstance().getHealthVisitor(1);
+        HealthVisitor gertrud = HealthVisitorManager.getInstance().getHealthVisitor(2);
+        HealthVisitor max = HealthVisitorManager.getInstance().getHealthVisitor(3);
 
         HealthClient daniel = HealthClientManager.getInstance().getHealthClient(1);
         HealthClient thomas = HealthClientManager.getInstance().getHealthClient(2);

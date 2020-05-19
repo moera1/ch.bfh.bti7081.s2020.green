@@ -1,15 +1,16 @@
 package ch.bfh.bti7081.s2020.green.protomed.model;
 
+import com.j256.ormlite.field.DatabaseField;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.Objects;
 
 public abstract class Person {
-    private final int personId;
+
+    @DatabaseField(id = true)
+    private Integer personId;
     @Getter @Setter
     private Address address;
     @Getter
@@ -18,6 +19,11 @@ public abstract class Person {
     private String firstname;
     @Getter @Setter
     private LocalDate birthDate;
+
+    /// open scope no-argument constructor required for ORMLite
+    public Person(){
+        //
+    }
 
     public Person(int personId, Address address, String name, String firstname, LocalDate birthDate) {
         this.personId = personId;

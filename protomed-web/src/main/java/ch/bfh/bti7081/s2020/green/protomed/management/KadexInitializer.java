@@ -25,9 +25,7 @@ public class KadexInitializer {
             ApplicationModelManager.getInstance().initializeModels();
 
             /// test stuff
-            HealthVisitor trudi = HealthVisitorManager.getInstance().getHealthVisitor(1);
-            HealthVisitor laura = (HealthVisitor) trudi.getSubordinates().toArray()[0];
-            HealthClient lars = (HealthClient) trudi.getClients().toArray()[0];
+            //PersistenceManager.getInstance().initPersistenceManager();
 
 //            HealthVisitor self = HealthVisitorManager.getInstance().getCurrentUser();
 //            HealthVisitorManager.getInstance().logInUser("max.kummer@bfh-test.ch", "1234");
