@@ -23,7 +23,7 @@ public class KadexInitializer {
             // get the healthClients
             initializeHealthClients();
 
-            HealthServiceManager.getInstance();
+            HealthServiceManager.getInstance().initializeHealthServices();
 
             // get the application models
             initializeApplicationModels();
