@@ -19,8 +19,6 @@ public class Profile extends Div {
         VerticalLayout layout = new VerticalLayout();
         layout.setHeightFull();
         layout.setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
-        layout.addClassName("text-center");
-
         userImage = new Image();
         welcomeMsg = new H3();
 
