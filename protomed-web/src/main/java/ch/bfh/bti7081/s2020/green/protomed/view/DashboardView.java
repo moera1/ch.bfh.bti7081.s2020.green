@@ -1,14 +1,24 @@
 package ch.bfh.bti7081.s2020.green.protomed.view;
 
-import com.vaadin.flow.router.Route;
+import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
+import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
+import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
+
+import java.util.List;
 
 
 public interface DashboardView {
 
     interface DashboardViewListener {
-//        void click(String a);
+        void selectAppointment(Appointment appointment);
     }
 
-    public void addListener(DashboardViewListener listener);
+    void addListener(DashboardViewListener listener);
+
+    void loadDashboard(HealthVisitor currentUser);
+
+    void loadUserAppointments(List<Appointment> appointments);
+
+    void navigateToAppointment(long id);
 
 }

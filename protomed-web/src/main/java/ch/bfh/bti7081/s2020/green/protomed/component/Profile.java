@@ -1,24 +1,30 @@
 package ch.bfh.bti7081.s2020.green.protomed.component;
 
+import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.H4;
+import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.Image;
-import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 
 public class Profile extends Div {
 
+    Image userImage;
+    H3 welcomeMsg;
+
     public Profile() {
 
         Div borderBox = new Div();
         VerticalLayout layout = new VerticalLayout();
+        layout.setHeightFull();
+        layout.setJustifyContentMode(FlexComponent.JustifyContentMode.CENTER);
+        layout.addClassName("text-center");
 
-        Image image = new Image("images/max.png", "Profilbild");
-        H4 welcomeMsg = new H4("Willkommen zurück, Max!");
+        userImage = new Image();
+        welcomeMsg = new H3();
 
-        layout.add(image, welcomeMsg);
+        layout.add(userImage, welcomeMsg);
         borderBox.add(layout);
         borderBox.addClassName("panel");
 
@@ -26,6 +32,14 @@ public class Profile extends Div {
         addClassName("panel-box");
         layout.setAlignItems(FlexComponent.Alignment.CENTER);
 
+    }
+
+    public void loadProfile(HealthVisitor currentUser) {
+        // TODO: replace mock image with profile picture
+        //userImage.setSrc(currentUser.getProfilePicture());
+        userImage.setSrc("images/max.png");
+        userImage.setAlt("Profilbild");
+        welcomeMsg.setText("Willkommen zurück, " + currentUser.getFirstname() + "!");
     }
 
 }

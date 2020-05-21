@@ -25,3 +25,24 @@
 .navbar > a[highlight] {
     border-left: solid 4px #1676f3;
 }
+
+
+/* Dashboard */
+
+.dashboard-container {
+    max-width: 1400px;
+}
+
+.dashboard-container clickable-card {
+    --lumo-box-shadow-xs: none;
+    --lumo-box-shadow-s: none;
+    --lumo-box-shadow-m: none;
+    --lumo-box-shadow-l: none;
+    --lumo-box-shadow-xl: none;
+}
+
+/* Protocol */
+
+.protocol-container {
+    max-width: 1400px;
+}

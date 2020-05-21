@@ -1,3 +1,4 @@
+/* Panels */
 .panel-box {
     padding: 12px;
 }
@@ -5,7 +6,7 @@
 .panel {
     color: #474747;
     background-color: white;
-    border-radius: 4px;
+    border-radius: 2px;
     border: 1px solid #d5d5d5;
     height: 100%;
 }
@@ -18,9 +19,11 @@
     margin: 0;
 }
 
+/* ListItem */
 .list-item {
     border-bottom: solid 1px #eee;
-    padding: 4px 0;
+    padding: 4px 5px;
+    width: 100%;
 }
 
 .list-item > .date-box {
@@ -31,6 +34,10 @@
     text-align: center;
 }
 
+.list-item > .list-content {
+    /* padding-left: 5px; */
+}
+
 .date-day {
     font-size: 20px;
 }
@@ -39,6 +46,8 @@
     font-size: 11px;
 }
 
-.list-item > .list-content {
-    width: 95%;
+/* Custom Vaadin Components */
+.icon-grey {
+    color: #c4c4c4
 }
+

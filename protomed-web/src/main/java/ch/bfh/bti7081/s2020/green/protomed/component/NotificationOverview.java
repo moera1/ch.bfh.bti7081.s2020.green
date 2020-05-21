@@ -1,16 +1,15 @@
 package ch.bfh.bti7081.s2020.green.protomed.component;
 
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
+import ch.bfh.bti7081.s2020.green.protomed.view.DashboardMainView;
+import com.github.appreciated.card.ClickableCard;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class NotificationOverview extends Div {
 
     private H3 title = new H3("Neuigkeiten");
-    private Button showAllButton = new Button("Alle anzeigen");
 
     public NotificationOverview() {
         Div borderBox = new Div();
@@ -20,15 +19,21 @@ public class NotificationOverview extends Div {
         panelContent.addClassName("panel-content");
         panelContent.setSizeFull();
 
-        showAllButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
-        showAllButton.addClassName("panel-btn");
-
         Div notificationContainer = new Div();
         notificationContainer.addClassName("notification-container");
-        notificationContainer.add(new ListItem("Neues Besuchsprotokoll verfügbar", "26.03.2020 von Gertrud Michel"));
-        notificationContainer.add(new ListItem("Neues Telefonprotokoll verfügbar", "14.02.2020 von Gertrud Michel"));
 
-        panelContent.add(title, notificationContainer, showAllButton);
+        notificationContainer.add(new ClickableCard(
+                onClick -> UI.getCurrent().navigate(DashboardMainView.class),
+                new NotificationListItem("Neues Besuchsprotokoll verfügbar", "26.03.2020 von Gertrud Michel")
+                )
+        );
+        notificationContainer.add(new ClickableCard(
+                onClick -> UI.getCurrent().navigate(DashboardMainView.class),
+                new NotificationListItem("Neues Telefonprotokoll verfügbar", "14.02.2020 von Gertrud Michel")
+                )
+        );
+
+        panelContent.add(title, notificationContainer);
         layout.add(panelContent);
 
         borderBox.add(layout);
