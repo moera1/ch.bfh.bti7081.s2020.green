@@ -8,10 +8,8 @@ import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
+import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 public class PersistenceManager {
 
@@ -64,6 +62,17 @@ public class PersistenceManager {
         TableUtils.createTable(connectionSource, Protocol.class);
     }
 
+    public void shutdown(){
+        try {
+            if (connectionSource != null) {
+                connectionSource.close();
+                connectionSource = null;
+            }
+        } catch (IOException ioe) {
+            System.out.println(ioe.getMessage());
+        }
+    }
+
     private String connectionURL(){
         if (persistenceStrategy == PersistenceStrategy.PERSISTENCE_STRATEGY_SQLITE)
             return kSQLiteConnectionURL;
@@ -71,79 +80,6 @@ public class PersistenceManager {
             return kMemoryConnectionURL;
         else
             return "";
-    }
-
-    public List<Appointment> fetchAllAppointments() {
-        try {
-            return appointmentDao.queryForAll();
-        } catch (SQLException exception) {
-            System.out.println(exception.getMessage());
-            return new ArrayList<>();
-        }
-    }
-
-    public List<Appointment> fetchAppointmentsByVisitorID(Integer userid) {
-        try {
-            return appointmentDao.queryForEq("healthVisitorID", userid);
-        } catch (Exception exception) {
-            System.out.println(exception.getMessage());
-            return new ArrayList<>();
-        }
-    }
-
-    public List<Appointment> fetchAppointmentsByClientID(Integer userid) {
-        try {
-            return appointmentDao.queryForEq("healthClientID", userid);
-        } catch (SQLException exception) {
-            System.out.println(exception.getMessage());
-            return new ArrayList<>();
-        }
-    }
-
-    public List<Protocol> fetchAllProtocols() {
-        try {
-            return protocolDao.queryForAll();
-        } catch (SQLException exception) {
-            System.out.println(exception.getMessage());
-            return new ArrayList<>();
-        }
-    }
-
-    public List<Protocol> fetchAllProtocolsByVisitorID(Integer userid) {
-        try {
-            return protocolDao.queryForEq("healthVisitorID", userid);
-        } catch (SQLException exception) {
-            System.out.println(exception.getMessage());
-            return new ArrayList<>();
-        }
-    }
-
-    public List<Protocol> fetchAllProtocolsByClientID(Integer userid) {
-        try {
-            return protocolDao.queryForEq("healthClientID", userid);
-        } catch (SQLException exception) {
-            System.out.println(exception.getMessage());
-            return new ArrayList<>();
-        }
-    }
-
-    public void testLoop (){
-        while (true){
-            List<Appointment> appointments = fetchAllAppointments();
-            System.out.println(appointments);
-
-            HealthClient hc = appointments.get(2).getHealthClient();
-            System.out.println(hc);
-
-            List<Protocol> protocols = fetchAllProtocols();
-            System.out.println(protocols);
-
-            HealthVisitor hv = protocols.get(3).getHealthVisitor();
-            System.out.println(hv);
-
-            Protocol protocol = new Protocol(hv, hc, LocalDateTime.now(), ProtocolType.NOTIZ, "Meine geile Notiz");
-            ApplicationModelManager.getInstance().createProtocol(protocol);
-        }
     }
 
     private void loadAppointmentsFromMockData() {
@@ -169,5 +105,9 @@ public class PersistenceManager {
 
     public Dao<Protocol, Integer> getProtocolDao() {
         return protocolDao;
+    }
+
+    public Dao<Appointment, Integer> getAppointmentDao() {
+        return appointmentDao;
     }
 }

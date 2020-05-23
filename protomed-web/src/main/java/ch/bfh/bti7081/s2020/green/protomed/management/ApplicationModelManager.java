@@ -4,6 +4,7 @@ import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicationModelManager {
@@ -27,15 +28,30 @@ public class ApplicationModelManager {
     }
 
     public List<Protocol> getProtocols() {
-        return persistenceManager().fetchAllProtocols();
+        try {
+            return persistenceManager().getProtocolDao().queryForAll();
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     public List<Protocol> getProtocolsByHealthClientID(int id) {
-        return persistenceManager().fetchAllProtocolsByClientID(id);
+        try {
+            return persistenceManager().getProtocolDao().queryForEq("healthClientID", id);
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+            return new ArrayList<>();
+        }
     }
 
     public List<Protocol> getProtocolsByHealthVisitorID(int id) {
-        return persistenceManager().fetchAllProtocolsByVisitorID(id);
+        try {
+            return persistenceManager().getProtocolDao().queryForEq("healthVisitorID", id);
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+            return new ArrayList<>();
+        }
     }
 
     public boolean createProtocol(Protocol protocol){
@@ -69,15 +85,30 @@ public class ApplicationModelManager {
     }
 
     public List<Appointment> getAppointments() {
-        return persistenceManager().fetchAllAppointments();
+        try {
+            return persistenceManager().getAppointmentDao().queryForAll();
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+            return new ArrayList<>();
+        }
     }
 
     public List<Appointment> getAppointmentsByHealthVisitorID(Integer userid) {
-        return persistenceManager().fetchAppointmentsByVisitorID(userid);
+        try {
+            return persistenceManager().getAppointmentDao().queryForEq("healthVisitorID", userid);
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            return new ArrayList<>();
+        }
     }
 
     public List<Appointment> getAppointmentsByHealthClientID(Integer userid) {
-        return persistenceManager().fetchAppointmentsByClientID(userid);
+        try {
+            return persistenceManager().getAppointmentDao().queryForEq("healthClientID", userid);
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+            return new ArrayList<>();
+        }
     }
 
 }
