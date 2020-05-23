@@ -56,6 +56,10 @@ public class KadexInitializer {
     }
 
     private void initializeApplicationModels() {
-        PersistenceManager.getInstance().initialize(PersistenceManager.PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA);
+        try {
+            PersistenceManager.getInstance().configureInstance();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

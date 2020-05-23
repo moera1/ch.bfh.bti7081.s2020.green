@@ -34,6 +34,13 @@ public class Protocol {
     @DatabaseField(dataType = DataType.ENUM_INTEGER)
     private ProtocolType protocolType;
 
+    @Getter
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
+    protected Appointment appointment;
+
+    @DatabaseField(dataType = DataType.SERIALIZABLE)
+    protected String[] serviceIds;
+
     /// open scope no-argument constructor required for ORMLite
     public Protocol(){
         //

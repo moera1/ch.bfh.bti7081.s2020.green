@@ -8,10 +8,9 @@ import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.jdbc.JdbcPooledConnectionSource;
+import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +30,10 @@ public class PersistenceManager {
     private final static String kSQLiteConnectionURL = "jdbc:sqlite:persistenceStore.db";
     private final static String kMemoryConnectionURL = "jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1";
 
+    private JdbcConnectionSource connectionSource;
+    private Dao<Appointment, Integer> appointmentDao;
+    private Dao<Protocol, Integer> protocolDao;
+
     public static PersistenceManager getInstance() {
         if (instance == null) {
             // lazy initialization
@@ -42,12 +45,25 @@ public class PersistenceManager {
     private PersistenceManager() {
     }
 
-    public void initialize(PersistenceStrategy persistenceStrategy){
-        if (persistenceStrategy != null) this.persistenceStrategy = persistenceStrategy;
+    public void configureInstance() throws Exception{
+        this.initializeAndConnectDB(PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA);
+
+        appointmentDao = DaoManager.createDao(connectionSource, Appointment.class);
+        protocolDao = DaoManager.createDao(connectionSource, Protocol.class);
+
         if (persistenceStrategy == PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA) {
             loadAppointmentsFromMockData();
             loadProtocolsFromMockData();
         }
+    }
+
+    public void initializeAndConnectDB(PersistenceStrategy persistenceStrategy) throws SQLException{
+        if (persistenceStrategy != null) this.persistenceStrategy = persistenceStrategy;
+
+        this.connectionSource = new JdbcConnectionSource(connectionURL());
+
+        TableUtils.createTableIfNotExists(connectionSource, Appointment.class);
+        TableUtils.createTable(connectionSource, Protocol.class);
     }
 
     private String connectionURL(){
@@ -60,36 +76,27 @@ public class PersistenceManager {
     }
 
     public List<Appointment> fetchAllAppointments() {
-        try (JdbcPooledConnectionSource connectionSource
-                     = new JdbcPooledConnectionSource(connectionURL())){
-
-            Dao<Appointment, Long> appointmentDao = DaoManager.createDao(connectionSource, Appointment.class);
+        try {
             return appointmentDao.queryForAll();
-        } catch (IOException | SQLException exception) {
+        } catch (SQLException exception) {
             System.out.println(exception.getMessage());
             return new ArrayList<>();
         }
     }
 
     public List<Appointment> fetchAppointmentsByVisitorID(Integer userid) {
-        try (JdbcPooledConnectionSource connectionSource
-                     = new JdbcPooledConnectionSource(connectionURL())){
-
-            Dao<Appointment, Long> appointmentDao = DaoManager.createDao(connectionSource, Appointment.class);
+        try {
             return appointmentDao.queryForEq("healthVisitorID", userid);
-        } catch (IOException | SQLException exception) {
+        } catch (Exception exception) {
             System.out.println(exception.getMessage());
             return new ArrayList<>();
         }
     }
 
     public List<Appointment> fetchAppointmentsByClientID(Integer userid) {
-        try (JdbcPooledConnectionSource connectionSource
-                     = new JdbcPooledConnectionSource(connectionURL())){
-
-            Dao<Appointment, Long> appointmentDao = DaoManager.createDao(connectionSource, Appointment.class);
+        try {
             return appointmentDao.queryForEq("healthClientID", userid);
-        } catch (IOException | SQLException exception) {
+        } catch (SQLException exception) {
             System.out.println(exception.getMessage());
             return new ArrayList<>();
         }
@@ -104,36 +111,27 @@ public class PersistenceManager {
     }
 
     public List<Protocol> fetchAllProtocols() {
-        try (JdbcPooledConnectionSource connectionSource
-                     = new JdbcPooledConnectionSource(connectionURL())){
-
-            Dao<Protocol, Long> protocolDao = DaoManager.createDao(connectionSource, Protocol.class);
+        try {
             return protocolDao.queryForAll();
-        } catch (IOException | SQLException exception) {
+        } catch (SQLException exception) {
             System.out.println(exception.getMessage());
             return new ArrayList<>();
         }
     }
 
     public List<Protocol> fetchAllProtocolsByVisitorID(Integer userid) {
-        try (JdbcPooledConnectionSource connectionSource
-                     = new JdbcPooledConnectionSource(connectionURL())){
-
-            Dao<Protocol, Long> protocolDao = DaoManager.createDao(connectionSource, Protocol.class);
+        try {
             return protocolDao.queryForEq("healthVisitorID", userid);
-        } catch (IOException | SQLException exception) {
+        } catch (SQLException exception) {
             System.out.println(exception.getMessage());
             return new ArrayList<>();
         }
     }
 
     public List<Protocol> fetchAllProtocolsByClientID(Integer userid) {
-        try (JdbcPooledConnectionSource connectionSource
-                     = new JdbcPooledConnectionSource(connectionURL())){
-
-            Dao<Protocol, Long> protocolDao = DaoManager.createDao(connectionSource, Protocol.class);
+        try {
             return protocolDao.queryForEq("healthClientID", userid);
-        } catch (IOException | SQLException exception) {
+        } catch (SQLException exception) {
             System.out.println(exception.getMessage());
             return new ArrayList<>();
         }
@@ -156,50 +154,27 @@ public class PersistenceManager {
     }
 
     private void loadAppointmentsFromMockData() {
-        List<Appointment> appointments = AppointmentMock.getAppointments();
-
-        try (JdbcPooledConnectionSource connectionSource
-                     = new JdbcPooledConnectionSource(connectionURL())){
-
-            TableUtils.createTableIfNotExists(connectionSource, Appointment.class);
-
-            for (Appointment appointment : appointments) {
-                try{
-                    Dao<Appointment, Long> appointmentDao = DaoManager.createDao(connectionSource, Appointment.class);
-                    appointmentDao.create(appointment);
-                }catch (SQLException exception){
-                    ///TODO: EXCEPTION HANDLING
-                    System.out.println(exception.getMessage());
-                }
+        for (Appointment appointment : AppointmentMock.getAppointments()) {
+            try{
+                appointmentDao.create(appointment);
+            }catch (SQLException exception){
+                ///TODO: EXCEPTION HANDLING
+                System.out.println(exception.getMessage());
             }
-            Dao<Appointment, Long> appointmentDao = DaoManager.createDao(connectionSource, Appointment.class);
-            appointmentDao.forEach(appointment -> {
-                System.out.println(appointment.getId());
-            });
-        } catch (IOException | SQLException exception) {
-            ///TODO: Exception Handling
-            System.out.println(exception.getMessage());
         }
     }
 
     private void loadProtocolsFromMockData() {
-        List<Protocol> protocols = ProtocolMock.getProtocols();
-
-        try (JdbcPooledConnectionSource connectionSource
-                     = new JdbcPooledConnectionSource(connectionURL())){
-
-            TableUtils.createTable(connectionSource, Protocol.class);
-
-            for (Protocol protocol : protocols) {
-                try{
-                    Dao<Protocol, Long> protocolDao = DaoManager.createDao(connectionSource, Protocol.class);
-                    protocolDao.create(protocol);
-                }catch (SQLException exception){
-                    System.out.println(exception.getMessage());
-                }
+        for (Protocol protocol : ProtocolMock.getProtocols()) {
+            try{
+                protocolDao.create(protocol);
+            }catch (SQLException exception){
+                System.out.println(exception.getMessage());
             }
-        } catch (IOException | SQLException exception) {
-            System.out.println(exception.getMessage());
         }
+    }
+
+    public Dao<Protocol, Integer> getProtocolDao() {
+        return protocolDao;
     }
 }
