@@ -2,16 +2,14 @@ package ch.bfh.bti7081.s2020.green.protomed.management;
 
 import ch.bfh.bti7081.s2020.green.protomed.management.mock.AppointmentMock;
 import ch.bfh.bti7081.s2020.green.protomed.management.mock.ProtocolMock;
-import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
-import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
-import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
-import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
+import ch.bfh.bti7081.s2020.green.protomed.model.*;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,14 +100,6 @@ public class PersistenceManager {
         }
     }
 
-    public void saveAppointments(List<Appointment> appointments) {
-        // TODO: Implement DB Query
-    }
-
-    public void saveAppointment(Appointment appointment) {
-        // TODO: Implement DB Query
-    }
-
     public List<Protocol> fetchAllProtocols() {
         try {
             return protocolDao.queryForAll();
@@ -150,6 +140,9 @@ public class PersistenceManager {
 
             HealthVisitor hv = protocols.get(3).getHealthVisitor();
             System.out.println(hv);
+
+            Protocol protocol = new Protocol(hv, hc, LocalDateTime.now(), ProtocolType.NOTIZ, "Meine geile Notiz");
+            ApplicationModelManager.getInstance().createProtocol(protocol);
         }
     }
 
