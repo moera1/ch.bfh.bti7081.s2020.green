@@ -23,7 +23,7 @@ public class ApplicationModelManager {
     private ApplicationModelManager() {
     }
 
-    private PersistenceManager persistenceManager(){
+    private PersistenceManager persistenceManager() {
         return PersistenceManager.getInstance();
     }
 
@@ -33,6 +33,15 @@ public class ApplicationModelManager {
         } catch (SQLException exception) {
             exception.printStackTrace();
             return new ArrayList<>();
+        }
+    }
+
+    public Protocol getProtocolByID(int id) {
+        try {
+            return persistenceManager().getProtocolDao().queryForId(id);
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+            return null;
         }
     }
 
@@ -54,7 +63,7 @@ public class ApplicationModelManager {
         }
     }
 
-    public boolean createProtocol(Protocol protocol){
+    public boolean createProtocol(Protocol protocol) {
         try {
             persistenceManager().getProtocolDao().create(protocol);
             return true;
@@ -64,7 +73,7 @@ public class ApplicationModelManager {
         }
     }
 
-    public boolean saveProtocol(Protocol protocol){
+    public boolean saveProtocol(Protocol protocol) {
         try {
             persistenceManager().getProtocolDao().update(protocol);
             return true;
@@ -74,7 +83,7 @@ public class ApplicationModelManager {
         }
     }
 
-    public boolean deleteProtocol(Protocol protocol){
+    public boolean deleteProtocol(Protocol protocol) {
         try {
             persistenceManager().getProtocolDao().delete(protocol);
             return true;

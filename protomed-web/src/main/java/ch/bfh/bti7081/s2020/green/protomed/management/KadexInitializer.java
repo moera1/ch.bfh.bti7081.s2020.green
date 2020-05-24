@@ -1,12 +1,5 @@
 package ch.bfh.bti7081.s2020.green.protomed.management;
 
-import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
-import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
-import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
-import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
-
-import java.util.List;
-
 public class KadexInitializer {
 
     public KadexInitializer() {
@@ -17,16 +10,13 @@ public class KadexInitializer {
 
         try {
 
-            // first get healthVisitors - they are needed to init the clients
+            // Init data
             initializeHealthVisitors();
-
-            // get the healthClients
             initializeHealthClients();
-
-            HealthServiceManager.getInstance().initializeHealthServices();
+            initializeHealthServices();
 
             // get the application models
-            initializeApplicationModels();
+            //initializeApplicationModels();
 
             /// test stuff
             //PersistenceManager.getInstance().testLoop();
@@ -55,11 +45,15 @@ public class KadexInitializer {
         HealthClientManager.getInstance().initializeHealthClients();
     }
 
-    private void initializeApplicationModels() {
+    private void initializeHealthServices() {
+        HealthServiceManager.getInstance().initializeHealthServices();
+    }
+
+    /*private void initializeApplicationModels() {
         try {
             PersistenceManager.getInstance().configureInstance();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }
+    }*/
 }

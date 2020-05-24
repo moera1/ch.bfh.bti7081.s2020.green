@@ -2,7 +2,8 @@ package ch.bfh.bti7081.s2020.green.protomed.management;
 
 import ch.bfh.bti7081.s2020.green.protomed.management.mock.AppointmentMock;
 import ch.bfh.bti7081.s2020.green.protomed.management.mock.ProtocolMock;
-import ch.bfh.bti7081.s2020.green.protomed.model.*;
+import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
+import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
@@ -34,14 +35,20 @@ public class PersistenceManager {
         if (instance == null) {
             // lazy initialization
             instance = new PersistenceManager();
+
         }
         return instance;
     }
 
     private PersistenceManager() {
+        try {
+            configureInstance();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void configureInstance() throws Exception{
+    public void configureInstance() throws Exception {
         this.initializeAndConnectDB(PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA);
 
         appointmentDao = DaoManager.createDao(connectionSource, Appointment.class);
@@ -53,7 +60,7 @@ public class PersistenceManager {
         }
     }
 
-    public void initializeAndConnectDB(PersistenceStrategy persistenceStrategy) throws SQLException{
+    public void initializeAndConnectDB(PersistenceStrategy persistenceStrategy) throws SQLException {
         if (persistenceStrategy != null) this.persistenceStrategy = persistenceStrategy;
 
         this.connectionSource = new JdbcConnectionSource(connectionURL());
@@ -62,7 +69,7 @@ public class PersistenceManager {
         TableUtils.createTable(connectionSource, Protocol.class);
     }
 
-    public void shutdown(){
+    public void shutdown() {
         try {
             if (connectionSource != null) {
                 connectionSource.close();
@@ -73,7 +80,7 @@ public class PersistenceManager {
         }
     }
 
-    private String connectionURL(){
+    private String connectionURL() {
         if (persistenceStrategy == PersistenceStrategy.PERSISTENCE_STRATEGY_SQLITE)
             return kSQLiteConnectionURL;
         else if (persistenceStrategy == PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA)
@@ -84,9 +91,9 @@ public class PersistenceManager {
 
     private void loadAppointmentsFromMockData() {
         for (Appointment appointment : AppointmentMock.getAppointments()) {
-            try{
+            try {
                 appointmentDao.create(appointment);
-            }catch (SQLException exception){
+            } catch (SQLException exception) {
                 ///TODO: EXCEPTION HANDLING
                 System.out.println(exception.getMessage());
             }
@@ -95,9 +102,9 @@ public class PersistenceManager {
 
     private void loadProtocolsFromMockData() {
         for (Protocol protocol : ProtocolMock.getProtocols()) {
-            try{
+            try {
                 protocolDao.create(protocol);
-            }catch (SQLException exception){
+            } catch (SQLException exception) {
                 System.out.println(exception.getMessage());
             }
         }

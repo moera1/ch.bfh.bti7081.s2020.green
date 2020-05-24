@@ -1,6 +1,5 @@
 package ch.bfh.bti7081.s2020.green.protomed.presenter;
 
-import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.Login;
 import ch.bfh.bti7081.s2020.green.protomed.view.LoginView;
 import ch.bfh.bti7081.s2020.green.protomed.view.LoginViewImplementation;
