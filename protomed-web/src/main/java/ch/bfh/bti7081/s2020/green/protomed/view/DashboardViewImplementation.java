@@ -54,7 +54,6 @@ public class DashboardViewImplementation extends Board implements DashboardView 
     @Override
     public void loadDashboard(HealthVisitor currentUser) {
         userProfile.loadProfile(currentUser);
-
     }
 
     @Override

@@ -3,9 +3,11 @@ package ch.bfh.bti7081.s2020.green.protomed.management;
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 
+import javax.swing.text.html.Option;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ApplicationModelManager {
 
@@ -36,12 +38,12 @@ public class ApplicationModelManager {
         }
     }
 
-    public Protocol getProtocolByID(int id) {
+    public Optional<Protocol> getProtocolByID(int id) {
         try {
-            return persistenceManager().getProtocolDao().queryForId(id);
+            return Optional.of(persistenceManager().getProtocolDao().queryForId(id));
         } catch (SQLException exception) {
             System.out.println(exception.getMessage());
-            return null;
+            return Optional.empty();
         }
     }
 

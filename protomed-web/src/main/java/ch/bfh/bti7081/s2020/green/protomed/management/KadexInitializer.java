@@ -15,6 +15,8 @@ public class KadexInitializer {
             initializeHealthClients();
             initializeHealthServices();
 
+            initializeApplicationModels();
+
             // get the application models
             //initializeApplicationModels();
 
@@ -49,11 +51,11 @@ public class KadexInitializer {
         HealthServiceManager.getInstance().initializeHealthServices();
     }
 
-    /*private void initializeApplicationModels() {
+    private void initializeApplicationModels() {
         try {
             PersistenceManager.getInstance().configureInstance();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-    }*/
+    }
 }

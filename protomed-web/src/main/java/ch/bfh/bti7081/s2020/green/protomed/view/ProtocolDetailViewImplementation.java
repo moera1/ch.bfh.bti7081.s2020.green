@@ -1,6 +1,7 @@
 package ch.bfh.bti7081.s2020.green.protomed.view;
 
 import ch.bfh.bti7081.s2020.green.protomed.component.ProtocolDetail;
+import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import java.util.ArrayList;
@@ -14,6 +15,11 @@ public class ProtocolDetailViewImplementation extends VerticalLayout implements 
     public ProtocolDetailViewImplementation() {
         protocolDetail = new ProtocolDetail(this);
         add(protocolDetail);
+    }
+
+    @Override
+    public void loadProtocolDetails(Protocol protocol) {
+        protocolDetail.loadProtocolDetails(protocol);
     }
 
     @Override

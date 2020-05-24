@@ -5,25 +5,30 @@ import ch.bfh.bti7081.s2020.green.protomed.management.ApplicationModelManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import ch.bfh.bti7081.s2020.green.protomed.presenter.ProtocolDetailPresenter;
 import com.vaadin.flow.component.html.Div;
+import com.vaadin.flow.router.BeforeEvent;
+import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
+import java.util.Optional;
+
 @Route(value = "protocol/detail", layout = MainLayout.class)
 @PageTitle("Detailansicht Protokoll")
-public class ProtocolDetailMainView extends Div {
+public class ProtocolDetailMainView extends Div implements HasUrlParameter<Integer> {
 
     public ProtocolDetailMainView() {
-
-        ProtocolDetailViewImplementation view = new ProtocolDetailViewImplementation();
-        new ProtocolDetailPresenter(loadProtocol(1), view);
-
-        add(view);
-        addClassName("app-content");
-
     }
 
-    private Protocol loadProtocol(int id) {
-        return ApplicationModelManager.getInstance().getProtocolByID(id);
-    }
+    @Override
+    public void setParameter(BeforeEvent beforeEvent, Integer s) {
+        if(s != null) {
+            ProtocolDetailViewImplementation view = new ProtocolDetailViewImplementation();
+            new ProtocolDetailPresenter(s, view);
 
+            add(view);
+            addClassName("app-content");
+        } else {
+            // TODO: Show error
+        }
+    }
 }

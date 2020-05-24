@@ -22,7 +22,7 @@ public class PersistenceManager {
     // Singleton
     private static PersistenceManager instance;
 
-    private PersistenceStrategy persistenceStrategy = PersistenceStrategy.PERSISTENCE_STRATEGY_SQLITE;
+    private final PersistenceStrategy persistenceStrategy = PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA;
 
     private final static String kSQLiteConnectionURL = "jdbc:sqlite:persistenceStore.db";
     private final static String kMemoryConnectionURL = "jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1";
@@ -33,24 +33,16 @@ public class PersistenceManager {
 
     public static PersistenceManager getInstance() {
         if (instance == null) {
-            // lazy initialization
             instance = new PersistenceManager();
-
         }
         return instance;
     }
 
     private PersistenceManager() {
-        try {
-            configureInstance();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     public void configureInstance() throws Exception {
-        this.initializeAndConnectDB(PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA);
-
+        initializeAndConnectDB();
         appointmentDao = DaoManager.createDao(connectionSource, Appointment.class);
         protocolDao = DaoManager.createDao(connectionSource, Protocol.class);
 
@@ -60,11 +52,8 @@ public class PersistenceManager {
         }
     }
 
-    public void initializeAndConnectDB(PersistenceStrategy persistenceStrategy) throws SQLException {
-        if (persistenceStrategy != null) this.persistenceStrategy = persistenceStrategy;
-
+    private void initializeAndConnectDB() throws SQLException {
         this.connectionSource = new JdbcConnectionSource(connectionURL());
-
         TableUtils.createTableIfNotExists(connectionSource, Appointment.class);
         TableUtils.createTable(connectionSource, Protocol.class);
     }
