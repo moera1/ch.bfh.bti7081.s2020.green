@@ -5,13 +5,13 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class AppointmentsShortList extends VerticalLayout {
 
-	//TODO: Pass appointments
-	public AppointmentsShortList() {
-		
-		add(new H3("Termine"));
-		
-		//TODO: Loop over appointments and create card for each
-		
-		//TODO: Show all button
-	}
+    //TODO: Pass appointments
+    public AppointmentsShortList() {
+
+        add(new H3("Termine"));
+
+        //TODO: Loop over appointments and create card for each
+
+        //TODO: Show all button
+    }
 }

@@ -3,19 +3,23 @@ package ch.bfh.bti7081.s2020.green.protomed.management;
 import ch.bfh.bti7081.s2020.green.protomed.model.Address;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vaadin.flow.server.VaadinService;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.*;
 
+import static java.lang.Integer.parseInt;
+
+@Slf4j
 public class HealthVisitorManager {
 
     public static String HEALTH_VISITOR_PROVIDER_URL = "http://localhost:8090/";
     public static String HEALTH_VISITOR_PROVIDER_ENDPOINT = "api/healthvisitors";
     public static String HEALTH_VISITOR_AUTH_ENDPOINT = "api/auth";
 
-    private HealthVisitor currentUser;
     private Set<HealthVisitor> healthVisitors = new HashSet<>();
     private ObjectMapper mapper = new ObjectMapper();
 
@@ -52,7 +56,7 @@ public class HealthVisitorManager {
 
         for (LinkedHashMap<String, Object> currentHashMap : rawVisitors) {
             LinkedHashMap<String, String> addressMap = (LinkedHashMap<String, String>) currentHashMap.get("address");
-            Address address = new Address(addressMap.get("street"), Integer.parseInt(addressMap.get("zipcode")), addressMap.get("town"), addressMap.get("country"));
+            Address address = new Address(addressMap.get("street"), parseInt(addressMap.get("zipcode")), addressMap.get("town"), addressMap.get("country"));
             HealthVisitor healthVisitor = new HealthVisitor(
                     (Integer) currentHashMap.get("employeeID"),
                     address,
@@ -82,21 +86,31 @@ public class HealthVisitorManager {
     }
 
     public HealthVisitor getCurrentUser() {
-        return currentUser;
+        Optional<String> currentHealthVisitorId = getCurrentHealthVisitorIdOrEmpty();
+        if (currentHealthVisitorId.isPresent()) {
+            return HealthVisitorManager.getInstance().getHealthVisitor(parseInt(currentHealthVisitorId.get()));
+        }
+        log.error("No user found.. redirect to login!");
+        // TODO: Go to login
+        return null;
     }
 
     private void setCurrentUser(HealthVisitor currentUser) {
-        this.currentUser = currentUser;
+        VaadinService.getCurrentRequest().getWrappedSession().setAttribute("id", currentUser.getPersonId());
+    }
+
+    public Optional<String> getCurrentHealthVisitorIdOrEmpty() {
+        Object id = VaadinService.getCurrentRequest().getWrappedSession().getAttribute("id");
+        if (id != null) return Optional.of(id.toString());
+        return Optional.empty();
     }
 
     public void resetCurrentUser() {
-        currentUser = null;
+        VaadinService.getCurrentRequest().getWrappedSession().invalidate();
     }
 
     public void logInUser(final String email, final String password) throws Exception {
-
         resetCurrentUser();
-
         try {
             String urlString = HEALTH_VISITOR_PROVIDER_URL + HEALTH_VISITOR_AUTH_ENDPOINT;
             String urlStringWithParams = urlString + "?email=" + email + "&password=" + password;
@@ -122,7 +136,6 @@ public class HealthVisitorManager {
     }
 
     public Set<HealthVisitor> getHealthVisitors() {
-
         return healthVisitors;
     }
 }

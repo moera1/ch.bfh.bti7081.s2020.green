@@ -1,16 +1,18 @@
 package ch.bfh.bti7081.s2020.green.protomed.layout;
 
-import ch.bfh.bti7081.s2020.green.protomed.MainView;
 import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
-import ch.bfh.bti7081.s2020.green.protomed.view.*;
+import ch.bfh.bti7081.s2020.green.protomed.view.LoginMainView;
+import ch.bfh.bti7081.s2020.green.protomed.view.appointment.main.AppointmentMainView;
+import ch.bfh.bti7081.s2020.green.protomed.view.client.main.ClientMainView;
+import ch.bfh.bti7081.s2020.green.protomed.view.dashboard.DashboardMainView;
+import ch.bfh.bti7081.s2020.green.protomed.view.help.HelpMainView;
+import ch.bfh.bti7081.s2020.green.protomed.view.protocol.main.ProtocolMainView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;
 import com.vaadin.flow.component.applayout.AppLayout;
-import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.TabVariant;
 import com.vaadin.flow.component.tabs.Tabs;
@@ -26,26 +28,27 @@ public class MainLayout extends AppLayout implements BeforeEnterObserver {
 
     private final Tabs menu;
 
-    public MainLayout(){
-    Span appName = new Span("Protomed");
-    appName.addClassName("hide-on-mobile");
+    public MainLayout() {
+        Span appName = new Span("Protomed");
+        appName.addClassName("hide-on-mobile");
 
-    menu = createMenuTabs();
+        menu = createMenuTabs();
 
-    this.addToNavbar(appName);
-    this.addToNavbar(true, menu);
+        this.addToNavbar(appName);
+        this.addToNavbar(true, menu);
 
-    getElement().addEventListener("search-focus", e -> {
-        getElement().getClassList().add("hide-navbar");
-    });
+        getElement().addEventListener("search-focus", e -> {
+            getElement().getClassList().add("hide-navbar");
+        });
 
-    getElement().addEventListener("search-blur", e -> {
-        getElement().getClassList().remove("hide-navbar");
-    });
-}
+        getElement().addEventListener("search-blur", e -> {
+            getElement().getClassList().remove("hide-navbar");
+        });
+    }
 
     /**
      * This static method is used to create the menu tabs set the orientation and return the tabs.
+     *
      * @return Tabs
      */
     private static Tabs createMenuTabs() {
@@ -57,6 +60,7 @@ public class MainLayout extends AppLayout implements BeforeEnterObserver {
 
     /**
      * This static method is used to add the tabs to an ArrayList and return the ArrayList.
+     *
      * @return Tab[]
      */
     private static Tab[] getAvailableTabs() {
@@ -81,8 +85,9 @@ public class MainLayout extends AppLayout implements BeforeEnterObserver {
 
     /**
      * This static method is used to create the tab in a specific layout and add the new RouterLink.
-     * @param icon The VaadinIcon it should show.
-     * @param title The String value of the tab.
+     *
+     * @param icon      The VaadinIcon it should show.
+     * @param title     The String value of the tab.
      * @param viewClass The Class it should forward to.
      * @return Tab
      */
@@ -99,6 +104,7 @@ public class MainLayout extends AppLayout implements BeforeEnterObserver {
 
     /**
      * This static method is used to create a Logout link.
+     *
      * @param contextPath
      * @return
      */
@@ -110,8 +116,9 @@ public class MainLayout extends AppLayout implements BeforeEnterObserver {
 
     /**
      * This static method is usede to populate the Link with an icon and a title.
+     *
      * @param a
-     * @param icon The VaadinIcon it should show.
+     * @param icon  The VaadinIcon it should show.
      * @param title The String value of the tab.
      * @param <T>
      * @return
@@ -126,7 +133,7 @@ public class MainLayout extends AppLayout implements BeforeEnterObserver {
     public void beforeEnter(BeforeEnterEvent event) {
         // Check for currentUser, redirect to login page if not present
         if (HealthVisitorManager.getInstance().getCurrentUser() == null) {
-            event.forwardTo(MainView.class);
+            event.forwardTo(LoginMainView.class);
         }
     }
 }

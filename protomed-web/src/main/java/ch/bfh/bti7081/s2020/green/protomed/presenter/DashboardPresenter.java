@@ -4,7 +4,7 @@ import ch.bfh.bti7081.s2020.green.protomed.management.ApplicationModelManager;
 import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
-import ch.bfh.bti7081.s2020.green.protomed.view.DashboardView;
+import ch.bfh.bti7081.s2020.green.protomed.view.dashboard.DashboardView;
 
 import java.util.List;
 

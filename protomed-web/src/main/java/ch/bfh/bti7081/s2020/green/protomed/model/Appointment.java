@@ -14,12 +14,15 @@ import java.time.format.DateTimeFormatter;
 public class Appointment {
 
     @Getter
-    @DatabaseField(generatedId = true) private Long id;
+    @DatabaseField(generatedId = true)
+    private Long id;
 
-    @DatabaseField private Integer healthVisitorID;
+    @DatabaseField
+    private Integer healthVisitorID;
     private HealthVisitor healthVisitor;
 
-    @DatabaseField private Integer healthClientID;
+    @DatabaseField
+    private Integer healthClientID;
     private HealthClient healthClient;
 
     @Getter
@@ -27,7 +30,7 @@ public class Appointment {
     private LocalDateTime time;
 
     /// open scope no-argument constructor required for ORMLite
-    public Appointment(){
+    public Appointment() {
         //
     }
 
@@ -56,19 +59,19 @@ public class Appointment {
         return healthVisitor;
     }
 
-    private void setHealthVisitor(HealthVisitor healthVisitor){
+    private void setHealthVisitor(HealthVisitor healthVisitor) {
         this.healthVisitorID = healthVisitor.getPersonId();
         this.healthVisitor = healthVisitor;
     }
 
-    public HealthClient getHealthClient(){
-        if (healthClient == null){
+    public HealthClient getHealthClient() {
+        if (healthClient == null) {
             healthClient = HealthClientManager.getInstance().getHealthClient(healthClientID);
         }
         return healthClient;
     }
 
-    private void setHealthClient(HealthClient healthClient){
+    private void setHealthClient(HealthClient healthClient) {
         this.healthClientID = healthClient.getPersonId();
         this.healthClient = healthClient;
     }

@@ -5,12 +5,12 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class ProtocolsShortList extends VerticalLayout {
 
-	public ProtocolsShortList() {
-		
-		add(new H3("Protokolle"));
-		
-		//TODO: Loop over protocols and add a card for each
-		
-		//TODO: Show all button
-	}
+    public ProtocolsShortList() {
+
+        add(new H3("Protokolle"));
+
+        //TODO: Loop over protocols and add a card for each
+
+        //TODO: Show all button
+    }
 }

@@ -95,17 +95,21 @@ public class ProtocolDetail extends Div {
     }
 
     private void enableExtendedFields() {
-        lblAppointmentDateTime.setVisible(true);
-        txtAppointmentDateTime.setVisible(true);
+        if (isExtended) {
+            lblAppointmentDateTime.setVisible(true);
+            txtAppointmentDateTime.setVisible(true);
+        }
     }
 
     private void setReadOnly() {
-        txtHealthvisitorName.setEnabled(false);
-        txtHealthclientName.setEnabled(false);
-        txaProtocolContent.setEnabled(false);
-        txtCreationDate.setEnabled(false);
-        txtProtocolType.setEnabled(false);
-        txtAppointmentDateTime.setEnabled(false);
+        if (isReadOnly) {
+            txtHealthvisitorName.setEnabled(false);
+            txtHealthclientName.setEnabled(false);
+            txaProtocolContent.setEnabled(false);
+            txtCreationDate.setEnabled(false);
+            txtProtocolType.setEnabled(false);
+            txtAppointmentDateTime.setEnabled(false);
+        }
     }
 
 }

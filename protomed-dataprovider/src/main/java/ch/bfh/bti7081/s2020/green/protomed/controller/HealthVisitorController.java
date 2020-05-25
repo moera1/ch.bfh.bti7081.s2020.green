@@ -31,7 +31,7 @@ public class HealthVisitorController {
     @GetMapping("/api/auth")
     public ResponseEntity<HealthVisitor> authHealthVisitor(@RequestParam(value = "email") String requestEmail, @RequestParam(value = "password") String requestPassword) {
         Optional<HealthVisitor> healthVisitor = data.getHealthVisitorByEMailOrEmpty(requestEmail);
-        if(healthVisitor.isPresent() && healthVisitor.get().getPassword().equals(requestPassword)){
+        if (healthVisitor.isPresent() && healthVisitor.get().getPassword().equals(requestPassword)) {
             return new ResponseEntity<>(healthVisitor.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);

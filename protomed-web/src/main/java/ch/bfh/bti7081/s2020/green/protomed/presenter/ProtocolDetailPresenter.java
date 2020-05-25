@@ -2,17 +2,17 @@ package ch.bfh.bti7081.s2020.green.protomed.presenter;
 
 import ch.bfh.bti7081.s2020.green.protomed.management.ApplicationModelManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
-import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolDetailView;
-import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolDetailViewImplementation;
+import ch.bfh.bti7081.s2020.green.protomed.view.protocol.ProtocolDetailsView;
+import ch.bfh.bti7081.s2020.green.protomed.view.protocol.details.ProtocolDetailsViewImplementation;
 
 import java.util.Optional;
 
-public class ProtocolDetailPresenter implements ProtocolDetailView.ProtocolDetailViewListener {
+public class ProtocolDetailPresenter implements ProtocolDetailsView.ProtocolDetailViewListener {
 
     private Protocol model;
-    private ProtocolDetailViewImplementation view;
+    private ProtocolDetailsViewImplementation view;
 
-    public ProtocolDetailPresenter(Integer id, ProtocolDetailViewImplementation view) {
+    public ProtocolDetailPresenter(Integer id, ProtocolDetailsViewImplementation view) {
         this.model = loadProtocol(id);
         this.view = view;
         view.loadProtocolDetails(model);

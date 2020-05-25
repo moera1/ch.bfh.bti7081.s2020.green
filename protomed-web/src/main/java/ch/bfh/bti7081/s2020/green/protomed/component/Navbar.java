@@ -1,7 +1,7 @@
 package ch.bfh.bti7081.s2020.green.protomed.component;
 
-import ch.bfh.bti7081.s2020.green.protomed.MainView;
-import ch.bfh.bti7081.s2020.green.protomed.view.DashboardMainView;
+import ch.bfh.bti7081.s2020.green.protomed.view.LoginMainView;
+import ch.bfh.bti7081.s2020.green.protomed.view.dashboard.DashboardMainView;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
@@ -22,7 +22,7 @@ public class Navbar extends VerticalLayout {
         Tab tab2 = new Tab(new RouterLink("Termine", DashboardMainView.class));
         Tab tab3 = new Tab(new RouterLink("Protokolle", DashboardMainView.class));
         Tab tab4 = new Tab(new RouterLink("Klienten", DashboardMainView.class));
-        Tab tab5 = new Tab(new RouterLink("FAQ", MainView.class));
+        Tab tab5 = new Tab(new RouterLink("FAQ", LoginMainView.class));
         tabs.add(tab1, tab2, tab3, tab4, tab5);
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
 

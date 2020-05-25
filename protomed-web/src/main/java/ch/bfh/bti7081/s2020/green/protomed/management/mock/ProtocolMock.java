@@ -41,7 +41,7 @@ public class ProtocolMock {
         protocols.add(new BesuchProtocol(gertrud, lars, time, gertrudAppointments.get(0), "This is the first protocol."));
         protocols.add(new BesuchProtocol(gertrud, lars, time, gertrudAppointments.get(1), "This is the second protocol."));
         protocols.add(new Protocol(gertrud, lars, time, ProtocolType.TELEFON));
-        protocols.add(new BesuchProtocol(gertrud, lars, time, gertrudAppointments.get(2),"This is the third protocol."));
+        protocols.add(new BesuchProtocol(gertrud, lars, time, gertrudAppointments.get(2), "This is the third protocol."));
         protocols.add(new BesuchProtocol(gertrud, lars, time, gertrudAppointments.get(3), "This is the fourth protocol."));
 
 

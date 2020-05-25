@@ -18,11 +18,11 @@ public class Overview extends Div {
 
         // TODO: Add dynamic data (if we have enough mock-data eventually)
         ListSeries userAppointments = new ListSeries("Deine");
-        userAppointments.setData(3,5,2, 7, 4);
+        userAppointments.setData(3, 5, 2, 7, 4);
         config.addSeries(userAppointments);
 
         ListSeries avgAppointments = new ListSeries("Protomoed ∅");
-        avgAppointments.setData(4,6,3, 4,3);
+        avgAppointments.setData(4, 6, 3, 4, 3);
         config.addSeries(avgAppointments);
 
         XAxis xaxis = new XAxis();

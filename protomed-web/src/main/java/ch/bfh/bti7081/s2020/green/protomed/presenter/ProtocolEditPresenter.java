@@ -2,9 +2,9 @@ package ch.bfh.bti7081.s2020.green.protomed.presenter;
 
 import ch.bfh.bti7081.s2020.green.protomed.management.ApplicationModelManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.*;
-import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolEditView;
-import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolEditViewImplementation;
-import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolMainView;
+import ch.bfh.bti7081.s2020.green.protomed.view.protocol.ProtocolEditView;
+import ch.bfh.bti7081.s2020.green.protomed.view.protocol.edit.ProtocolEditViewImplementation;
+import ch.bfh.bti7081.s2020.green.protomed.view.protocol.main.ProtocolMainView;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.notification.Notification;
 

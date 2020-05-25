@@ -15,10 +15,13 @@
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
-            <!-- Replace artifactId with vaadin-core to use only free components -->
+            <artifactId>vaadin-spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.vaadin</groupId>
             <artifactId>vaadin</artifactId>
             <exclusions>
-                <!-- Webjars are only needed when running in Vaadin 13 compatibility mode -->
                 <exclusion>
                     <groupId>com.vaadin.webjar</groupId>
                     <artifactId>*</artifactId>
@@ -46,11 +49,10 @@
             </exclusions>
         </dependency>
 
-        <!-- Added to provide logging output as Vaadin uses -->
-        <!-- the unbound SLF4J no-operation (NOP) logger implementation -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
         </dependency>
 
         <dependency>
@@ -101,11 +103,9 @@
             <version>3.31.1</version>
         </dependency>
 
-
     </dependencies>
 
     <build>
-        <defaultGoal>jetty:run</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -116,28 +116,14 @@
                     <target>11</target>
                 </configuration>
             </plugin>
-            <!-- Jetty plugin for easy testing without a server -->
+
             <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.19.v20190610</version>
-                <configuration>
-                    <!-- If using IntelliJ IDEA with autocompilation, this
-                    might cause lots of unnecessary compilations in the
-                    background.-->
-                    <scanIntervalSeconds>2</scanIntervalSeconds>
-                    <!-- Use war output directory to get the webpack files -->
-                    <webAppConfig>
-                        <allowDuplicateFragmentNames>true</allowDuplicateFragmentNames>
-                    </webAppConfig>
-                </configuration>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>
+                    spring-boot-maven-plugin
+                </artifactId>
             </plugin>
 
-            <!--
-                Take care of synchronizing java dependencies and imports in
-                package.json and main.js files.
-                It also creates webpack.config.js if not exists yet.
-            -->
             <plugin>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-maven-plugin</artifactId>
@@ -185,95 +171,5 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>integration-tests</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.eclipse.jetty</groupId>
-                        <artifactId>jetty-maven-plugin</artifactId>
-                        <version>9.4.15.v20190215</version>
-                        <configuration>
-                            <scanIntervalSeconds>0</scanIntervalSeconds>
-                            <httpConnector>
-                                <host>localhost</host>
-                                <port>8080</port>
-                            </httpConnector>
-                            <stopPort>8081</stopPort>
-                            <stopWait>5</stopWait>
-                            <stopKey>${project.artifactId}</stopKey>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>start-jetty</id>
-                                <phase>pre-integration-test</phase>
-                                <goals>
-                                    <goal>deploy-war</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>stop-jetty</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>stop</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <!-- Runs the integration tests (*IT) after the server is started -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                        <version>2.22.2</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>integration-test</goal>
-                                    <goal>verify</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <trimStackTrace>false</trimStackTrace>
-                            <enableAssertions>true</enableAssertions>
-                            <systemPropertyVariables>
-                                <!-- Pass location of downloaded webdrivers to the tests -->
-                                <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
-                            </systemPropertyVariables>
-                        </configuration>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>com.lazerycode.selenium</groupId>
-                        <artifactId>driver-binary-downloader-maven-plugin</artifactId>
-                        <version>1.0.17</version>
-                        <configuration>
-                            <onlyGetDriversForHostOperatingSystem>true
-                            </onlyGetDriversForHostOperatingSystem>
-                            <rootStandaloneServerDirectory>
-                                ${project.basedir}/drivers/driver
-                            </rootStandaloneServerDirectory>
-                            <downloadedZipFileDirectory>
-                                ${project.basedir}/drivers/driver_zips
-                            </downloadedZipFileDirectory>
-                            <customRepositoryMap>
-                                ${project.basedir}/drivers.xml
-                            </customRepositoryMap>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <!-- use phase "none" to skip download step -->
-                                <phase>${drivers.downloader.phase}</phase>
-                                <goals>
-                                    <goal>selenium</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
     </profiles>
-
 </project>

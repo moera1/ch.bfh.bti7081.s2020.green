@@ -6,14 +6,15 @@ public class Login {
 
     private HealthVisitorManager healthVisitorManager = HealthVisitorManager.getInstance();
 
-    public Login() {}
+    public Login() {
+    }
 
     public boolean validateEmail(String email) {
-        return email.isBlank() ? false : true;
+        return !email.isBlank();
     }
 
     public boolean verifyAccess(String userName, String password) {
-        return password.isBlank() ? false : true;
+        return !password.isBlank();
     }
 
     public boolean authenticate(String email, String password) {

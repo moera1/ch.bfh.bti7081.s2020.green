@@ -1,9 +1,9 @@
 package ch.bfh.bti7081.s2020.green.protomed.component;
 
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
-import ch.bfh.bti7081.s2020.green.protomed.view.AppointmentMainView;
-import ch.bfh.bti7081.s2020.green.protomed.view.DashboardView;
-import ch.bfh.bti7081.s2020.green.protomed.view.DashboardViewImplementation;
+import ch.bfh.bti7081.s2020.green.protomed.view.appointment.main.AppointmentMainView;
+import ch.bfh.bti7081.s2020.green.protomed.view.dashboard.DashboardView;
+import ch.bfh.bti7081.s2020.green.protomed.view.dashboard.DashboardViewImplementation;
 import com.github.appreciated.card.ClickableCard;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -36,7 +36,7 @@ public class AppointmentOverview extends Div {
         showAllButton = new Button();
         showAllButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
         showAllButton.addClassName("panel-btn");
-        showAllButton.addClickListener( event -> UI.getCurrent().navigate(AppointmentMainView.class));
+        showAllButton.addClickListener(event -> UI.getCurrent().navigate(AppointmentMainView.class));
 
         appointmentContainer = new Div();
         appointmentContainer.addClassName("notification-container");
