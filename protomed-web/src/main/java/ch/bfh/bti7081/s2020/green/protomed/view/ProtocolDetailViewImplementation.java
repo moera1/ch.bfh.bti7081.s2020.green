@@ -13,7 +13,7 @@ public class ProtocolDetailViewImplementation extends VerticalLayout implements 
     private ProtocolDetail protocolDetail;
 
     public ProtocolDetailViewImplementation() {
-        protocolDetail = new ProtocolDetail(this);
+        protocolDetail = new ProtocolDetail(true);
         add(protocolDetail);
     }
 
