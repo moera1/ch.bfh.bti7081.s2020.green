@@ -4,6 +4,7 @@ package ch.bfh.bti7081.s2020.green.protomed.model;
 import lombok.Getter;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class HealthClient extends Person {
@@ -17,4 +18,12 @@ public class HealthClient extends Person {
         this.healthVisitor = healthVisitor;
         this.insuredServices = insuredServices;
     }
+
+    @Override
+    public String toString() {
+        return super.getFullName() + ", " +
+                super.getAddress().toString() +
+                " (" + super.getBirthDate().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")) + ")";
+    }
+
 }

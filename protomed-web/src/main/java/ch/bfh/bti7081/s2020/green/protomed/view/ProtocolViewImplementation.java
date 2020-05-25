@@ -15,7 +15,8 @@ public class ProtocolViewImplementation extends VerticalLayout implements Protoc
     }
 
     @Override
-    public void addListener(ProtocolView listener) {
-
+    public void addListener(ProtocolViewListener listener) {
+        listeners.add(listener);
     }
+
 }

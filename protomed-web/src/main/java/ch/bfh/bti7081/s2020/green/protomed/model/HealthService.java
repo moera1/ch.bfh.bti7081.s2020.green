@@ -13,4 +13,12 @@ public class HealthService {
         this.serviceID = serviceID;
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "HealthService{" +
+                "serviceID='" + serviceID + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

@@ -6,5 +6,6 @@ public interface  ProtocolView {
 //        void click(String a);
     }
 
-    public void addListener(ProtocolView listener);
+    public void addListener(ProtocolViewListener listener);
+
 }
