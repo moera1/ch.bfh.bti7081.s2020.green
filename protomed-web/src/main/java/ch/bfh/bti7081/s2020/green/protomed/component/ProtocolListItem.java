@@ -40,7 +40,10 @@ public class ProtocolListItem extends HorizontalLayout {
         protocolType.getStyle().set("font-weight", "bold");
         protocolType.setWidthFull();
 
-        content.add(protocolType);
+        Div protocolClient = new Div();
+        protocolClient.setText(protocol.getHealthClient().getFullName());
+
+        content.add(protocolType, protocolClient);
 
         Icon icon = new Icon(VaadinIcon.ANGLE_RIGHT);
         icon.addClassName("icon-grey");
