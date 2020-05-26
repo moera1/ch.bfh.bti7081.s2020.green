@@ -76,3 +76,4 @@
 | 3 | 27.04.2020 | Task4 presentation feedback | all | 9/10 | Asynche Aufrufe mit entsprechendem Pfeil, Redundanz von bereits abgebildeten Attributen in Klassenmodell, <<create>> direkt auf das Objekt und nicht die Lebenslinie, Aufrufe eigener Methoden mit Aufdopplung des Funktionsblockes | Task04: Präsentation von Domain-Modell, Sequenzdiagramm und Klassenmodell | none
 | 4 | 28.04.2020 | Task3 | | 5/5 | |  | none
 | 5 | 04.05.2020 | Task5/6 presentation feedback | all | 5: 10/10 6: 10/10 | Interfaces mit korrekten Stereotypen, Presenter keine Verbindung direkt zur Persistenz (nur über Modell) | Weiteres Vorgehen und Start mit Scrum | none
+| 6 | 26.05.2020 | Task8  feedback | (ka), (yb), (mj), (jr) | 9/10 | Denglish, Konfiguration in Klassen | | none
