@@ -20,7 +20,8 @@ public class AppointmentDetailsMainView extends Div implements HasUrlParameter<S
     public void setParameter(BeforeEvent beforeEvent, String parameter) {
         view = new AppointmentDetailsViewImplementation(ApplicationModelManager
                 .getInstance()
-                .getAppointmentsByHealthClientID(Integer.parseInt(parameter)));
+                .getAppointmentbyAppointmentID(Integer.parseInt(parameter))
+                .get());
 
         new AppointmentDetailViewPresenter(view);
 

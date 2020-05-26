@@ -41,6 +41,7 @@ public class AppointmentListItem extends HorizontalLayout {
 
         Div title = new Div();
         title.setText(time + " - " + client );
+        title.getStyle().set("font-weight", "bold");
         title.setWidthFull();
 
         Div address = new Div();
