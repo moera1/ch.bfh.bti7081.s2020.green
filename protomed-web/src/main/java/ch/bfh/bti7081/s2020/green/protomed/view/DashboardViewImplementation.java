@@ -63,6 +63,6 @@ public class DashboardViewImplementation extends Board implements DashboardView 
 
     @Override
     public void navigateToAppointment(long id) {
-        UI.getCurrent().navigate("appointments/" + id);
+        UI.getCurrent().navigate("appointment/" + id);
     }
 }
