@@ -2,6 +2,10 @@ package ch.bfh.bti7081.s2020.green.protomed.component;
 
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import ch.bfh.bti7081.s2020.green.protomed.model.ProtocolType;
+import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolDetailView;
+import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolDetailViewImplementation;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.html.Label;
@@ -10,6 +14,8 @@ import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
 
 public class ProtocolDetail extends Div {
+
+    private ProtocolDetailViewImplementation detailView;
 
     TextField txtHealthvisitorName;
     TextField txtHealthclientName;
@@ -20,11 +26,14 @@ public class ProtocolDetail extends Div {
     Label lblAppointmentDateTime;
     TextField txtAppointmentDateTime;
 
+    private Button edit = new Button("Bearbeiten");
+
     private Boolean isExtended = false;
     private Boolean isReadOnly;
 
-    public ProtocolDetail(boolean readonly) {
+    public ProtocolDetail(boolean readonly, ProtocolDetailViewImplementation detailView) {
         this.isReadOnly = readonly;
+        this.detailView = detailView;
         Div borderBox = new Div();
         VerticalLayout layout = new VerticalLayout();
         setWidthFull();
@@ -70,6 +79,9 @@ public class ProtocolDetail extends Div {
         layout.add(lblAppointmentDateTime);
         layout.add(txtAppointmentDateTime);
 
+        edit.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
+        layout.add(edit);
+
         if (this.isReadOnly) setReadOnly();
 
         borderBox.add(layout);
@@ -77,6 +89,7 @@ public class ProtocolDetail extends Div {
 
         add(borderBox);
         addClassName("panel-box");
+
     }
 
     public void loadProtocolDetails(Protocol protocol) {
@@ -93,6 +106,11 @@ public class ProtocolDetail extends Div {
             enableExtendedFields();
             txtAppointmentDateTime.setValue(protocol.getAppointment().getTime().toString());
         }
+        edit.addClickListener(event -> {
+            for (ProtocolDetailView.ProtocolDetailViewListener listener : detailView.getListeners()) {
+                listener.editProtocol(protocol);
+            }
+        });
     }
 
     private void enableExtendedFields() {

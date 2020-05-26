@@ -15,6 +15,7 @@ public class ProtocolDetailPresenter implements ProtocolDetailView.ProtocolDetai
     public ProtocolDetailPresenter(Integer id, ProtocolDetailViewImplementation view) {
         this.model = loadProtocol(id);
         this.view = view;
+        view.addListener(this);
         view.loadProtocolDetails(model);
 
     }
@@ -24,4 +25,8 @@ public class ProtocolDetailPresenter implements ProtocolDetailView.ProtocolDetai
         return protocolOptional.orElse(null);
     }
 
+    @Override
+    public void editProtocol(Protocol protocol) {
+        view.navigateToEditProtocol(protocol.getId());
+    }
 }

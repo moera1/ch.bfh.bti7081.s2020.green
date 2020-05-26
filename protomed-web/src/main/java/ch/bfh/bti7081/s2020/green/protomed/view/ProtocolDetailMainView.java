@@ -12,7 +12,7 @@ import com.vaadin.flow.router.Route;
 
 import java.util.Optional;
 
-@Route(value = "protocols", layout = MainLayout.class)
+@Route(value = "protocol", layout = MainLayout.class)
 @PageTitle("Detailansicht Protokoll")
 public class ProtocolDetailMainView extends Div implements HasUrlParameter<Integer> {
 

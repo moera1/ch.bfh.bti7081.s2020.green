@@ -13,22 +13,17 @@ public class ProtocolEditPresenter implements ProtocolEditView.ProtocolEditViewL
 	private Protocol model;
 
 	public ProtocolEditPresenter(ProtocolEditViewImplementation view, Protocol model) {
-		System.out.println("--> ProtocolEditPresenter Testing | Received Protocol Model:");
-		System.out.println(model);
-		System.out.println(model.getServiceIds());
 		this.view = view;
 		this.model = model;
 		view.addListener(this);
 		view.loadProtocolData(model);
-
-//		System.out.println(((BesuchProtocol) protMock).getServiceList());
 	}
 
 	@Override
 	public void updateProtocol(Protocol protocol) {
 		System.out.println(protocol);
 		if (ApplicationModelManager.getInstance().saveProtocol(protocol)) {
-			UI.getCurrent().navigate("protocols/" + protocol.getId());
+			UI.getCurrent().navigate("protocol/" + protocol.getId());
 			Notification.show("Protokoll erfolgreich gespeichert");
 
 		} else {
@@ -51,7 +46,7 @@ public class ProtocolEditPresenter implements ProtocolEditView.ProtocolEditViewL
 
 	@Override
 	public void cancel(Protocol protocol) {
-		UI.getCurrent().navigate("protocols/" + protocol.getId());
+		UI.getCurrent().navigate("protocol/" + protocol.getId());
 	}
 
 }

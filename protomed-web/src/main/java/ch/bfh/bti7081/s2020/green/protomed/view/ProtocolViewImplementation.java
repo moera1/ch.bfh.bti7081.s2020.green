@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ProtocolViewImplementation extends VerticalLayout implements ProtocolView {
 
-    private List<ProtocolViewListener> listeners = new ArrayList<ProtocolViewListener>();
+    private List<ProtocolViewListener> listeners = new ArrayList<>();
     private VerticalLayout protocolList;
 
     public ProtocolViewImplementation() {
@@ -27,7 +27,7 @@ public class ProtocolViewImplementation extends VerticalLayout implements Protoc
         search.setAutoselect(true);
         search.addValueChangeListener(e -> {
             for (ProtocolViewListener listener : listeners){
-                listener.setSearchValue(e.getValue().toString());
+                listener.setSearchValue(e.getValue());
             }
         });
         search.setWidthFull();
@@ -57,7 +57,7 @@ public class ProtocolViewImplementation extends VerticalLayout implements Protoc
     }
 
     public void navigateToProtocol(Long id) {
-        UI.getCurrent().navigate("protocols/" + Long.toString(id));
+        UI.getCurrent().navigate("protocol/" + id);
     }
 
     @Override

@@ -7,7 +7,7 @@ import ch.bfh.bti7081.s2020.green.protomed.presenter.ProtocolEditPresenter;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.router.*;
 
-@Route(value = "protocols-edit", layout = MainLayout.class)
+@Route(value = "protocol-edit", layout = MainLayout.class)
 @PageTitle("Protokoll bearbeiten")
 public class ProtocolEditMainView extends Div implements HasUrlParameter<String> {
 	ProtocolEditViewImplementation view;
