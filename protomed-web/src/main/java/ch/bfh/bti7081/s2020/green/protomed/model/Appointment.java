@@ -8,6 +8,7 @@ import com.j256.ormlite.table.DatabaseTable;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @DatabaseTable(tableName = "appointment")
 public class Appointment {
@@ -36,6 +37,18 @@ public class Appointment {
         this.time = time;
     }
 
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "id=" + id +
+                ", healthVisitorID=" + healthVisitorID +
+                ", healthVisitor=" + healthVisitor +
+                ", healthClientID=" + healthClientID +
+                ", healthClient=" + healthClient +
+                ", time=" + time +
+                '}';
+    }
+
     public HealthVisitor getHealthVisitor() {
         if (healthVisitor == null) {
             healthVisitor = HealthVisitorManager.getInstance().getHealthVisitor(healthVisitorID);
@@ -58,5 +71,9 @@ public class Appointment {
     private void setHealthClient(HealthClient healthClient){
         this.healthClientID = healthClient.getPersonId();
         this.healthClient = healthClient;
+    }
+
+    public String getTimeAsString() {
+        return "Besuch vom " + this.time.format(DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm")) + " (" + this.getHealthVisitor().getFullName() + ")";
     }
 }

@@ -34,10 +34,11 @@ public class Protocol {
     @DatabaseField(dataType = DataType.ENUM_INTEGER)
     private ProtocolType protocolType;
 
-    @Getter
+    @Getter @Setter
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     protected Appointment appointment;
 
+    @Getter
     @DatabaseField(dataType = DataType.SERIALIZABLE)
     protected String[] serviceIds;
 
@@ -77,9 +78,22 @@ public class Protocol {
         return healthClient;
     }
 
-    private void setHealthClient(HealthClient healthClient){
+    public void setHealthClient(HealthClient healthClient){
         this.healthClientID = healthClient.getPersonId();
         this.healthClient = healthClient;
     }
 
+    @Override
+    public String toString() {
+        return "Protocol{" +
+                "id=" + id +
+                ", healthVisitorID=" + healthVisitorID +
+                ", healthVisitor=" + healthVisitor +
+                ", healthClientID=" + healthClientID +
+                ", healthClient=" + healthClient +
+                ", content='" + content + '\'' +
+                ", creationDate=" + creationDate +
+                ", protocolType=" + protocolType +
+                '}';
+    }
 }
