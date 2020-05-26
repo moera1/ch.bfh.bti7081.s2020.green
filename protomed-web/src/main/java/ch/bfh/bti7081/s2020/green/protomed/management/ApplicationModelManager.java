@@ -122,4 +122,13 @@ public class ApplicationModelManager {
         }
     }
 
+    public Optional<Appointment> getAppointmentbyAppointmentID(Integer id){
+        try {
+            return Optional.of(persistenceManager().getAppointmentDao().queryForId(id));
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+            return Optional.empty();
+        }
+    }
+
 }
