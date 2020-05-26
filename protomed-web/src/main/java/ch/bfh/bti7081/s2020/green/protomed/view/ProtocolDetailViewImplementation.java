@@ -23,7 +23,7 @@ public class ProtocolDetailViewImplementation extends VerticalLayout implements 
     }
 
     @Override
-    public void addListener(ProtocolDetailView listener) {
-
+    public void addListener(ProtocolDetailViewListener listener) {
+        listeners.add(listener);
     }
 }

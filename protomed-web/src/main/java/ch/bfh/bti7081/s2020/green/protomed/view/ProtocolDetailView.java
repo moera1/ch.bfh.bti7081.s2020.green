@@ -9,5 +9,5 @@ public interface ProtocolDetailView {
 
     void loadProtocolDetails(Protocol protocol);
 
-    void addListener(ProtocolDetailView listener);
+    void addListener(ProtocolDetailViewListener listener);
 }
