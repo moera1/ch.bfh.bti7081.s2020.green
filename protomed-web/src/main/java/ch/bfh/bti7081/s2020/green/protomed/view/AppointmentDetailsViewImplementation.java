@@ -4,6 +4,7 @@ import ch.bfh.bti7081.s2020.green.protomed.component.AppointmentsShortList;
 import ch.bfh.bti7081.s2020.green.protomed.component.NotificationsShortList;
 import ch.bfh.bti7081.s2020.green.protomed.component.PersonContactCard;
 import ch.bfh.bti7081.s2020.green.protomed.component.ProtocolsShortList;
+import ch.bfh.bti7081.s2020.green.protomed.management.ApplicationModelManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import com.vaadin.flow.component.html.Anchor;
 import com.vaadin.flow.component.html.Image;

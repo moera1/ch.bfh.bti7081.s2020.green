@@ -1,10 +1,19 @@
 package ch.bfh.bti7081.s2020.green.protomed.view;
 
-public interface  ProtocolView {
+import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
+
+import java.util.List;
+
+public interface ProtocolView {
 
     interface ProtocolViewListener {
-//        void click(String a);
+        void selectProtocol(Protocol protocol);
+        void setSearchValue(String value);
     }
 
-    public void addListener(ProtocolView listener);
+    public void updateProtocolList(List<Protocol> protocols);
+
+    public void navigateToProtocol(Long id);
+
+    public void addListener(ProtocolViewListener listener);
 }

@@ -13,7 +13,7 @@ public class ProtocolMainView extends Div {
 
         ProtocolViewImplementation view = new ProtocolViewImplementation();
 
-        // new ProtocolPresenter(view);
+        new ProtocolPresenter(view);
 
         add(view);
         addClassName("app-content");
