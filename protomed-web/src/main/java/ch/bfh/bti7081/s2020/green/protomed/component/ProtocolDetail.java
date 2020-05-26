@@ -27,6 +27,7 @@ public class ProtocolDetail extends Div {
         this.isReadOnly = readonly;
         Div borderBox = new Div();
         VerticalLayout layout = new VerticalLayout();
+        setWidthFull();
 
         H3 title = new H3("Protocol XY");
         layout.add(title);
