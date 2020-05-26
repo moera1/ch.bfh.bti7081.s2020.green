@@ -55,7 +55,7 @@ public class PersistenceManager {
     private void initializeAndConnectDB() throws SQLException {
         this.connectionSource = new JdbcConnectionSource(connectionURL());
         TableUtils.createTableIfNotExists(connectionSource, Appointment.class);
-        TableUtils.createTable(connectionSource, Protocol.class);
+        TableUtils.createTableIfNotExists(connectionSource, Protocol.class);
     }
 
     public void shutdown() {
