@@ -30,7 +30,7 @@ public class ProtocolForm extends FormLayout {
     private CheckboxGroup<HealthService> services = new CheckboxGroup<>();
     private Select<Appointment> appointment = new Select<>();
 
-    public TextField creator = new TextField();
+    private TextField creator = new TextField();
     private DatePicker creationDateText = new DatePicker();
     private Button save = new Button("Speichern");
     private Button cancel = new Button("Abbrechen");
@@ -42,6 +42,7 @@ public class ProtocolForm extends FormLayout {
         this.editView = editView;
 
         healthClient.setLabel("Klient");
+        appointment.setPlaceholder("Klient auswählen");
 
         creator.setLabel("Ersteller");
         creator.setReadOnly(true);
@@ -61,6 +62,7 @@ public class ProtocolForm extends FormLayout {
         services.setItemLabelGenerator(HealthService::getServiceID);
 
         appointment.setLabel("Termin verknüpfen");
+        appointment.setPlaceholder("Termin auswählen");
         appointment.setItemLabelGenerator(Appointment::getTimeAsString);
 
         save.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
@@ -97,6 +99,8 @@ public class ProtocolForm extends FormLayout {
         creator.setValue(protocol.getHealthVisitor().getFullName());
         creationDateText.setValue(protocol.getCreationDate().toLocalDate());
         healthClient.setItems(HealthClientManager.getInstance().getHealthClients());
+
+        // TODO: Add eventlistener to changeevnet of client select -> Adjusts available appointments
 
         // TODO: bind service checkboxgroup and appointments properly (needs 'fake' getter/setter as in HV/HC?)
 //        binder.forField(services)
