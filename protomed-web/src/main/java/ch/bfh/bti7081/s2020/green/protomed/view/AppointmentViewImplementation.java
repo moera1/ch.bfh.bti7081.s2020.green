@@ -11,6 +11,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,7 +47,7 @@ public class AppointmentViewImplementation extends VerticalLayout implements App
 
     public void updateAppointmentList(List<Appointment> appointments) {
         appointmentList.removeAll();
-        for (Appointment appointment : appointments) {
+        for (Appointment appointment : appointments.stream().sorted(Comparator.comparing(Appointment::getTime)).collect(Collectors.toList()) ) {
             ClickableCard appointmentCard = new ClickableCard(
                     onClick -> {
                         for (AppointmentViewListener listener : listeners)

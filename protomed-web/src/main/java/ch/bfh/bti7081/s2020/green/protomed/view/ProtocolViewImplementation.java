@@ -1,6 +1,7 @@
 package ch.bfh.bti7081.s2020.green.protomed.view;
 
 import ch.bfh.bti7081.s2020.green.protomed.component.ProtocolListItem;
+import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import com.github.appreciated.card.ClickableCard;
 import com.vaadin.flow.component.UI;
@@ -9,7 +10,9 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProtocolViewImplementation extends VerticalLayout implements ProtocolView {
 
@@ -43,7 +46,7 @@ public class ProtocolViewImplementation extends VerticalLayout implements Protoc
 
     public void updateProtocolList(List<Protocol> protocols){
         protocolList.removeAll();
-        for (Protocol protocol : protocols){
+        for (Protocol protocol : protocols.stream().sorted(Comparator.comparing(Protocol::getCreationDate)).collect(Collectors.toList()) ){
             ClickableCard protocolCard = new ClickableCard(
                     onClick -> {
                         for (ProtocolViewListener listener : listeners)

@@ -104,7 +104,7 @@ public class DataLoader {
         healthVisitors.add(HealthVisitor.builder()
                 .address(addresses.get(4))
                 .birthdate(LocalDate.of(1950, 2, 15))
-                .email("trudi@bfh-test.ch")
+                .email("trudi.sigenthaler@bfh-test.ch")
                 .password("1234")
                 .employeeID(BigInteger.valueOf(2))
                 .firstname("Gertrud")
@@ -140,9 +140,14 @@ public class DataLoader {
 
     private void initServices() {
         services = Arrays.asList(
-                new HealthService("service-01", "This is a test service"),
-                new HealthService("service-02", "This is a test service"),
-                new HealthService("service-03", "This is a test service")
+                new HealthService("Abklärung Pflegebedarf", "Lorem ipsum dolor sit amet."),
+                new HealthService("Beratung zu Angeboten", "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat."),
+                new HealthService("Unterstützung Körperpflege", "Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat."),
+                new HealthService("Unterstützung Mobilisation", "At vero eos et accusam et justo duo dolores et ea rebum."),
+                new HealthService("Unterstützung Haushalt", "Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."),
+                new HealthService("Zubereitung Mahlzeit", "This is a test service"),
+                new HealthService("Reinigung", "Lorem ipsum dolor sit amet, consetetur"),
+                new HealthService("Schmerzbehandlung", " Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.")
         );
     }
 
