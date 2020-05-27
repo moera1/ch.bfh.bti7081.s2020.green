@@ -1,6 +1,7 @@
 package ch.bfh.bti7081.s2020.green.protomed.model;
 
 import ch.bfh.bti7081.s2020.green.protomed.management.HealthClientManager;
+import ch.bfh.bti7081.s2020.green.protomed.management.HealthServiceManager;
 import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
@@ -9,6 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.*;
 
 @DatabaseTable(tableName = "protocol")
 public class Protocol {
@@ -38,7 +40,6 @@ public class Protocol {
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     protected Appointment appointment;
 
-    @Getter
     @DatabaseField(dataType = DataType.SERIALIZABLE)
     protected String[] serviceIds;
 
@@ -81,6 +82,29 @@ public class Protocol {
     public void setHealthClient(HealthClient healthClient){
         this.healthClientID = healthClient.getPersonId();
         this.healthClient = healthClient;
+    }
+
+    public Set<HealthService> getServices(){
+        Set<HealthService> healthServices = new HashSet<>();
+        if (serviceIds == null) {
+            return null;
+        }
+        for (String service : serviceIds) {
+            healthServices.add(HealthServiceManager.getInstance().getHealthService(service));
+        }
+        return healthServices;
+    }
+
+    public void setServices(Set<HealthService> services){
+        String[] ids = new String[services.size()];
+        List<HealthService> serviceList = new ArrayList<>(services);
+
+        for (int i = 0 ; i < services.size(); i++){
+            ids[i] = serviceList.get(i).getServiceID();
+        }
+
+        serviceIds = new String[0];
+        serviceIds = ids;
     }
 
     @Override

@@ -27,7 +27,7 @@ public class ProtocolForm extends FormLayout {
     private Select<HealthClient> healthClient = new Select<>();
     private Select<ProtocolType> protocolType = new Select<>();
     private TextArea content = new TextArea("Inhalt");
-    private CheckboxGroup<HealthService> services = new CheckboxGroup<>();
+    private CheckboxGroup<HealthService> serviceIds = new CheckboxGroup<>();
     private Select<Appointment> appointment = new Select<>();
 
     private TextField creator = new TextField();
@@ -57,9 +57,9 @@ public class ProtocolForm extends FormLayout {
         content.setLabel("Beschrieb");
         content.getElement().setAttribute("colspan", "2");
 
-        services.setLabel("Dienstleistungen");
-        services.addThemeVariants(CheckboxGroupVariant.LUMO_VERTICAL);
-        services.setItemLabelGenerator(HealthService::getServiceID);
+        serviceIds.setLabel("Dienstleistungen");
+        serviceIds.addThemeVariants(CheckboxGroupVariant.LUMO_VERTICAL);
+        serviceIds.setItemLabelGenerator(HealthService::getServiceID);
 
         appointment.setLabel("Termin verknüpfen");
         appointment.setPlaceholder("Termin auswählen");
@@ -69,14 +69,13 @@ public class ProtocolForm extends FormLayout {
         delete.addThemeVariants(ButtonVariant.LUMO_ERROR);
 
         HorizontalLayout formButtons = new HorizontalLayout(save, cancel, delete);
+        formButtons.addClassName("button-container");
 
-        add(creator, creationDateText, protocolType, healthClient, content, appointment, services, formButtons);
+        add(creator, creationDateText, protocolType, healthClient, content, appointment, serviceIds, formButtons);
 
         setResponsiveSteps(
                 new FormLayout.ResponsiveStep("0", 1),
                 new FormLayout.ResponsiveStep("600px", 2));
-
-        binder.bindInstanceFields(this);
 
         save.addClickListener(event -> {
             for (ProtocolEditView.ProtocolEditViewListener listener : editView.getListeners()) {
@@ -101,17 +100,15 @@ public class ProtocolForm extends FormLayout {
         healthClient.setItems(HealthClientManager.getInstance().getHealthClients());
 
         // TODO: Add eventlistener to changeevnet of client select -> Adjusts available appointments
-
-        // TODO: bind service checkboxgroup and appointments properly (needs 'fake' getter/setter as in HV/HC?)
-//        binder.forField(services)
-//              .bind(Protocol::getServices, Protocol::setServices);
-
         if (protocol.getProtocolType().equals(ProtocolType.BESUCH)) {
             appointment.setItems(ApplicationModelManager.getInstance().getAppointmentsByHealthClientID(protocol.getHealthClient().getPersonId()));
-            services.setItems(protocol.getHealthClient().getInsuredServices());
+            serviceIds.setItems(protocol.getHealthClient().getInsuredServices());
         } else {
-            remove(services, appointment);
+            remove(serviceIds, appointment);
         }
+
+        binder.forField(serviceIds).bind(Protocol::getServices, Protocol::setServices);
+        binder.bindInstanceFields(this);
         binder.setBean(protocol);
     }
 
