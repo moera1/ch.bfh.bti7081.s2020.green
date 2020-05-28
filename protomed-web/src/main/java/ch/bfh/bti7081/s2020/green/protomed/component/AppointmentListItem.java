@@ -36,7 +36,7 @@ public class AppointmentListItem extends HorizontalLayout {
         content.setWidthFull();
         content.addClassName("list-content");
 
-        String time = appointment.getTime().getHour() + ":" + appointment.getTime().getMinute();
+        String time = String.format("%02d", appointment.getTime().getHour()) + ":" + String.format("%02d", appointment.getTime().getMinute());
         String client = String.valueOf(appointment.getHealthClient().getFullName());
 
         Div title = new Div();
