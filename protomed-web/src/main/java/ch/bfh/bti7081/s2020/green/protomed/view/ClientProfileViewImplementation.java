@@ -23,7 +23,7 @@ public class ClientProfileViewImplementation extends VerticalLayout implements C
 		//TODO: Create adjust URL
 		add(new Anchor("/protocol/new?client="+client.getPersonId(), new Icon(VaadinIcon.FILE_ADD)));
 		
-		Image photo = new Image();
+		Image photo = new Image(client.getProfilePicture(), client.getFullName() + "'s profile picture");
 		add(photo);
 		
 		add(new PersonContactCard(client));

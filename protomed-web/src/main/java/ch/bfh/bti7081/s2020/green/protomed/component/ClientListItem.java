@@ -15,8 +15,7 @@ public class ClientListItem extends HorizontalLayout {
 		setWidthFull();
 		setJustifyContentMode(FlexComponent.JustifyContentMode.BETWEEN);
 
-		//TODO: Load Client profile picture
-		Image photo = new Image();
+		Image photo = new Image(client.getProfilePicture(), client.getFullName() + "'s profile picture");
 		
 		Div desc = new Div();
 		
