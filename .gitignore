@@ -26,6 +26,7 @@ hs_err_pid*
 /protomed-web/target/
 /protomed-dataprovider/target/
 
+persistenceStore.db
 
 # IDEA
 .idea/

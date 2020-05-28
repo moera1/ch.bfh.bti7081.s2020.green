@@ -21,7 +21,6 @@ public class ProtocolEditPresenter implements ProtocolEditView.ProtocolEditViewL
 
 	@Override
 	public void updateProtocol(Protocol protocol) {
-		System.out.println(protocol);
 		if (ApplicationModelManager.getInstance().saveProtocol(protocol)) {
 			UI.getCurrent().navigate("protocol/" + protocol.getId());
 			Notification.show("Protokoll erfolgreich gespeichert");

@@ -12,6 +12,7 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -57,6 +58,7 @@ public class AppointmentOverview extends Div {
         appointmentContainer.removeAll();
         List<Appointment> nextAppointments = appointments
                 .stream()
+                .sorted(Comparator.comparing(Appointment::getTime))
                 .limit(2)
                 .collect(Collectors.toList());
         for (Appointment appointment : nextAppointments) {

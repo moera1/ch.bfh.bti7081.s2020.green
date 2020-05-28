@@ -9,6 +9,7 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 @DatabaseTable(tableName = "appointment")
 public class Appointment {
@@ -42,8 +43,8 @@ public class Appointment {
         return "Appointment{" +
                 "id=" + id +
                 ", healthVisitorID=" + healthVisitorID +
-                ", healthVisitor=" + healthVisitor +
-                ", healthClientID=" + healthClientID +
+                ", healthVisitor=" + getHealthVisitor().getFullName() +
+                ", healthClientID=" + getHealthClient().getFullName() +
                 ", healthClient=" + healthClient +
                 ", time=" + time +
                 '}';
@@ -54,6 +55,21 @@ public class Appointment {
             healthVisitor = HealthVisitorManager.getInstance().getHealthVisitor(healthVisitorID);
         }
         return healthVisitor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Appointment that = (Appointment) o;
+        return  Objects.equals(healthVisitorID, that.healthVisitorID) &&
+                Objects.equals(healthClientID, that.healthClientID) &&
+                Objects.equals(time, that.time);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, healthVisitorID, healthVisitor, healthClientID, healthClient, time);
     }
 
     private void setHealthVisitor(HealthVisitor healthVisitor){
