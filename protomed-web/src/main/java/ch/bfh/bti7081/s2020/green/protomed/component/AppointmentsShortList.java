@@ -1,17 +1,32 @@
 package ch.bfh.bti7081.s2020.green.protomed.component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.github.appreciated.card.ClickableCard;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
-public class AppointmentsShortList extends VerticalLayout {
+import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
+import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 
-	//TODO: Pass appointments
-	public AppointmentsShortList() {
+public class AppointmentsShortList extends ShortList {
+
+	public AppointmentsShortList(List<Appointment> appointments) {
 		
-		add(new H3("Termine"));
+		super("Termine", "appointments", appointments.size());
 		
-		//TODO: Loop over appointments and create card for each
-		
-		//TODO: Show all button
+    	for (Appointment appointment : appointments.stream().limit(3).collect(Collectors.toList()))
+    	{
+    		ClickableCard appointmentCard = new ClickableCard(
+                onClick -> {
+                	UI.getCurrent().navigate("appointment/" + Long.toString(appointment.getId()));
+                },
+                new AppointmentListItem(appointment)
+            );
+    		appointmentCard.setWidthFull();
+    		add(appointmentCard);
+    	}
 	}
 }

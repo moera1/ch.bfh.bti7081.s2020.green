@@ -31,7 +31,7 @@ public class ClientProfileViewImplementation extends VerticalLayout implements C
 		
 		add(new NotificationsShortList());
 		
-		add(new AppointmentsShortList());
+		add(new AppointmentsShortList(ApplicationModelManager.getInstance().getAppointmentsByHealthClientID(client.getPersonId())));
 		
 		add(new ProtocolsShortList(ApplicationModelManager.getInstance().getProtocolsByHealthClientID(client.getPersonId())));
 		
