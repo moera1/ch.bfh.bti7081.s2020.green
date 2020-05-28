@@ -64,6 +64,15 @@ public class ApplicationModelManager {
             return new ArrayList<>();
         }
     }
+    
+    public List<Protocol> getProtocolsByHealthVisitorIDAndHealthClientID(int hvid, int hcid) {
+        try {
+            return persistenceManager().getProtocolDao().queryBuilder().where().eq("healthVisitorID", hvid).and().eq("healthClientID", hcid).query();
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+            return new ArrayList<>();
+        }
+    }
 
     public boolean createProtocol(Protocol protocol) {
         try {

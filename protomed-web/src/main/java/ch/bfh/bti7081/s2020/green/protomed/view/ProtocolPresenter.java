@@ -2,6 +2,7 @@ package ch.bfh.bti7081.s2020.green.protomed.view;
 
 import ch.bfh.bti7081.s2020.green.protomed.management.ApplicationModelManager;
 import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
+import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 
@@ -35,5 +36,11 @@ public class ProtocolPresenter implements ProtocolView.ProtocolViewListener {
             }
         }
         view.updateProtocolList(filteredProtocols);
+    }
+    
+    @Override
+    public void filterByHealthClient(HealthClient client) {
+    	protocols = ApplicationModelManager.getInstance().getProtocolsByHealthVisitorIDAndHealthClientID(currentUser.getPersonId(), client.getPersonId());
+    	view.updateProtocolList(protocols);
     }
 }

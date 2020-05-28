@@ -15,9 +15,9 @@ import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 
 public class ProtocolsShortList extends ShortList {
 
-	public ProtocolsShortList(List<Protocol> protocols) {
+	public ProtocolsShortList(List<Protocol> protocols, int filterParameter) {
 		
-		super("Protokolle", "protocols", protocols.size());
+		super("Protokolle", "protocols/" + Integer.toString(filterParameter), protocols.size());
 		
     	for (Protocol protocol : protocols.stream().limit(3).collect(Collectors.toList()))
     	{
