@@ -13,6 +13,7 @@ import ch.bfh.bti7081.s2020.green.protomed.component.AppointmentsShortList;
 import ch.bfh.bti7081.s2020.green.protomed.component.NotificationsShortList;
 import ch.bfh.bti7081.s2020.green.protomed.component.PersonContactCard;
 import ch.bfh.bti7081.s2020.green.protomed.component.ProtocolsShortList;
+import ch.bfh.bti7081.s2020.green.protomed.management.ApplicationModelManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
 
 public class ClientProfileViewImplementation extends VerticalLayout implements ClientProfileView  {
@@ -32,7 +33,7 @@ public class ClientProfileViewImplementation extends VerticalLayout implements C
 		
 		add(new AppointmentsShortList());
 		
-		add(new ProtocolsShortList());
+		add(new ProtocolsShortList(ApplicationModelManager.getInstance().getProtocolsByHealthClientID(client.getPersonId())));
 		
 		
 	}
