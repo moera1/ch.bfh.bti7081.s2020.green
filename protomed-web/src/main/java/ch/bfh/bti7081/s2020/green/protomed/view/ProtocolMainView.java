@@ -13,6 +13,7 @@ import com.vaadin.flow.router.Route;
 @Route(value = "protocols", layout = MainLayout.class)
 @PageTitle("Protokolle")
 public class ProtocolMainView extends Div implements HasUrlParameter<String> {
+	
 
     public ProtocolMainView() {
 
@@ -22,6 +23,7 @@ public class ProtocolMainView extends Div implements HasUrlParameter<String> {
 	@Override
     public void setParameter(BeforeEvent event, @OptionalParameter String parameter) {
 		ProtocolViewImplementation view;
+
         if (parameter == null) {
         	view = new ProtocolViewImplementation();
         	new ProtocolPresenter(view);
@@ -30,8 +32,7 @@ public class ProtocolMainView extends Div implements HasUrlParameter<String> {
         	ProtocolPresenter p = new ProtocolPresenter(view);
         	p.filterByHealthClient(HealthClientManager.getInstance().getHealthClient(Integer.parseInt(parameter)));
         }
-        
-
+        this.removeAll();
         add(view);
         addClassName("app-content");
     }
