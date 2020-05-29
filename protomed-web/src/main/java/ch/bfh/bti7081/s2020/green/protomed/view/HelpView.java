@@ -8,9 +8,15 @@ public interface HelpView {
 
     interface HelpViewListener {
         void setSearchValue(String value);
+        void setGeneralValue(Boolean value);
+        void setDepressionValue(Boolean value);
+        void setApprenticesValue(Boolean value);
     }
 
     public void updateFAQEntryList(List<FAQEntry> faqEntries);
     public void addListener(HelpViewListener listener);
+    public boolean generalSelected();
+    public boolean depressionSelected();
+    public boolean apprenticesSelected();
 
 }

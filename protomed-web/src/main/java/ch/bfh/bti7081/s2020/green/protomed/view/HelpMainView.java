@@ -14,7 +14,7 @@ public class HelpMainView extends Div {
 
         HelpViewImplementation view = new HelpViewImplementation();
 
-        new HelpPresenter(view);
+        new HelpPresenter(view, view.generalSelected(), view.depressionSelected(), view.apprenticesSelected());
 
         add(view);
         addClassName("app-content");

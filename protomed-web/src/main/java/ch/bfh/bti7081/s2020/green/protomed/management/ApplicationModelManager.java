@@ -150,4 +150,17 @@ public class ApplicationModelManager {
         }
     }
 
+    public List<FAQEntry> getFAQEntries(boolean general, boolean depression, boolean apprentices) {
+        List<FAQEntry.Category> categories = new ArrayList<>();
+        if (general) categories.add(FAQEntry.Category.CATEGORY_GENERAL);
+        if (depression) categories.add(FAQEntry.Category.CATEGORY_DEPRESSION);
+        if (apprentices) categories.add(FAQEntry.Category.CATEGORY_APPRENTICES);
+        try {
+            return persistenceManager().getFAQEntryDao().queryBuilder().where().in("category", categories).query();
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+            return new ArrayList<>();
+        }
+    }
+
 }

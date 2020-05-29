@@ -5,6 +5,10 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 @DatabaseTable(tableName = "faq_entry")
 public class FAQEntry {
 
@@ -25,6 +29,8 @@ public class FAQEntry {
     @Getter @DatabaseField
     private String tags;
 
+    private List<String> tagList;
+
     @Getter @DatabaseField(dataType = DataType.ENUM_INTEGER)
     private Category category;
 
@@ -38,5 +44,20 @@ public class FAQEntry {
         this.answer = answer;
         this.tags = tags;
         this.category = category;
+    }
+
+    public List<String> getTagList() {
+        if (tagList == null) {
+            initTagList();
+        }
+        return tagList;
+    }
+
+    private void initTagList(){
+        tagList = new ArrayList<>();
+        StringTokenizer defaultTokenizer = new StringTokenizer(tags);
+        while (defaultTokenizer.hasMoreTokens()){
+            tagList.add(defaultTokenizer.nextToken());
+        }
     }
 }

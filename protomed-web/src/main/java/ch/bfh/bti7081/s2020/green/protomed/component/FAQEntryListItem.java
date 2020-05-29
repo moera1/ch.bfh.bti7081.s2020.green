@@ -3,6 +3,7 @@ package ch.bfh.bti7081.s2020.green.protomed.component;
 import ch.bfh.bti7081.s2020.green.protomed.model.FAQEntry;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 public class FAQEntryListItem extends VerticalLayout {
@@ -19,10 +20,14 @@ public class FAQEntryListItem extends VerticalLayout {
         questionBox.getStyle().set("font-weight", "bold");
         questionBox.setText("Q.: " + entry.getQuestion());
 
-        Div answerBox = new Div();
+        HorizontalLayout answerBox = new HorizontalLayout();
         answerBox.setWidthFull();
         answerBox.addClassName("answer-box");
-        answerBox.setText("A.: " + entry.getAnswer());
+        Div answerSymbol = new Div();
+        answerSymbol.setText("A.: ");
+        Div answerText = new Div();
+        answerText.setText(entry.getAnswer());
+        answerBox.add(answerSymbol, answerText);
 
         setHorizontalComponentAlignment(FlexComponent.Alignment.CENTER);
 
