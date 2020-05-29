@@ -1,8 +1,10 @@
 package ch.bfh.bti7081.s2020.green.protomed.management;
 
 import ch.bfh.bti7081.s2020.green.protomed.management.mock.AppointmentMock;
+import ch.bfh.bti7081.s2020.green.protomed.management.mock.FAQMock;
 import ch.bfh.bti7081.s2020.green.protomed.management.mock.ProtocolMock;
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
+import ch.bfh.bti7081.s2020.green.protomed.model.FAQEntry;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -30,6 +32,7 @@ public class PersistenceManager {
     private JdbcConnectionSource connectionSource;
     private Dao<Appointment, Integer> appointmentDao;
     private Dao<Protocol, Integer> protocolDao;
+    private Dao<FAQEntry, Integer> faqEntryDao;
 
     public static PersistenceManager getInstance() {
         if (instance == null) {
@@ -45,10 +48,12 @@ public class PersistenceManager {
         initializeAndConnectDB();
         appointmentDao = DaoManager.createDao(connectionSource, Appointment.class);
         protocolDao = DaoManager.createDao(connectionSource, Protocol.class);
+        faqEntryDao = DaoManager.createDao(connectionSource, FAQEntry.class);
 
         if (persistenceStrategy == PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA) {
             loadAppointmentsFromMockData();
             loadProtocolsFromMockData();
+            loadFAQEntriesFromMockData();
         }
     }
 
@@ -56,6 +61,7 @@ public class PersistenceManager {
         this.connectionSource = new JdbcConnectionSource(connectionURL());
         TableUtils.createTableIfNotExists(connectionSource, Appointment.class);
         TableUtils.createTableIfNotExists(connectionSource, Protocol.class);
+        TableUtils.createTableIfNotExists(connectionSource, FAQEntry.class);
     }
 
     public void shutdown() {
@@ -99,6 +105,16 @@ public class PersistenceManager {
         }
     }
 
+    private void loadFAQEntriesFromMockData() {
+        for (FAQEntry faqEntry : FAQMock.getFAQEntries()) {
+            try {
+                faqEntryDao.create(faqEntry);
+            } catch (SQLException exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
+    }
+
     public Dao<Protocol, Integer> getProtocolDao() {
         return protocolDao;
     }
@@ -106,4 +122,9 @@ public class PersistenceManager {
     public Dao<Appointment, Integer> getAppointmentDao() {
         return appointmentDao;
     }
+
+    public Dao<FAQEntry, Integer> getFAQEntryDao() {
+        return faqEntryDao;
+    }
+
 }

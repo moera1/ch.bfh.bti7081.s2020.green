@@ -1,6 +1,7 @@
 package ch.bfh.bti7081.s2020.green.protomed.management;
 
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
+import ch.bfh.bti7081.s2020.green.protomed.model.FAQEntry;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 
 import javax.swing.text.html.Option;
@@ -137,6 +138,15 @@ public class ApplicationModelManager {
         } catch (SQLException exception) {
             System.out.println(exception.getMessage());
             return Optional.empty();
+        }
+    }
+
+    public List<FAQEntry> getFAQEntries() {
+        try {
+            return persistenceManager().getFAQEntryDao().queryForAll();
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+            return new ArrayList<>();
         }
     }
 
