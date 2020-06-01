@@ -19,7 +19,11 @@ public abstract class Person {
     private LocalDate birthDate;
     @Getter @Setter
     private String phoneNumber;
-    @Getter
+
+    public String getProfilePicture() {
+        return "http://localhost:8090/" + profilePicture;
+    }
+
     private String profilePicture;
 
     public Person(int personId, Address address, String name, String firstname, LocalDate birthDate, String phoneNumber, String profilePicture) {

@@ -33,9 +33,7 @@ public class Profile extends Div {
     }
 
     public void loadProfile(HealthVisitor currentUser) {
-        // TODO: replace mock image with profile picture
-        //userImage.setSrc(currentUser.getProfilePicture());
-        userImage.setSrc("images/max.png");
+        userImage.setSrc(currentUser.getProfilePicture());
         userImage.setAlt("Profilbild");
         welcomeMsg.setText("Willkommen zurück, " + currentUser.getFirstname() + "!");
     }
