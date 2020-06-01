@@ -11,7 +11,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.BeforeEnterEvent;
 import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.PWA;
 
 /**
  * The main view contains a button and a click listener.
@@ -38,7 +37,6 @@ public class MainView extends VerticalLayout  implements BeforeEnterObserver {
     public void beforeEnter(BeforeEnterEvent event) {
         // Check for currentUser, redirect to dashboard if already present
         if (HealthVisitorManager.getInstance().getCurrentUser() != null) {
-            System.out.println(HealthVisitorManager.getInstance().getCurrentUser().getUsername());
             event.forwardTo(DashboardMainView.class);
         }
     }

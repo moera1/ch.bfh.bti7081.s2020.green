@@ -24,10 +24,7 @@ public class PersistenceManager {
     // Singleton
     private static PersistenceManager instance;
 
-    private final PersistenceStrategy persistenceStrategy = PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA;
-
-    private final static String kSQLiteConnectionURL = "jdbc:sqlite:persistenceStore.db";
-    private final static String kMemoryConnectionURL = "jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1";
+    private PersistenceStrategy persistenceStrategy;
 
     private JdbcConnectionSource connectionSource;
     private Dao<Appointment, Integer> appointmentDao;
@@ -45,6 +42,7 @@ public class PersistenceManager {
     }
 
     public void configureInstance() throws Exception {
+        loadPersistenceStrategy();
         initializeAndConnectDB();
         appointmentDao = DaoManager.createDao(connectionSource, Appointment.class);
         protocolDao = DaoManager.createDao(connectionSource, Protocol.class);
@@ -77,9 +75,9 @@ public class PersistenceManager {
 
     private String connectionURL() {
         if (persistenceStrategy == PersistenceStrategy.PERSISTENCE_STRATEGY_SQLITE)
-            return kSQLiteConnectionURL;
+            return ConfigurationManager.getInstance().getConfiguration().getkSqliteUrl();
         else if (persistenceStrategy == PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA)
-            return kMemoryConnectionURL;
+            return ConfigurationManager.getInstance().getConfiguration().getkMemoryUrl();
         else
             return "";
     }
@@ -125,6 +123,10 @@ public class PersistenceManager {
 
     public Dao<FAQEntry, Integer> getFAQEntryDao() {
         return faqEntryDao;
+    }
+
+    private void loadPersistenceStrategy() {
+        persistenceStrategy = ConfigurationManager.getInstance().getConfiguration().getStrategy();
     }
 
 }

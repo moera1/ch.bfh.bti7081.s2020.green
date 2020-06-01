@@ -11,10 +11,6 @@ import java.util.*;
 
 public class HealthVisitorManager {
 
-    public static String HEALTH_VISITOR_PROVIDER_URL = "http://localhost:8090/";
-    public static String HEALTH_VISITOR_PROVIDER_ENDPOINT = "api/healthvisitors";
-    public static String HEALTH_VISITOR_AUTH_ENDPOINT = "api/auth";
-
     private HealthVisitor currentUser;
     private Set<HealthVisitor> healthVisitors = new HashSet<>();
     private ObjectMapper mapper = new ObjectMapper();
@@ -40,7 +36,7 @@ public class HealthVisitorManager {
 
     private List<LinkedHashMap<String, Object>> getHealthVisitorsFromProvider() {
         try {
-            List<LinkedHashMap<String, Object>> healthVisitors = mapper.readValue(new URL(HEALTH_VISITOR_PROVIDER_URL + HEALTH_VISITOR_PROVIDER_ENDPOINT), List.class);
+            List<LinkedHashMap<String, Object>> healthVisitors = mapper.readValue(new URL(ConfigurationManager.getInstance().getConfiguration().getHealthVisitorProviderUrl() + ConfigurationManager.getInstance().getConfiguration().getHealthVisitorProviderEndpoint()), List.class);
             return healthVisitors;
         } catch (Exception e) {
             return new ArrayList<>();
@@ -98,7 +94,7 @@ public class HealthVisitorManager {
         resetCurrentUser();
 
         try {
-            String urlString = HEALTH_VISITOR_PROVIDER_URL + HEALTH_VISITOR_AUTH_ENDPOINT;
+            String urlString = ConfigurationManager.getInstance().getConfiguration().getHealthVisitorProviderUrl() + ConfigurationManager.getInstance().getConfiguration().getHealthVisitorAuthEndpoint();
             String urlStringWithParams = urlString + "?email=" + email + "&password=" + password;
             URL url = new URL(urlStringWithParams);
             LinkedHashMap<String, Object> healthVisitorMap = mapper.readValue(url, LinkedHashMap.class);

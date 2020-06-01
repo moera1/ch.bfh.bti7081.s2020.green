@@ -10,6 +10,9 @@ public class KadexInitializer {
 
         try {
 
+            // Init config file
+            initalizeApplicationConfiguration();
+
             // Init data
             initializeHealthVisitors();
             initializeHealthClients();
@@ -37,6 +40,10 @@ public class KadexInitializer {
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
         }
+    }
+
+    private void initalizeApplicationConfiguration() {
+        ConfigurationManager.getInstance().loadConfigurations();
     }
 
     private void initializeHealthVisitors() {
