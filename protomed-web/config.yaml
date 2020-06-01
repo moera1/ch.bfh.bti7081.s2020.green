@@ -1,0 +1,15 @@
+version: 1.0
+
+# db connection:
+kSqliteUrl: jdbc:sqlite:persistenceStore.db
+kMemoryUrl: jdbc:h2:mem:myDb;DB_CLOSE_DELAY=-1
+strategy: PERSISTENCE_STRATEGY_SQLITE
+
+# api connections
+healthClientProviderUrl: http://localhost:8090/
+healthClientProviderEndpoint: api/healthclients
+healthServiceProviderUrl: http://localhost:8090/
+healthServiceProviderEndpoint: api/healthservices
+healthVisitorProviderUrl: http://localhost:8090/
+healthVisitorProviderEndpoint: api/healthvisitors
+healthVisitorAuthEndpoint: api/auth

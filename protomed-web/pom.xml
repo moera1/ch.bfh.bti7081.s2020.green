@@ -100,6 +100,10 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.31.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
 
 
     </dependencies>

@@ -12,9 +12,6 @@ import java.util.*;
 
 public class HealthClientManager {
 
-    private final static String HEALTH_CLIENT_PROVIDER_URL = "http://localhost:8090/";
-    private final static String HEALTH_CLIENT_PROVIDER_ENDPOINT = "api/healthclients";
-
     private Set<HealthClient> healthClients = new HashSet<>();
     private ObjectMapper mapper = new ObjectMapper();
 
@@ -39,7 +36,7 @@ public class HealthClientManager {
 
     private List<LinkedHashMap<String, Object>> getHealthClientsFromProvider() {
         try {
-            List<LinkedHashMap<String, Object>> healthVisitors = mapper.readValue(new URL(HEALTH_CLIENT_PROVIDER_URL + HEALTH_CLIENT_PROVIDER_ENDPOINT), List.class);
+            List<LinkedHashMap<String, Object>> healthVisitors = mapper.readValue(new URL(ConfigurationManager.getInstance().getConfiguration().getHealthClientProviderUrl() + ConfigurationManager.getInstance().getConfiguration().getHealthClientProviderEndpoint()), List.class);
             return healthVisitors;
         } catch (Exception e) {
             return new ArrayList<>();
