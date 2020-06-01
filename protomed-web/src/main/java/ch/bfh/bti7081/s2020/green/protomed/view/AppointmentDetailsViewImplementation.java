@@ -2,6 +2,8 @@ package ch.bfh.bti7081.s2020.green.protomed.view;
 
 import ch.bfh.bti7081.s2020.green.protomed.component.*;
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.*;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
@@ -14,9 +16,9 @@ public class AppointmentDetailsViewImplementation extends VerticalLayout impleme
 
     //TODO: Bind Protocolform with Appointment
     public AppointmentDetailsViewImplementation(Appointment appointment) {
-        add(new H2("Protokoll erstellen"));
+        add(new H2("Terminübersicht"));
         add(new H3(appointment.getTimeAsString()));
-        add(new ProtocolForm(editView));
+        add(new ProtocolCreateButton());
     }
 
     @Override
