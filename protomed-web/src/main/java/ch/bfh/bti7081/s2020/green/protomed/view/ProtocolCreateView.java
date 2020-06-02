@@ -6,7 +6,9 @@ public interface ProtocolCreateView {
 
     interface ProtocolCreateViewListener {
         void save(Protocol protocol);
+
         void cancel(Protocol protocol);
+
         void createProtocol(Protocol protocol);
     }
 

@@ -18,7 +18,7 @@ public class HelpPresenter implements HelpView.HelpViewListener {
     private boolean showDepression = false;
     private boolean showApprentices = false;
 
-    public HelpPresenter(HelpView view, boolean general, boolean depression, boolean apprentices){
+    public HelpPresenter(HelpView view, boolean general, boolean depression, boolean apprentices) {
         this.view = view;
         this.showGeneral = general;
         this.showDepression = depression;
@@ -35,11 +35,11 @@ public class HelpPresenter implements HelpView.HelpViewListener {
         Iterator<FAQEntry> it = faqEntries.iterator();
         List<FAQEntry> newList = new ArrayList<>();
         whileloop:
-        while (it.hasNext()){
+        while (it.hasNext()) {
             FAQEntry entry = it.next();
-            for(String tag : entry.getTagList()){
+            for (String tag : entry.getTagList()) {
                 tag = tag.toLowerCase();
-                if(tag.startsWith(value.toLowerCase())) {
+                if (tag.startsWith(value.toLowerCase())) {
                     newList.add(entry);
                     continue whileloop;
                 }

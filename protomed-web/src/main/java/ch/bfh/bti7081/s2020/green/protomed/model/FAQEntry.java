@@ -18,28 +18,33 @@ public class FAQEntry {
         CATEGORY_DEPRESSION,
     }
 
-    @DatabaseField(generatedId = true) private Long id;
+    @DatabaseField(generatedId = true)
+    private Long id;
 
-    @Getter @DatabaseField(columnDefinition = "VARCHAR(800)")
+    @Getter
+    @DatabaseField(columnDefinition = "VARCHAR(800)")
     private String question;
 
-    @Getter @DatabaseField(columnDefinition = "VARCHAR(800)")
+    @Getter
+    @DatabaseField(columnDefinition = "VARCHAR(800)")
     private String answer;
 
-    @Getter @DatabaseField
+    @Getter
+    @DatabaseField
     private String tags;
 
     private List<String> tagList;
 
-    @Getter @DatabaseField(dataType = DataType.ENUM_INTEGER)
+    @Getter
+    @DatabaseField(dataType = DataType.ENUM_INTEGER)
     private Category category;
 
     /// open scope no-argument constructor required for ORMLite
-    public FAQEntry(){
+    public FAQEntry() {
         //
     }
 
-    public FAQEntry(String question, String answer, String tags, Category category){
+    public FAQEntry(String question, String answer, String tags, Category category) {
         this.question = question;
         this.answer = answer;
         this.tags = tags;
@@ -53,10 +58,10 @@ public class FAQEntry {
         return tagList;
     }
 
-    private void initTagList(){
+    private void initTagList() {
         tagList = new ArrayList<>();
         StringTokenizer defaultTokenizer = new StringTokenizer(tags);
-        while (defaultTokenizer.hasMoreTokens()){
+        while (defaultTokenizer.hasMoreTokens()) {
             tagList.add(defaultTokenizer.nextToken());
         }
     }

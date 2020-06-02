@@ -9,15 +9,18 @@ import java.util.Objects;
 public abstract class Person {
 
     private final Integer personId;
-    @Getter @Setter
+    @Getter
+    @Setter
     private Address address;
     @Getter
     private String name;
     @Getter
     private String firstname;
-    @Getter @Setter
+    @Getter
+    @Setter
     private LocalDate birthDate;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String phoneNumber;
 
     public String getProfilePicture() {
@@ -39,9 +42,9 @@ public abstract class Person {
     public int getPersonId() {
         return personId;
     }
-    
+
     public String getFullName() {
-    	return firstname + " " + name;
+        return firstname + " " + name;
     }
 
     @Override
@@ -56,10 +59,10 @@ public abstract class Person {
     public int hashCode() {
         return Objects.hash(getPersonId());
     }
-    
-    
+
+
     @Override
     public String toString() {
-    	return firstname + " " + name + ", " + birthDate.toString() + ", " + address.toString() + "(ID:" + Integer.toString(personId) + ")";
+        return firstname + " " + name + ", " + birthDate.toString() + ", " + address.toString() + "(ID:" + Integer.toString(personId) + ")";
     }
 }

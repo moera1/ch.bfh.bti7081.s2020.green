@@ -12,15 +12,15 @@ public class Address {
     @Getter
     private String country;
 
-    public Address(String street, int zipcode, String city, String country){
+    public Address(String street, int zipcode, String city, String country) {
         this.street = street;
         this.postalCode = zipcode;
         this.city = city;
         this.country = country;
     }
-    
+
     @Override
-    public String toString() { 
-        return street + ", " + Integer.toString(postalCode) + " " + city; 
-    } 
+    public String toString() {
+        return street + ", " + Integer.toString(postalCode) + " " + city;
+    }
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 public class HealthClient extends Person {
 
+    @Getter
     private HealthVisitor healthVisitor;
     @Getter
     private List<HealthService> insuredServices;

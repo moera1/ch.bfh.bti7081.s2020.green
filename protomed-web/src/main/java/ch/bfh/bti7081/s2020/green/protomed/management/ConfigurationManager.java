@@ -28,8 +28,8 @@ public class ConfigurationManager {
     }
 
     public void loadConfigurations() {
-        try (InputStream input = Files.newInputStream( Paths.get(ConfigurationManager.FILENAME) )) {
-            configuration = new Yaml().loadAs( input, Configuration.class );
+        try (InputStream input = Files.newInputStream(Paths.get(ConfigurationManager.FILENAME))) {
+            configuration = new Yaml().loadAs(input, Configuration.class);
         } catch (Exception e) {
             e.printStackTrace();
         }

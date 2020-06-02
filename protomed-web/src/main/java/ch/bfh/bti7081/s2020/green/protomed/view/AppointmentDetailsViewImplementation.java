@@ -1,10 +1,9 @@
 package ch.bfh.bti7081.s2020.green.protomed.view;
 
-import ch.bfh.bti7081.s2020.green.protomed.component.*;
+import ch.bfh.bti7081.s2020.green.protomed.component.ProtocolCreateButton;
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.button.ButtonVariant;
-import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.html.H2;
+import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 import java.util.ArrayList;

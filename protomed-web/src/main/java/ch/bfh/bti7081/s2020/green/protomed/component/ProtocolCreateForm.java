@@ -5,8 +5,6 @@ import ch.bfh.bti7081.s2020.green.protomed.management.HealthClientManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.*;
 import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolCreateView;
 import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolCreateViewImplementation;
-import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolEditView;
-import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolEditViewImplementation;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.checkbox.CheckboxGroup;

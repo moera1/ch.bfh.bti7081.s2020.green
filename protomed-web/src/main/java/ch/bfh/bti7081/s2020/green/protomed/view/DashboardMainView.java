@@ -1,12 +1,9 @@
 package ch.bfh.bti7081.s2020.green.protomed.view;
 
-import ch.bfh.bti7081.s2020.green.protomed.MainView;
 import ch.bfh.bti7081.s2020.green.protomed.layout.MainLayout;
 import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
 import ch.bfh.bti7081.s2020.green.protomed.presenter.DashboardPresenter;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.router.BeforeEnterEvent;
-import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 

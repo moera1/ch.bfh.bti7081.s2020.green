@@ -2,9 +2,9 @@ package ch.bfh.bti7081.s2020.green.protomed.management;
 
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.FAQEntry;
+import ch.bfh.bti7081.s2020.green.protomed.model.Notification;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 
-import javax.swing.text.html.Option;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +65,7 @@ public class ApplicationModelManager {
             return new ArrayList<>();
         }
     }
-    
+
     public List<Protocol> getProtocolsByHealthVisitorIDAndHealthClientID(int hvid, int hcid) {
         try {
             return persistenceManager().getProtocolDao().queryBuilder().where().eq("healthVisitorID", hvid).and().eq("healthClientID", hcid).query();
@@ -132,7 +132,7 @@ public class ApplicationModelManager {
         }
     }
 
-    public Optional<Appointment> getAppointmentbyAppointmentID(Integer id){
+    public Optional<Appointment> getAppointmentbyAppointmentID(Integer id) {
         try {
             return Optional.of(persistenceManager().getAppointmentDao().queryForId(id));
         } catch (SQLException exception) {
@@ -162,5 +162,26 @@ public class ApplicationModelManager {
             return new ArrayList<>();
         }
     }
+
+    public void initNotifications() {
+        try {
+            List<Notification> notifications = persistenceManager().getNotificationsDao().queryForAll();
+            for (Notification notification : notifications) {
+                notification.setHealthClient(HealthClientManager.getInstance().getHealthClient(notification.getHealthClientID()));
+                notification.getHealthClient().getHealthVisitor().addNotification(notification);
+            }
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    /*public List<Notification> getNotificationsByHealthVisitorID(int id) {
+        try {
+            return persistenceManager().getNotificationsDao().queryForEq("healthClientID", id);
+        } catch (SQLException exception) {
+            System.out.println(exception.getMessage());
+            return new ArrayList<>();
+        }
+    }*/
 
 }

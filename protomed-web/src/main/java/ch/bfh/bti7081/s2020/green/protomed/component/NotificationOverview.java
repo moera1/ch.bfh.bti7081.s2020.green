@@ -1,17 +1,24 @@
 package ch.bfh.bti7081.s2020.green.protomed.component;
 
-import ch.bfh.bti7081.s2020.green.protomed.view.DashboardMainView;
+import ch.bfh.bti7081.s2020.green.protomed.model.Notification;
+import ch.bfh.bti7081.s2020.green.protomed.view.DashboardView;
+import ch.bfh.bti7081.s2020.green.protomed.view.DashboardViewImplementation;
 import com.github.appreciated.card.ClickableCard;
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import java.util.List;
+
 public class NotificationOverview extends Div {
 
+    private Div notificationContainer;
     private H3 title = new H3("Neuigkeiten");
 
-    public NotificationOverview() {
+    private DashboardViewImplementation view;
+
+    public NotificationOverview(DashboardViewImplementation view) {
+        this.view = view;
         Div borderBox = new Div();
         VerticalLayout layout = new VerticalLayout();
 
@@ -19,10 +26,10 @@ public class NotificationOverview extends Div {
         panelContent.addClassName("panel-content");
         panelContent.setSizeFull();
 
-        Div notificationContainer = new Div();
+        notificationContainer = new Div();
         notificationContainer.addClassName("notification-container");
 
-        notificationContainer.add(new ClickableCard(
+        /*notificationContainer.add(new ClickableCard(
                 onClick -> UI.getCurrent().navigate(DashboardMainView.class),
                 new NotificationListItem("Neues Besuchsprotokoll verfügbar", "26.03.2020 von Gertrud Michel")
                 )
@@ -31,7 +38,7 @@ public class NotificationOverview extends Div {
                 onClick -> UI.getCurrent().navigate(DashboardMainView.class),
                 new NotificationListItem("Neues Telefonprotokoll verfügbar", "14.02.2020 von Gertrud Michel")
                 )
-        );
+        );*/
 
         panelContent.add(title, notificationContainer);
         layout.add(panelContent);
@@ -41,5 +48,21 @@ public class NotificationOverview extends Div {
 
         add(borderBox);
         addClassName("panel-box");
+    }
+
+    public void loadNotifications(List<Notification> notifications) {
+        notificationContainer.removeAll();
+        for (Notification notification : notifications) {
+            ClickableCard notificationCard = new ClickableCard(
+                    onClick -> {
+                        for (DashboardView.DashboardViewListener listener : view.getListeners()) {
+                            listener.selectNotification(notification);
+                        }
+                    },
+                    new NotificationListItem(notification)
+            );
+            notificationCard.setWidthFull();
+            notificationContainer.add(notificationCard);
+        }
     }
 }

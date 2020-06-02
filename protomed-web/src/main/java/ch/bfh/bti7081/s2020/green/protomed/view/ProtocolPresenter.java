@@ -30,17 +30,17 @@ public class ProtocolPresenter implements ProtocolView.ProtocolViewListener {
     @Override
     public void setSearchValue(String value) {
         List<Protocol> filteredProtocols = new ArrayList<>();
-        for (Protocol protocol : protocols){
-            if (protocol.getHealthClient().toString().toLowerCase().contains(value.toLowerCase())){
+        for (Protocol protocol : protocols) {
+            if (protocol.getHealthClient().toString().toLowerCase().contains(value.toLowerCase())) {
                 filteredProtocols.add(protocol);
             }
         }
         view.updateProtocolList(filteredProtocols);
     }
-    
+
     @Override
     public void filterByHealthClient(HealthClient client) {
-    	protocols = ApplicationModelManager.getInstance().getProtocolsByHealthVisitorIDAndHealthClientID(currentUser.getPersonId(), client.getPersonId());
-    	view.updateProtocolList(protocols);
+        protocols = ApplicationModelManager.getInstance().getProtocolsByHealthVisitorIDAndHealthClientID(currentUser.getPersonId(), client.getPersonId());
+        view.updateProtocolList(protocols);
     }
 }

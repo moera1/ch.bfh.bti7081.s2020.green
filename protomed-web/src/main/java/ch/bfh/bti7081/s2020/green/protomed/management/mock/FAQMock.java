@@ -7,7 +7,7 @@ import java.util.List;
 
 public class FAQMock {
 
-    public static List<FAQEntry> getFAQEntries(){
+    public static List<FAQEntry> getFAQEntries() {
         List<FAQEntry> faqEntries = new ArrayList<>();
 
         String question = null;

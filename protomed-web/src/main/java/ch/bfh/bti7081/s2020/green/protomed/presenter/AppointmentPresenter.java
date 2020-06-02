@@ -14,7 +14,7 @@ public class AppointmentPresenter implements AppointmentView.AppointmentViewList
     private List<Appointment> appointments;
     private HealthVisitor currentUser;
 
-    public AppointmentPresenter(AppointmentView view){
+    public AppointmentPresenter(AppointmentView view) {
         this.view = view;
         view.addListener(this);
         currentUser = HealthVisitorManager.getInstance().getCurrentUser();
@@ -31,7 +31,7 @@ public class AppointmentPresenter implements AppointmentView.AppointmentViewList
     public void setSearchValue(String value) {
         List<Appointment> filteredAppointment = new ArrayList<>();
         for (Appointment appointment : appointments) {
-            if (appointment.getHealthClient().toString().toLowerCase().contains(value.toLowerCase())){
+            if (appointment.getHealthClient().toString().toLowerCase().contains(value.toLowerCase())) {
                 filteredAppointment.add(appointment);
             }
         }

@@ -4,6 +4,7 @@ import ch.bfh.bti7081.s2020.green.protomed.management.ApplicationModelManager;
 import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
+import ch.bfh.bti7081.s2020.green.protomed.model.Notification;
 import ch.bfh.bti7081.s2020.green.protomed.view.DashboardView;
 
 import java.util.List;
@@ -20,10 +21,16 @@ public class DashboardPresenter implements DashboardView.DashboardViewListener {
         view.loadDashboard(currentUser);
         userAppointments = ApplicationModelManager.getInstance().getAppointmentsByHealthVisitorID(currentUser.getPersonId());
         view.loadUserAppointments(userAppointments);
+        view.loadUserNotifications(currentUser.getNotifications());
     }
 
     @Override
     public void selectAppointment(Appointment appointment) {
         view.navigateToAppointment(appointment.getId());
+    }
+
+    @Override
+    public void selectNotification(Notification notification) {
+        view.navigateToNotification(notification.getId());
     }
 }

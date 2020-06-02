@@ -9,7 +9,9 @@ public interface ProtocolView {
 
     interface ProtocolViewListener {
         void selectProtocol(Protocol protocol);
+
         void setSearchValue(String value);
+
         void filterByHealthClient(HealthClient client);
     }
 

@@ -4,9 +4,8 @@ import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
 
 public class Login {
 
-    private HealthVisitorManager healthVisitorManager = HealthVisitorManager.getInstance();
-
-    public Login() {}
+    public Login() {
+    }
 
     public boolean validateEmail(String email) {
         return email.isBlank() ? false : true;
@@ -18,9 +17,9 @@ public class Login {
 
     public boolean authenticate(String email, String password) {
         try {
-            healthVisitorManager.logInUser(email, password);
+            HealthVisitorManager.getInstance().logInUser(email, password);
             //DEBUG
-            System.out.println(healthVisitorManager.getCurrentUser().getUsername());
+            System.out.println(HealthVisitorManager.getInstance().getCurrentUser().getUsername());
             return true;
         } catch (Exception e) {
             e.printStackTrace();

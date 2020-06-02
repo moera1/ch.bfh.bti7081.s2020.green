@@ -27,7 +27,7 @@ public class LoginViewImplementation extends VerticalLayout implements RouterLay
         emailField.setValue("trudi.sigenthaler@bfh-test.ch");
         passwordField.setValue("1234");
 
-        loginButton.addClickListener( event -> {
+        loginButton.addClickListener(event -> {
             for (LoginViewListener listener : listeners)
                 listener.loginClick(emailField.getValue(), passwordField.getValue());
         });

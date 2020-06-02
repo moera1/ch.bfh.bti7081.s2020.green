@@ -37,7 +37,7 @@ public class AppointmentOverview extends Div {
         showAllButton = new Button();
         showAllButton.addThemeVariants(ButtonVariant.LUMO_TERTIARY);
         showAllButton.addClassName("panel-btn");
-        showAllButton.addClickListener( event -> UI.getCurrent().navigate(AppointmentMainView.class));
+        showAllButton.addClickListener(event -> UI.getCurrent().navigate(AppointmentMainView.class));
 
         appointmentContainer = new Div();
         appointmentContainer.addClassName("notification-container");

@@ -9,7 +9,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 public class ProtocolListItem extends HorizontalLayout {
 
-    public ProtocolListItem(Protocol protocol){
+    public ProtocolListItem(Protocol protocol) {
         addClassName("list-item");
 
         setWidthFull();
@@ -34,9 +34,9 @@ public class ProtocolListItem extends HorizontalLayout {
 
         Div protocolType = new Div();
         protocolType.setText(
-                protocol.getProtocolType().name().substring(0,1).toUpperCase() +
-                protocol.getProtocolType().name().substring(1).toLowerCase() +
-                "-Protokoll");
+                protocol.getProtocolType().name().substring(0, 1).toUpperCase() +
+                        protocol.getProtocolType().name().substring(1).toLowerCase() +
+                        "-Protokoll");
         protocolType.getStyle().set("font-weight", "bold");
         protocolType.setWidthFull();
 

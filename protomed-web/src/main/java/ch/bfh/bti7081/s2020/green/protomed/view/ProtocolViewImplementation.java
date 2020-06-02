@@ -2,7 +2,6 @@ package ch.bfh.bti7081.s2020.green.protomed.view;
 
 import ch.bfh.bti7081.s2020.green.protomed.component.ProtocolListItem;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
-import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import com.github.appreciated.card.ClickableCard;
 import com.vaadin.flow.component.UI;
@@ -30,7 +29,7 @@ public class ProtocolViewImplementation extends VerticalLayout implements Protoc
         search.setPlaceholder("Suche Protokoll");
         search.setAutoselect(true);
         search.addValueChangeListener(e -> {
-            for (ProtocolViewListener listener : listeners){
+            for (ProtocolViewListener listener : listeners) {
                 listener.setSearchValue(e.getValue());
             }
         });
@@ -44,7 +43,7 @@ public class ProtocolViewImplementation extends VerticalLayout implements Protoc
         protocolList.setPadding(false);
         add(protocolList);
     }
-    
+
     public ProtocolViewImplementation(HealthClient client) {
 
         addClassName("protocol-container");
@@ -56,7 +55,7 @@ public class ProtocolViewImplementation extends VerticalLayout implements Protoc
         search.setPlaceholder("Suche Protokoll");
         search.setAutoselect(true);
         search.addValueChangeListener(e -> {
-            for (ProtocolViewListener listener : listeners){
+            for (ProtocolViewListener listener : listeners) {
                 listener.setSearchValue(e.getValue());
             }
         });
@@ -71,9 +70,9 @@ public class ProtocolViewImplementation extends VerticalLayout implements Protoc
         add(protocolList);
     }
 
-    public void updateProtocolList(List<Protocol> protocols){
+    public void updateProtocolList(List<Protocol> protocols) {
         protocolList.removeAll();
-        for (Protocol protocol : protocols.stream().sorted(Comparator.comparing(Protocol::getCreationDate)).collect(Collectors.toList()) ){
+        for (Protocol protocol : protocols.stream().sorted(Comparator.comparing(Protocol::getCreationDate)).collect(Collectors.toList())) {
             ClickableCard protocolCard = new ClickableCard(
                     onClick -> {
                         for (ProtocolViewListener listener : listeners)

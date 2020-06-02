@@ -61,6 +61,7 @@ public class KadexInitializer {
     private void initializeApplicationModels() {
         try {
             PersistenceManager.getInstance().configureInstance();
+            ApplicationModelManager.getInstance().initNotifications();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

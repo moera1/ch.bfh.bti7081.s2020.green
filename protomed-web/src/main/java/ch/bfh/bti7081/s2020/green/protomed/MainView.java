@@ -20,7 +20,7 @@ import com.vaadin.flow.router.Route;
 @CssImport("./styles/global.css")
 @CssImport("./styles/components.css")
 @CssImport("./styles/layout.css")
-public class MainView extends VerticalLayout  implements BeforeEnterObserver {
+public class MainView extends VerticalLayout implements BeforeEnterObserver {
 
     public MainView() {
         new KadexInitializer();

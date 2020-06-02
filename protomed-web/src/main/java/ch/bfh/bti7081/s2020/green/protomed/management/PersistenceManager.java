@@ -2,9 +2,11 @@ package ch.bfh.bti7081.s2020.green.protomed.management;
 
 import ch.bfh.bti7081.s2020.green.protomed.management.mock.AppointmentMock;
 import ch.bfh.bti7081.s2020.green.protomed.management.mock.FAQMock;
+import ch.bfh.bti7081.s2020.green.protomed.management.mock.NotificationMock;
 import ch.bfh.bti7081.s2020.green.protomed.management.mock.ProtocolMock;
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
 import ch.bfh.bti7081.s2020.green.protomed.model.FAQEntry;
+import ch.bfh.bti7081.s2020.green.protomed.model.Notification;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -30,6 +32,7 @@ public class PersistenceManager {
     private Dao<Appointment, Integer> appointmentDao;
     private Dao<Protocol, Integer> protocolDao;
     private Dao<FAQEntry, Integer> faqEntryDao;
+    private Dao<Notification, Integer> notificationDao;
 
     public static PersistenceManager getInstance() {
         if (instance == null) {
@@ -47,11 +50,13 @@ public class PersistenceManager {
         appointmentDao = DaoManager.createDao(connectionSource, Appointment.class);
         protocolDao = DaoManager.createDao(connectionSource, Protocol.class);
         faqEntryDao = DaoManager.createDao(connectionSource, FAQEntry.class);
+        notificationDao = DaoManager.createDao(connectionSource, Notification.class);
 
         if (persistenceStrategy == PersistenceStrategy.PERSISTENCE_STRATEGY_MOCK_DATA) {
             loadAppointmentsFromMockData();
             loadProtocolsFromMockData();
             loadFAQEntriesFromMockData();
+            loadNotificationsFromMockData();
         }
     }
 
@@ -60,6 +65,7 @@ public class PersistenceManager {
         TableUtils.createTableIfNotExists(connectionSource, Appointment.class);
         TableUtils.createTableIfNotExists(connectionSource, Protocol.class);
         TableUtils.createTableIfNotExists(connectionSource, FAQEntry.class);
+        TableUtils.createTableIfNotExists(connectionSource, Notification.class);
     }
 
     public void shutdown() {
@@ -113,6 +119,16 @@ public class PersistenceManager {
         }
     }
 
+    private void loadNotificationsFromMockData() {
+        for (Notification notification : NotificationMock.getNotifications()) {
+            try {
+                notificationDao.create(notification);
+            } catch (SQLException exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
+    }
+
     public Dao<Protocol, Integer> getProtocolDao() {
         return protocolDao;
     }
@@ -123,6 +139,10 @@ public class PersistenceManager {
 
     public Dao<FAQEntry, Integer> getFAQEntryDao() {
         return faqEntryDao;
+    }
+
+    public Dao<Notification, Integer> getNotificationsDao() {
+        return notificationDao;
     }
 
     private void loadPersistenceStrategy() {

@@ -23,9 +23,9 @@ public class BesuchProtocol extends Protocol {
         this.appointment = appointment;
     }
 
-    private void setServiceIds(){
+    private void setServiceIds() {
         String[] ids = new String[serviceList.size()];
-        for (int i = 0 ; i < serviceList.size(); i++){
+        for (int i = 0; i < serviceList.size(); i++) {
             ids[i] = serviceList.get(i).getServiceID();
         }
         serviceIds = ids;

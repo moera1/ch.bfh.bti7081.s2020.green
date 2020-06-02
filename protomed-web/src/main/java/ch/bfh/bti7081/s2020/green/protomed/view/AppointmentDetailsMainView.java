@@ -12,7 +12,8 @@ import com.vaadin.flow.router.Route;
 @PageTitle("Termine")
 public class AppointmentDetailsMainView extends Div implements HasUrlParameter<String> {
     AppointmentDetailsViewImplementation view;
-    public AppointmentDetailsMainView(){
+
+    public AppointmentDetailsMainView() {
 
     }
 

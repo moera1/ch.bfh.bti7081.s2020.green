@@ -118,7 +118,14 @@ public class HealthVisitorManager {
     }
 
     public Set<HealthVisitor> getHealthVisitors() {
-
         return healthVisitors;
+    }
+
+    public void updateHealthVisitor(HealthVisitor healthVisitor) {
+        this.healthVisitors.remove(healthVisitor);
+        this.healthVisitors.add(healthVisitor);
+        if (currentUser != null && healthVisitor.getUsername().equals(currentUser.getUsername())) {
+            this.currentUser = healthVisitor;
+        }
     }
 }

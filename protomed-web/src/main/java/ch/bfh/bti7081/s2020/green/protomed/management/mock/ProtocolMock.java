@@ -9,7 +9,6 @@ import ch.bfh.bti7081.s2020.green.protomed.model.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class ProtocolMock {
 
@@ -46,7 +45,7 @@ public class ProtocolMock {
         p3.addService(healthServices.get(1));
         protocols.add(p3);
         protocols.add(new Protocol(gertrud, lars, time.minusDays(8), ProtocolType.TELEFON));
-        protocols.add(new BesuchProtocol(gertrud, lars, gertrudAppointments.get(2).getTime(), gertrudAppointments.get(2),"Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.\n\n Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."));
+        protocols.add(new BesuchProtocol(gertrud, lars, gertrudAppointments.get(2).getTime(), gertrudAppointments.get(2), "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.\n\n Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."));
         BesuchProtocol p2 = new BesuchProtocol(gertrud, lars, gertrudAppointments.get(3).getTime(), gertrudAppointments.get(3), "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.");
         p2.addService(healthServices.get(0));
         p2.addService(healthServices.get(3));
@@ -58,7 +57,6 @@ public class ProtocolMock {
         protocols.add(p4);
         protocols.add(new Protocol(gertrud, lars, time.minusDays(3), ProtocolType.NOTIZ, "Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi."));
         protocols.add(new Protocol(gertrud, lars, time.minusDays(18), ProtocolType.NOTIZ, "At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum.\n\n sanctus sea sed takimata ut vero voluptua.\n\n est Lorem ipsum dolor sit amet.\n\n Lorem ipsum dolor sit amet, consetetur."));
-
 
 
         // Protocols of Max

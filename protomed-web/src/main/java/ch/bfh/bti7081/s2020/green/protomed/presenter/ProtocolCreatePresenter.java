@@ -7,11 +7,11 @@ import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolCreateViewImplementation
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.notification.Notification;
 
-public class ProtocolCreatePresenter implements ProtocolCreateView.ProtocolCreateViewListener{
+public class ProtocolCreatePresenter implements ProtocolCreateView.ProtocolCreateViewListener {
     private ProtocolCreateViewImplementation view;
     private Protocol model;
 
-    public ProtocolCreatePresenter(ProtocolCreateViewImplementation view, Protocol model){
+    public ProtocolCreatePresenter(ProtocolCreateViewImplementation view, Protocol model) {
         this.view = view;
         this.model = model;
         view.addListener(this);
@@ -20,7 +20,7 @@ public class ProtocolCreatePresenter implements ProtocolCreateView.ProtocolCreat
 
     @Override
     public void save(Protocol protocol) {
-        if (ApplicationModelManager.getInstance().createProtocol(protocol)){
+        if (ApplicationModelManager.getInstance().createProtocol(protocol)) {
             UI.getCurrent().navigate("protocol/" + protocol.getId());
             Notification.show("Protokoll erfolgreich gespeichert");
         } else {
@@ -29,7 +29,7 @@ public class ProtocolCreatePresenter implements ProtocolCreateView.ProtocolCreat
     }
 
     @Override
-    public void cancel(Protocol protocol){
+    public void cancel(Protocol protocol) {
         UI.getCurrent().navigate("protocol/" + protocol.getId());
     }
 

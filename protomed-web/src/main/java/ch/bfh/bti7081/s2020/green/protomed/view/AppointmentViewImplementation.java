@@ -1,9 +1,7 @@
 package ch.bfh.bti7081.s2020.green.protomed.view;
 
 import ch.bfh.bti7081.s2020.green.protomed.component.AppointmentListItem;
-import ch.bfh.bti7081.s2020.green.protomed.component.ClientListItem;
 import ch.bfh.bti7081.s2020.green.protomed.model.Appointment;
-import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
 import com.github.appreciated.card.ClickableCard;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.html.H2;
@@ -47,7 +45,7 @@ public class AppointmentViewImplementation extends VerticalLayout implements App
 
     public void updateAppointmentList(List<Appointment> appointments) {
         appointmentList.removeAll();
-        for (Appointment appointment : appointments.stream().sorted(Comparator.comparing(Appointment::getTime)).collect(Collectors.toList()) ) {
+        for (Appointment appointment : appointments.stream().sorted(Comparator.comparing(Appointment::getTime)).collect(Collectors.toList())) {
             ClickableCard appointmentCard = new ClickableCard(
                     onClick -> {
                         for (AppointmentViewListener listener : listeners)

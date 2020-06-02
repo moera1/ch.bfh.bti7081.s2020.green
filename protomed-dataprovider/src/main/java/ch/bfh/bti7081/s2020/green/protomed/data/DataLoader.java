@@ -37,7 +37,7 @@ public class DataLoader {
 
     public Optional<HealthVisitor> getHealthVisitorByEMailOrEmpty(String email) {
         Optional<HealthVisitor> visitor = healthVisitors.stream().filter(healthVisitor -> healthVisitor.getEmail().equals(email)).findFirst();
-        if(visitor.isPresent()) {
+        if (visitor.isPresent()) {
             return visitor;
         }
         return Optional.empty();
@@ -150,7 +150,6 @@ public class DataLoader {
                 new HealthService("Schmerzbehandlung", " Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.")
         );
     }
-
 
 
 }

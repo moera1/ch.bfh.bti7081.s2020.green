@@ -10,21 +10,28 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @DatabaseTable(tableName = "protocol")
 public class Protocol {
 
     @Getter
-    @DatabaseField(generatedId = true) private Long id;
+    @DatabaseField(generatedId = true)
+    private Long id;
 
-    @DatabaseField private Integer healthVisitorID;
+    @DatabaseField
+    private Integer healthVisitorID;
     private HealthVisitor healthVisitor;
 
-    @DatabaseField private Integer healthClientID;
+    @DatabaseField
+    private Integer healthClientID;
     private HealthClient healthClient;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @DatabaseField
     private String content;
 
@@ -36,7 +43,8 @@ public class Protocol {
     @DatabaseField(dataType = DataType.ENUM_INTEGER)
     private ProtocolType protocolType;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     @DatabaseField(foreign = true, foreignAutoRefresh = true)
     protected Appointment appointment;
 
@@ -44,7 +52,7 @@ public class Protocol {
     protected String[] serviceIds;
 
     /// open scope no-argument constructor required for ORMLite
-    public Protocol(){
+    public Protocol() {
         //
     }
 
@@ -53,6 +61,9 @@ public class Protocol {
         this.setHealthClient(healthClient);
         this.creationDate = creationDate;
         this.protocolType = protocolType;
+
+        Notification notification = new Notification(healthClient, "New Protocol added!");
+        healthVisitor.addNotification(notification);
     }
 
     public Protocol(HealthVisitor healthVisitor, HealthClient healthClient, LocalDateTime creationDate, ProtocolType protocolType, String content) {
@@ -67,24 +78,24 @@ public class Protocol {
         return healthVisitor;
     }
 
-    private void setHealthVisitor(HealthVisitor healthVisitor){
+    private void setHealthVisitor(HealthVisitor healthVisitor) {
         this.healthVisitorID = healthVisitor.getPersonId();
         this.healthVisitor = healthVisitor;
     }
 
-    public HealthClient getHealthClient(){
-        if (healthClient == null){
+    public HealthClient getHealthClient() {
+        if (healthClient == null) {
             healthClient = HealthClientManager.getInstance().getHealthClient(healthClientID);
         }
         return healthClient;
     }
 
-    public void setHealthClient(HealthClient healthClient){
+    public void setHealthClient(HealthClient healthClient) {
         this.healthClientID = healthClient.getPersonId();
         this.healthClient = healthClient;
     }
 
-    public Set<HealthService> getServices(){
+    public Set<HealthService> getServices() {
         Set<HealthService> healthServices = new HashSet<>();
         if (serviceIds == null) {
             return null;
@@ -95,11 +106,11 @@ public class Protocol {
         return healthServices;
     }
 
-    public void setServices(Set<HealthService> services){
+    public void setServices(Set<HealthService> services) {
         String[] ids = new String[services.size()];
         List<HealthService> serviceList = new ArrayList<>(services);
 
-        for (int i = 0 ; i < services.size(); i++){
+        for (int i = 0; i < services.size(); i++) {
             ids[i] = serviceList.get(i).getServiceID();
         }
 
