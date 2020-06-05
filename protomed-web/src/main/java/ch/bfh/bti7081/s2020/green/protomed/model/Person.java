@@ -1,5 +1,6 @@
 package ch.bfh.bti7081.s2020.green.protomed.model;
 
+import ch.bfh.bti7081.s2020.green.protomed.management.ConfigurationManager;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,7 +25,7 @@ public abstract class Person {
     private String phoneNumber;
 
     public String getProfilePicture() {
-        return "http://localhost:8090/" + profilePicture;
+        return ConfigurationManager.getInstance().getConfiguration().getHealthClientProviderUrl() + profilePicture;
     }
 
     private String profilePicture;
