@@ -16,29 +16,17 @@ public class ProtocolCreateButton extends Div {
 
     private Button createProtocol = new Button("Protokoll erstellen");
 
-<<<<<<< refs/remotes/origin/master
-    public ProtocolCreateButton() {
-=======
     public ProtocolCreateButton(AppointmentDetailsViewImplementation appointmentDetailsViewImplementation){
         this.appointmentDetailsViewImplementation = appointmentDetailsViewImplementation;
->>>>>>> feat: Added protocol create button and navigation.
         add(createProtocol);
         createProtocol.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
     }
 
-<<<<<<< refs/remotes/origin/master
-    public void loadCreateProtocolView(Protocol protocol) {
-        createProtocol.addClickListener(event -> {
-            for (ProtocolCreateView.ProtocolCreateViewListener listener : createView.getListeners()) {
-                listener.createProtocol(protocol);
-=======
     public void loadCreateProtocolView(Appointment appointment){
         createProtocol.addClickListener(event -> {
             for (AppointmentDetailsView.AppointmentDetailsViewListener listener : appointmentDetailsViewImplementation.getListeners()){
                 listener.navigateToProtocolCreateView(appointment);
->>>>>>> feat: Added protocol create button and navigation.
             }
-
         });
     }
 
