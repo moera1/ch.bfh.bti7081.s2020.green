@@ -39,6 +39,7 @@ public class Protocol {
     @DatabaseField(dataType = DataType.SERIALIZABLE)
     private LocalDateTime creationDate;
 
+    @Setter
     @Getter
     @DatabaseField(dataType = DataType.ENUM_INTEGER)
     private ProtocolType protocolType;
