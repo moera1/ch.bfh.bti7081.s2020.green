@@ -86,18 +86,6 @@ public class ProtocolCreateForm extends FormLayout {
     }
 
     public void loadProtocolData(Protocol protocol) {
-        creator.setValue(protocol.getHealthVisitor().getFullName());
-        creationDateText.setValue(protocol.getCreationDate().toLocalDate());
-        healthClient.setItems(HealthClientManager.getInstance().getHealthClients());
-
-        // TODO: Add eventlistener to changeevnet of client select -> Adjusts available appointments
-        if (protocol.getProtocolType().equals(ProtocolType.BESUCH)) {
-            appointment.setItems(ApplicationModelManager.getInstance().getAppointmentsByHealthClientID(protocol.getHealthClient().getPersonId()));
-            serviceIds.setItems(protocol.getHealthClient().getInsuredServices());
-        } else {
-            remove(serviceIds, appointment);
-        }
-
         binder.forField(serviceIds).bind(Protocol::getServices, Protocol::setServices);
         binder.bindInstanceFields(this);
         binder.setBean(protocol);

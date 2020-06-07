@@ -32,9 +32,4 @@ public class ProtocolCreatePresenter implements ProtocolCreateView.ProtocolCreat
     public void cancel(Protocol protocol) {
         UI.getCurrent().navigate("protocol/" + protocol.getId());
     }
-
-    @Override
-    public void createProtocol(Protocol protocol) {
-        view.navigateToCreateProtocol(protocol.getId());
-    }
 }

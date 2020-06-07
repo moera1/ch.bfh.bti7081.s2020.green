@@ -1,5 +1,6 @@
 package ch.bfh.bti7081.s2020.green.protomed.view;
 
+import ch.bfh.bti7081.s2020.green.protomed.component.ProtocolCreateButton;
 import ch.bfh.bti7081.s2020.green.protomed.component.ProtocolCreateForm;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
 import com.vaadin.flow.component.UI;
@@ -13,6 +14,7 @@ public class ProtocolCreateViewImplementation extends VerticalLayout implements 
 
     private List<ProtocolCreateViewListener> listeners = new ArrayList<>();
     private ProtocolCreateForm protocolCreateForm;
+    private ProtocolCreateButton protocolCreateButton;
 
     public ProtocolCreateViewImplementation() {
         add(new H2("Protokoll erstellen"));
@@ -37,8 +39,4 @@ public class ProtocolCreateViewImplementation extends VerticalLayout implements 
         protocolCreateForm.loadProtocolData(protocol);
     }
 
-    public void navigateToCreateProtocol(Long id) {
-        Long nextId = id++;
-        UI.getCurrent().navigate("protocol-create/" + nextId);
-    }
 }

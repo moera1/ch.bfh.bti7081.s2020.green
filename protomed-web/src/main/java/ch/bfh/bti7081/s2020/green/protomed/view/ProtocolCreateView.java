@@ -8,13 +8,9 @@ public interface ProtocolCreateView {
         void save(Protocol protocol);
 
         void cancel(Protocol protocol);
-
-        void createProtocol(Protocol protocol);
     }
 
     void addListener(ProtocolCreateViewListener listener);
 
     void loadProtocolData(Protocol protocol);
-
-    void navigateToCreateProtocol(Long id);
 }
