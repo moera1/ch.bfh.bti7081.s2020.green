@@ -1,6 +1,8 @@
 package ch.bfh.bti7081.s2020.green.protomed.component;
 
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
+import sun.tools.jconsole.Plotter.Unit;
+
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.icon.Icon;
@@ -15,7 +17,8 @@ public class ClientListItem extends HorizontalLayout {
         setJustifyContentMode(FlexComponent.JustifyContentMode.BETWEEN);
 
         Image photo = new Image(client.getProfilePicture(), client.getFullName() + "'s profile picture");
-
+        photo.setHeight("80px");
+        
         Div desc = new Div();
 
         Div fullName = new Div();
