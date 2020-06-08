@@ -38,7 +38,7 @@ public class ProtocolDetail extends Div {
         VerticalLayout layout = new VerticalLayout();
         setWidthFull();
 
-        H3 title = new H3("Protocol XY");
+        H3 title = new H3("Protocol Details");
         layout.add(title);
 
         Label lblHealthVisitorName = new Label("Healthvisitor:");
