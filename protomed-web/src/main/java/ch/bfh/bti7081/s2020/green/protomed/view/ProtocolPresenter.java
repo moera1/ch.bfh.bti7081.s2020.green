@@ -5,6 +5,7 @@ import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
+import com.vaadin.flow.component.UI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ public class ProtocolPresenter implements ProtocolView.ProtocolViewListener {
         currentUser = HealthVisitorManager.getInstance().getCurrentUser();
         protocols = ApplicationModelManager.getInstance().getProtocolsByHealthVisitorID(currentUser.getPersonId());
         view.updateProtocolList(protocols);
+        view.loadCreateProtocolViewFromProtocol();
     }
 
     @Override
@@ -42,5 +44,10 @@ public class ProtocolPresenter implements ProtocolView.ProtocolViewListener {
     public void filterByHealthClient(HealthClient client) {
         protocols = ApplicationModelManager.getInstance().getProtocolsByHealthVisitorIDAndHealthClientID(currentUser.getPersonId(), client.getPersonId());
         view.updateProtocolList(protocols);
+    }
+
+    @Override
+    public void navigateToProtocolCreateView() {
+        UI.getCurrent().navigate("protocol-create/1");
     }
 }

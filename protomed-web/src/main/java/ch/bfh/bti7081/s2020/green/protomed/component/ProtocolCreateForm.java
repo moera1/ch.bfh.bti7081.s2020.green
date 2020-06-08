@@ -1,7 +1,9 @@
 package ch.bfh.bti7081.s2020.green.protomed.component;
 
 import ch.bfh.bti7081.s2020.green.protomed.management.ApplicationModelManager;
+import ch.bfh.bti7081.s2020.green.protomed.management.ConfigurationManager;
 import ch.bfh.bti7081.s2020.green.protomed.management.HealthClientManager;
+import ch.bfh.bti7081.s2020.green.protomed.management.HealthVisitorManager;
 import ch.bfh.bti7081.s2020.green.protomed.model.*;
 import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolCreateView;
 import ch.bfh.bti7081.s2020.green.protomed.view.ProtocolCreateViewImplementation;
@@ -36,7 +38,7 @@ public class ProtocolCreateForm extends FormLayout {
     private Button cancel = new Button("Abbrechen");
     private Label infoLabel = new Label();
 
-    public ProtocolCreateForm(ProtocolCreateViewImplementation editView) {
+    public ProtocolCreateForm(ProtocolCreateViewImplementation createView) {
 
         this.createView = createView;
 
@@ -44,14 +46,17 @@ public class ProtocolCreateForm extends FormLayout {
         appointment.setPlaceholder("Klient auswählen");
 
         creator.setLabel("Ersteller");
+        creator.setPlaceholder("Ersteller auswählen");
 
         protocolType.setLabel("Protokolltyp");
         protocolType.setEmptySelectionCaption("Protokolltyp wählen");
         protocolType.setItems(ProtocolType.values());
 
         creationDateText.setLabel("Erstellungsdatum");
+        creationDateText.setPlaceholder("Erstellungsdatum auswählen");
 
         content.setLabel("Beschrieb");
+        content.setPlaceholder("Beschreibung hinzufügen");
         content.getElement().setAttribute("colspan", "2");
 
         serviceIds.setLabel("Dienstleistungen");
@@ -86,8 +91,20 @@ public class ProtocolCreateForm extends FormLayout {
     }
 
     public void loadProtocolData(Protocol protocol) {
+        creator.setValue(protocol.getHealthVisitor().getFullName());
+        creationDateText.setValue(protocol.getCreationDate().toLocalDate());
+        healthClient.setItems(HealthClientManager.getInstance().getHealthClients());
+
+        binder.forField(protocolType).bind(Protocol::getProtocolType, Protocol::setProtocolType);
         binder.forField(serviceIds).bind(Protocol::getServices, Protocol::setServices);
         binder.bindInstanceFields(this);
         binder.setBean(protocol);
+
+        if (protocol.getProtocolType().equals(ProtocolType.BESUCH)) {
+            appointment.setItems(ApplicationModelManager.getInstance().getAppointmentsByHealthClientID(protocol.getHealthClient().getPersonId()));
+            serviceIds.setItems(protocol.getHealthClient().getInsuredServices());
+        } else {
+            remove(serviceIds, appointment);
+        }
     }
 }

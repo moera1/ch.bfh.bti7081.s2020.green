@@ -1,5 +1,6 @@
 package ch.bfh.bti7081.s2020.green.protomed.view;
 
+import ch.bfh.bti7081.s2020.green.protomed.component.ProtocolCreateButton;
 import ch.bfh.bti7081.s2020.green.protomed.component.ProtocolListItem;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
 import ch.bfh.bti7081.s2020.green.protomed.model.Protocol;
@@ -18,6 +19,7 @@ public class ProtocolViewImplementation extends VerticalLayout implements Protoc
 
     private List<ProtocolViewListener> listeners = new ArrayList<>();
     private VerticalLayout protocolList;
+    private ProtocolCreateButton protocolCreateButton;
 
     public ProtocolViewImplementation() {
         addClassName("protocol-container");
@@ -35,7 +37,8 @@ public class ProtocolViewImplementation extends VerticalLayout implements Protoc
         });
         search.setWidthFull();
 
-        add(search);
+        protocolCreateButton = new ProtocolCreateButton(this);
+        add(search, protocolCreateButton);
 
         protocolList = new VerticalLayout();
         protocolList.setWidthFull();
@@ -93,4 +96,13 @@ public class ProtocolViewImplementation extends VerticalLayout implements Protoc
     public void addListener(ProtocolViewListener listener) {
         listeners.add(listener);
     }
+
+    public List<ProtocolViewImplementation.ProtocolViewListener> getListeners(){
+        return listeners;
+    }
+
+    public void loadCreateProtocolViewFromProtocol(){
+        protocolCreateButton.loadCreateProtocolViewFromProtocol();
+    }
+
 }
