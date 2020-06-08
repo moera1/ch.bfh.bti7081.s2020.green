@@ -8,7 +8,9 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class NotificationOverview extends Div {
 
@@ -52,7 +54,12 @@ public class NotificationOverview extends Div {
 
     public void loadNotifications(List<Notification> notifications) {
         notificationContainer.removeAll();
-        for (Notification notification : notifications) {
+        List<Notification> nextNotifications = notifications
+                .stream()
+                .sorted(Comparator.comparing(Notification::getCreationDate))
+                .limit(2)
+                .collect(Collectors.toList());
+        for (Notification notification : nextNotifications) {
             ClickableCard notificationCard = new ClickableCard(
                     onClick -> {
                         for (DashboardView.DashboardViewListener listener : view.getListeners()) {
