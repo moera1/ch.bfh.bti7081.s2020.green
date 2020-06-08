@@ -18,6 +18,7 @@ public class ProtocolCreatePresenter implements ProtocolCreateView.ProtocolCreat
     public void save(Protocol protocol) {
         if (ApplicationModelManager.getInstance().createProtocol(protocol)) {
             UI.getCurrent().navigate("protocol/" + protocol.getId());
+            protocol.triggerCreateNotification();
             Notification.show("Protokoll erfolgreich gespeichert");
         } else {
             Notification.show("Protokoll konnte nicht gespeichert werden");

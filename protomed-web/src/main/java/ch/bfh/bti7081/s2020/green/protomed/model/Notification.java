@@ -36,7 +36,6 @@ public class Notification implements Serializable {
         setHealthClient(healthClient);
         this.content = content;
         this.creationDate = LocalDateTime.now();
-        healthClient.getHealthVisitor().addNotification(this);
     }
 
     public void setHealthClient(HealthClient healthClient) {

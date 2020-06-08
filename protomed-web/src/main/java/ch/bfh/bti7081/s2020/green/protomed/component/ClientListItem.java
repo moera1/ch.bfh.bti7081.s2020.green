@@ -1,7 +1,6 @@
 package ch.bfh.bti7081.s2020.green.protomed.component;
 
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
-
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Image;
 import com.vaadin.flow.component.icon.Icon;

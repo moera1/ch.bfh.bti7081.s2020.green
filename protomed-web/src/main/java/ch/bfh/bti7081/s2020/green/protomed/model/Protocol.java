@@ -65,14 +65,16 @@ public class Protocol implements Serializable {
         this.setHealthClient(healthClient);
         this.creationDate = creationDate;
         this.protocolType = protocolType;
-
-        Notification notification = new Notification(healthClient, "New Protocol added!");
-        healthVisitor.addNotification(notification);
     }
 
     public Protocol(HealthVisitor healthVisitor, HealthClient healthClient, LocalDateTime creationDate, ProtocolType protocolType, String content) {
         this(healthVisitor, healthClient, creationDate, protocolType);
         this.content = content;
+    }
+
+    public void triggerCreateNotification() {
+        Notification notification = new Notification(healthClient, "New Protocol added!");
+        healthVisitor.addNotification(notification);
     }
 
     public HealthVisitor getHealthVisitor() {
