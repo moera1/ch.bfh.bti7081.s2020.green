@@ -35,6 +35,9 @@ persistenceStore.db
 # MacOS
 .DS_Store
 
+# Windows
+*.ini
+
 # Eclipse
 .settings
 .classpath
