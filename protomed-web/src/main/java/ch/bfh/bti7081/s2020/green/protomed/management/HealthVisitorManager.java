@@ -38,7 +38,7 @@ public class HealthVisitorManager {
         try {
             List<LinkedHashMap<String, Object>> healthVisitors = mapper.readValue(new URL(ConfigurationManager.getInstance().getConfiguration().getHealthVisitorProviderUrl() + ConfigurationManager.getInstance().getConfiguration().getHealthVisitorProviderEndpoint()), List.class);
             return healthVisitors;
-        } catch (Exception e) {
+        } catch (IOException e) {
             return new ArrayList<>();
         }
     }

@@ -4,6 +4,7 @@ import ch.bfh.bti7081.s2020.green.protomed.model.HealthService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -36,7 +37,7 @@ public class HealthServiceManager {
         try {
             List<LinkedHashMap<String, Object>> healthServices = mapper.readValue(new URL(ConfigurationManager.getInstance().getConfiguration().getHealthServiceProviderUrl() + ConfigurationManager.getInstance().getConfiguration().getHealthServiceProviderEndpoint()), List.class);
             return healthServices;
-        } catch (Exception e) {
+        } catch (IOException e) {
             return new ArrayList<>();
         }
     }

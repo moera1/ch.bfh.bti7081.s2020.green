@@ -7,10 +7,8 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.router.QueryParameters;
 
 public class AppointmentDetailViewPresenter implements AppointmentDetailsView.AppointmentDetailsViewListener {
-    private AppointmentDetailsView view;
 
     public AppointmentDetailViewPresenter(AppointmentDetailsViewImplementation view) {
-        this.view = view;
         view.addListener(this);
         view.loadCreateProtocolView();
     }

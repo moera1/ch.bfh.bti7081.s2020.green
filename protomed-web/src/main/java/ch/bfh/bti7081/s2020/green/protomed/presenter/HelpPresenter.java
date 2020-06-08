@@ -13,7 +13,6 @@ import java.util.List;
 public class HelpPresenter implements HelpView.HelpViewListener {
     private HelpView view;
     private List<FAQEntry> faqEntries;
-    private HealthVisitor currentUser;
     private boolean showGeneral = false;
     private boolean showDepression = false;
     private boolean showApprentices = false;
@@ -24,7 +23,6 @@ public class HelpPresenter implements HelpView.HelpViewListener {
         this.showDepression = depression;
         this.showApprentices = apprentices;
         view.addListener(this);
-        currentUser = HealthVisitorManager.getInstance().getCurrentUser();
         faqEntries = ApplicationModelManager.getInstance().getFAQEntries(showGeneral, showDepression, showApprentices);
         view.updateFAQEntryList(faqEntries);
     }

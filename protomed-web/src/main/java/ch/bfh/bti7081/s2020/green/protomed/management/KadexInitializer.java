@@ -1,5 +1,7 @@
 package ch.bfh.bti7081.s2020.green.protomed.management;
 
+import java.util.Arrays;
+
 public class KadexInitializer {
 
     public KadexInitializer() {
@@ -38,7 +40,7 @@ public class KadexInitializer {
             */
 
         } catch (Exception e) {
-            System.out.println(e.getStackTrace());
+            System.out.println(Arrays.toString(e.getStackTrace()));
         }
     }
 

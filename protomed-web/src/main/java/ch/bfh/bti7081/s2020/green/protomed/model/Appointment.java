@@ -7,14 +7,16 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 @DatabaseTable(tableName = "appointment")
-public class Appointment {
+public class Appointment implements Serializable {
+	private static final long serialVersionUID = 1L;
 
-    @Getter
+	@Getter
     @DatabaseField(generatedId = true)
     private Long id;
 

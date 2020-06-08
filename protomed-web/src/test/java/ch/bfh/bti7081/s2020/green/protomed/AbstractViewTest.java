@@ -31,10 +31,6 @@ public abstract class AbstractViewTest extends ParallelTest {
     private final String route;
     private final By rootSelector;
 
-    @Rule
-    public ScreenshotOnFailureRule rule = new ScreenshotOnFailureRule(this,
-            false);
-
     public AbstractViewTest() {
         this("", By.tagName("body"));
     }

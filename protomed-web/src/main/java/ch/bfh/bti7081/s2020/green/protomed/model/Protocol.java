@@ -9,6 +9,7 @@ import com.j256.ormlite.table.DatabaseTable;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -16,9 +17,11 @@ import java.util.List;
 import java.util.Set;
 
 @DatabaseTable(tableName = "protocol")
-public class Protocol {
+public class Protocol implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 
-    @Getter
+	@Getter
     @DatabaseField(generatedId = true)
     private Long id;
 

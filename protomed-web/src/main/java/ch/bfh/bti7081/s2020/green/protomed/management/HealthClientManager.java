@@ -4,8 +4,12 @@ import ch.bfh.bti7081.s2020.green.protomed.model.Address;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthClient;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthService;
 import ch.bfh.bti7081.s2020.green.protomed.model.HealthVisitor;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.*;
@@ -38,7 +42,7 @@ public class HealthClientManager {
         try {
             List<LinkedHashMap<String, Object>> healthVisitors = mapper.readValue(new URL(ConfigurationManager.getInstance().getConfiguration().getHealthClientProviderUrl() + ConfigurationManager.getInstance().getConfiguration().getHealthClientProviderEndpoint()), List.class);
             return healthVisitors;
-        } catch (Exception e) {
+        } catch (IOException e) {
             return new ArrayList<>();
         }
     }

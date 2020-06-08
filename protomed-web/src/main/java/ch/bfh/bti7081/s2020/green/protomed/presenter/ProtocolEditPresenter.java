@@ -9,12 +9,8 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.notification.Notification;
 
 public class ProtocolEditPresenter implements ProtocolEditView.ProtocolEditViewListener {
-    private ProtocolEditViewImplementation view;
-    private Protocol model;
 
     public ProtocolEditPresenter(ProtocolEditViewImplementation view, Protocol model) {
-        this.view = view;
-        this.model = model;
         view.addListener(this);
         view.loadProtocolData(model);
     }

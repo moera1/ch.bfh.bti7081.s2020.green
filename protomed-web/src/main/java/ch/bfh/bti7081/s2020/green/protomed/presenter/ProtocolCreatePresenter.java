@@ -8,12 +8,8 @@ import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.notification.Notification;
 
 public class ProtocolCreatePresenter implements ProtocolCreateView.ProtocolCreateViewListener {
-    private ProtocolCreateViewImplementation view;
-    private Protocol model;
 
     public ProtocolCreatePresenter(ProtocolCreateViewImplementation view, Protocol model) {
-        this.view = view;
-        this.model = model;
         view.addListener(this);
         view.loadProtocolData(model);
     }

@@ -4,12 +4,14 @@ import ch.bfh.bti7081.s2020.green.protomed.management.ConfigurationManager;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public abstract class Person {
-
-    private final Integer personId;
+public abstract class Person implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	private final Integer personId;
     @Getter
     @Setter
     private Address address;

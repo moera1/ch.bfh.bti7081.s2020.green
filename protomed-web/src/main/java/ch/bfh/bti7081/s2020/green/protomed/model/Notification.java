@@ -6,12 +6,15 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 import lombok.Getter;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @DatabaseTable(tableName = "notification")
-public class Notification {
+public class Notification implements Serializable {
 
-    @Getter
+	private static final long serialVersionUID = 1L;
+
+	@Getter
     @DatabaseField(generatedId = true)
     private Long id;
 
