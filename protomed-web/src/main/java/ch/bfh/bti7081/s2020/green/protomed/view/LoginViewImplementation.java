@@ -16,7 +16,7 @@ public class LoginViewImplementation extends VerticalLayout implements RouterLay
 
     private List<LoginView.LoginViewListener> listeners = new ArrayList<LoginView.LoginViewListener>();
 
-    private H3 title = new H3("Protomed v0.0.1");
+    private H3 title = new H3("Protomed v1.0.0");
     private TextField emailField = new TextField("Email");
     private PasswordField passwordField = new PasswordField("Passwort");
     private Button loginButton = new Button("Anmelden");
